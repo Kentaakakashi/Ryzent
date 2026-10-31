@@ -12,7 +12,7 @@ The public site is built with Next.js App Router, React, TypeScript, Tailwind CS
 - **Systems** — Theo, Ryu and The God Who Forgot, each linked to its public repository and labelled as in development.
 - **Experiments** — a space for procedural visuals, interaction studies and prototypes.
 - **Studio** — the principles behind the work.
-- **Contact** — a mail link when `NEXT_PUBLIC_CONTACT_EMAIL` is configured, otherwise the public GitHub profile.
+- **Contact** — the enquiry form and private inbox appear when Supabase is configured; otherwise the page offers a direct email link when `NEXT_PUBLIC_CONTACT_EMAIL` is set, or the public GitHub profile.
 
 Only projects approved for public display are featured.
 
