@@ -92,16 +92,18 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
             </span>
           </div>
 
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ transform: "translateZ(80px)" }}
-            className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"
-          >
-            <span>{isRepository ? "Open repository" : "Open project"}</span>
-            <span aria-hidden>↗</span>
-          </a>
+          {project.href && (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ transform: "translateZ(80px)" }}
+              className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"
+            >
+              <span>{isRepository ? "Open repository" : "Open project"}</span>
+              <span aria-hidden>↗</span>
+            </a>
+          )}
 
           <div
             style={{ transform: "translateZ(50px)" }}
