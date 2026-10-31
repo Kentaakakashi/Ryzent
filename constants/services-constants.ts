@@ -3,50 +3,30 @@ import { type Service } from "@/types/portfolio-types";
 export const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Web Applications",
-    description:
-      "Production-grade Next.js & React apps that are fast, accessible, SEO-friendly and built to scale.",
+    title: "Product engineering",
+    description: "Turning a clear product idea into a focused, usable software experience.",
     icon: "/assets/logos/react.svg",
-    bullets: [
-      "Landing pages & marketing sites",
-      "Dashboards & SaaS platforms",
-      "Server rendering & edge runtime",
-    ],
+    bullets: ["Product structure", "Interface systems", "Iterative implementation"],
   },
   {
     id: 2,
-    title: "Mobile Apps",
-    description:
-      "Cross-platform mobile apps with React Native + Expo, polished UI and native-grade performance.",
+    title: "Mobile systems",
+    description: "Exploring useful Android experiences and mobile-first interaction patterns.",
     icon: "/assets/logos/react.svg",
-    bullets: [
-      "iOS & Android from one codebase",
-      "Push notifications & deep links",
-      "Offline-first patterns",
-    ],
+    bullets: ["Android applications", "Mobile interaction", "Device-aware performance"],
   },
   {
     id: 3,
-    title: "Admin Panels & CMS",
-    description:
-      "Powerful internal tools and admin portals with reusable components and role-based access.",
+    title: "Interactive experiences",
+    description: "Building responsive interfaces with deliberate motion, depth and feedback.",
     icon: "/assets/logos/tailwindcss.svg",
-    bullets: [
-      "Bespoke admin dashboards",
-      "Data tables, filters & exports",
-      "Auth, roles & permissions",
-    ],
+    bullets: ["Motion systems", "Spatial interface studies", "Responsive interaction"],
   },
   {
     id: 4,
-    title: "APIs & Backends",
-    description:
-      "Robust Node.js / Express APIs with SQL or MongoDB, cron jobs, and clean integration patterns.",
+    title: "Experimental technology",
+    description: "Prototyping unusual concepts to discover what is useful, delightful or possible.",
     icon: "/assets/logos/javascript.svg",
-    bullets: [
-      "REST API design & docs",
-      "Database modelling (SQL & NoSQL)",
-      "Background jobs & webhooks",
-    ],
+    bullets: ["Procedural visuals", "Creative coding", "Technical prototypes"],
   },
 ];
