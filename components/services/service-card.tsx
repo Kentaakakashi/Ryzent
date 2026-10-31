@@ -53,7 +53,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({
             <div>
               <div className="flex items-center gap-4">
                 <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.4em] text-white/60">
-                  Service {formatCounter(index, total)}
+                  Focus {formatCounter(index, total)}
                 </span>
                 <span className="block h-px w-12 bg-white/30" />
               </div>
