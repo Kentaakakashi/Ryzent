@@ -1,6 +1,5 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { HomePage } from "@/components/portfolio/home-page";
-import { HERO_NAME } from "@/constants/hero-constants";
 import {
   HOME_DESCRIPTION,
   HOME_TITLE,
@@ -11,13 +10,9 @@ import {
 } from "@/constants/seo-constants";
 
 export const metadata: Metadata = {
-  title: {
-    absolute: HOME_TITLE,
-  },
+  title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -30,15 +25,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     locale: OG_LOCALE,
     images: OG_IMAGES,
-    firstName: HERO_NAME.split(" ")[0],
-    lastName: HERO_NAME.split(" ").slice(1).join(" "),
   },
   twitter: {
     card: "summary_large_image",
