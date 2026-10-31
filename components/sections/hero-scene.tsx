@@ -1,51 +1,64 @@
 "use client";
 
 import { Suspense, useRef, type FC } from "react";
-import { Canvas, useFrame, type RootState } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
-import { useMediaQuery } from "react-responsive";
-import { easing } from "maath";
-import { Astronaut } from "@/components/portfolio/astronaut";
-import { Loader } from "@/components/portfolio/loader";
+import { motion } from "motion/react";
+import { GemSmoke } from "@paper-design/shaders-react";
 import { useSceneActive } from "@/hooks/use-scene-active";
 
-const Rig: FC = () => {
-  useFrame((state: RootState, delta: number) => {
-    easing.damp3(
-      state.camera.position,
-      [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
-      0.5,
-      delta
-    );
-  });
-  return null;
-};
+const GemEmblem: FC = () => (
+  <motion.div
+    initial={{ y: 150, opacity: 0, rotate: -8 }}
+    animate={{ y: 0, opacity: 1, rotate: 0 }}
+    transition={{ type: "spring", damping: 30, stiffness: 65, mass: 1.1 }}
+    className="pointer-events-none absolute left-1/2 top-[53%] -translate-x-1/2 -translate-y-1/2 md:left-[70%]"
+    aria-hidden="true"
+  >
+    <motion.div
+      animate={{ y: [0, -16, 0], rotate: [0, 1.5, 0] }}
+      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <GemSmoke
+        width={760}
+        height={760}
+        image="https://shaders.paper.design/images/logos/diamond.svg"
+        colors={["#333333", "#e7e6df"]}
+        colorBack="#00000000"
+        colorInner="#fafaf5"
+        shape="diamond"
+        innerDistortion={0.8}
+        outerDistortion={0.6}
+        outerGlow={0.55}
+        innerGlow={1}
+        offset={0}
+        angle={0}
+        size={0.8}
+        speed={1}
+        scale={0.6}
+        style={{
+          display: "block",
+          width: "min(88vw, 760px)",
+          height: "min(88vw, 760px)",
+        }}
+      />
+    </motion.div>
+  </motion.div>
+);
 
 export const HeroScene: FC = () => {
-  const isMobile = useMediaQuery({ maxWidth: 853 });
   const frame = useRef<HTMLElement>(null);
   const active = useSceneActive({ whenVisible: frame });
 
   return (
     <figure
       ref={frame}
-      className="absolute inset-0"
-      style={{ width: "100vw", height: "100vh" }}
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      style={{ width: "100%", height: "100vh" }}
     >
-      <Canvas
-        camera={{ position: [0, 1, 3] }}
-        frameloop={active ? "always" : "never"}
-      >
-        <Suspense fallback={<Loader />}>
-          <Float>
-            <Astronaut
-              scale={isMobile ? 0.23 : undefined}
-              position={isMobile ? [0, -1.5, 0] : undefined}
-            />
-          </Float>
-          <Rig />
+      {active && (
+        <Suspense fallback={null}>
+          <GemEmblem />
         </Suspense>
-      </Canvas>
+      )}
     </figure>
   );
 };
