@@ -14,7 +14,6 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
   project,
   index,
   total,
-  showPreview,
 }) => {
   const pointerX = useMotionValue(0.5);
   const pointerY = useMotionValue(0.5);
