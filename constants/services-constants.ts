@@ -1,52 +1,54 @@
 import { type Service } from "@/types/portfolio-types";
 
+// These are Ryzent's product disciplines and areas of exploration,
+// not claims of a large agency team or a list of contracted client services.
 export const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Web Applications",
+    title: "Intelligent Assistants",
     description:
-      "Production-grade Next.js & React apps that are fast, accessible, SEO-friendly and built to scale.",
-    icon: "/assets/logos/react.svg",
+      "Personal software that makes AI feel useful in the flow of everyday work, with thoughtful context, interaction and control.",
+    icon: "/assets/logos/javascript.svg",
     bullets: [
-      "Landing pages & marketing sites",
-      "Dashboards & SaaS platforms",
-      "Server rendering & edge runtime",
+      "Conversational and task-oriented experiences",
+      "Context-aware mobile interaction concepts",
+      "Human-friendly interfaces around AI capabilities",
     ],
   },
   {
     id: 2,
-    title: "Mobile Apps",
+    title: "Mobile-First Products",
     description:
-      "Cross-platform mobile apps with React Native + Expo, polished UI and native-grade performance.",
+      "Focused Android experiences designed around real device constraints, useful workflows and clear, responsive interfaces.",
     icon: "/assets/logos/react.svg",
     bullets: [
-      "iOS & Android from one codebase",
-      "Push notifications & deep links",
-      "Offline-first patterns",
+      "Android-oriented product experiences",
+      "Practical onboarding and personalisation",
+      "Responsive interfaces and device-aware workflows",
     ],
   },
   {
     id: 3,
-    title: "Admin Panels & CMS",
+    title: "Interactive Digital Experiences",
     description:
-      "Powerful internal tools and admin portals with reusable components and role-based access.",
+      "Web experiences that go beyond static pages through motion, spatial interfaces, real-time visuals and carefully tuned detail.",
     icon: "/assets/logos/tailwindcss.svg",
     bullets: [
-      "Bespoke admin dashboards",
-      "Data tables, filters & exports",
-      "Auth, roles & permissions",
+      "Immersive web interfaces and visual systems",
+      "Three-dimensional scenes and shader experiments",
+      "Accessible motion and performance-conscious interaction",
     ],
   },
   {
     id: 4,
-    title: "APIs & Backends",
+    title: "Games & Playful Systems",
     description:
-      "Robust Node.js / Express APIs with SQL or MongoDB, cron jobs, and clean integration patterns.",
-    icon: "/assets/logos/javascript.svg",
+      "Small worlds, progression systems and narrative-driven experiences that make software feel memorable.",
+    icon: "/assets/logos/react.svg",
     bullets: [
-      "REST API design & docs",
-      "Database modelling (SQL & NoSQL)",
-      "Background jobs & webhooks",
+      "Story-led and exploration-focused game concepts",
+      "Gamified fitness and habit experiences",
+      "Pixel-art worlds and interactive prototypes",
     ],
   },
 ];
