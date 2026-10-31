@@ -1,10 +1,8 @@
 import { type Metadata } from "next";
 import { HomePage } from "@/components/portfolio/home-page";
-import { HERO_NAME } from "@/constants/hero-constants";
 import {
   HOME_DESCRIPTION,
   HOME_TITLE,
-  OG_IMAGES,
   OG_LOCALE,
   SITE_NAME,
   SITE_URL,
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: HOME_DESCRIPTION,
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -30,21 +28,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     locale: OG_LOCALE,
-    images: OG_IMAGES,
-    firstName: HERO_NAME.split(" ")[0],
-    lastName: HERO_NAME.split(" ").slice(1).join(" "),
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
-    images: OG_IMAGES,
   },
 };
 
