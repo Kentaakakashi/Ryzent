@@ -8,7 +8,7 @@ export const SERVICES: Service[] = [
     title: "Intelligent Assistants",
     description:
       "Personal software that makes AI feel useful in the flow of everyday work, with thoughtful context, interaction and control.",
-    icon: "/assets/logos/javascript.svg",
+    icon: "/assets/ryzent-icons/ai-assistant.svg",
     bullets: [
       "Conversational and task-oriented experiences",
       "Context-aware mobile interaction concepts",
@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
     title: "Mobile-First Products",
     description:
       "Focused Android experiences designed around real device constraints, useful workflows and clear, responsive interfaces.",
-    icon: "/assets/logos/react.svg",
+    icon: "/assets/ryzent-icons/mobile-product.svg",
     bullets: [
       "Android-oriented product experiences",
       "Practical onboarding and personalisation",
@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     title: "Interactive Digital Experiences",
     description:
       "Web experiences that go beyond static pages through motion, spatial interfaces, real-time visuals and carefully tuned detail.",
-    icon: "/assets/logos/tailwindcss.svg",
+    icon: "/assets/ryzent-icons/interactive-web.svg",
     bullets: [
       "Immersive web interfaces and visual systems",
       "Three-dimensional scenes and shader experiments",
