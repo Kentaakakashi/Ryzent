@@ -29,9 +29,7 @@ export default function Icon() {
             lineHeight: 1,
             letterSpacing: -1,
           }}
-        >
-          H
-        </div>
+        >R</div>
       </div>
     ),
     { ...size }
