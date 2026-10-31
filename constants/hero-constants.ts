@@ -1,19 +1,21 @@
 import { type Stat } from "@/types/portfolio-types";
 
-export const HERO_NAME = "Hasnain Irfan";
+// Ryzent is the studio identity. Do not replace this with an individual
+// employee profile or unverified company credentials.
+export const HERO_NAME = "Ryzent";
 
-export const HERO_ROLE = "Senior Software Engineer";
+export const HERO_ROLE = "Independent Software Studio";
 
-export const HERO_LOCATION = "Karachi, Pakistan";
+export const HERO_LOCATION = "India · Remote-first";
 
 export const HERO_TAGLINE =
-  "I architect scalable web & mobile products with React, Next.js and Node.js, turning complex ideas into shipped, revenue-ready software.";
+  "Engineer the unexpected. Ryzent explores and builds thoughtful digital products across intelligent assistants, mobile experiences, creative tools and interactive worlds.";
 
-export const FLIP_WORDS = ["Scalable", "Modern", "Reliable"];
+export const FLIP_WORDS = ["Intelligent", "Interactive", "Intentional"];
 
 export const STATS: Stat[] = [
-  { value: "5+", label: "Years building products" },
-  { value: "20+", label: "Shipped projects" },
-  { value: "1k+", label: "End users served" },
-  { value: "40%", label: "Avg. productivity lift" },
+  { value: "AI", label: "Assistants & intelligent tools" },
+  { value: "APP", label: "Mobile-first software" },
+  { value: "3D", label: "Interactive digital experiences" },
+  { value: "RPG", label: "Games & narrative worlds" },
 ];
