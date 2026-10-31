@@ -56,15 +56,17 @@ export const ProjectSummary: FC<ProjectSummaryProps> = ({
       </motion.div>
 
       <motion.div {...reveal(0.3)} className="mt-7 flex flex-wrap gap-3">
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary"
-        >
-          <span>{isRepository ? "Open repository" : "Open project"}</span>
-          <span aria-hidden>↗</span>
-        </a>
+        {project.href && (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            <span>{isRepository ? "Open repository" : "Open project"}</span>
+            <span aria-hidden>↗</span>
+          </a>
+        )}
         <button type="button" onClick={onOpen} className="btn-ghost">
           <span>Project details</span>
         </button>
