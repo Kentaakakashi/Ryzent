@@ -40,6 +40,7 @@ export const HeroScene: FC = () => {
           cells={8}
           depth={3.6}
           parallax={1}
+          dpr={1}
           scanDuration={2.4}
           scanDelay={1.6}
           clickEffect="ping"
