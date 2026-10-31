@@ -1,19 +1,14 @@
 import { type Stat } from "@/types/portfolio-types";
 
-export const HERO_NAME = "Hasnain Irfan";
+export const HERO_NAME = "Ryzent";
 
-export const HERO_ROLE = "Senior Software Engineer";
+export const HERO_ROLE = "Independent Software Studio";
 
-export const HERO_LOCATION = "Karachi, Pakistan";
+export const HERO_LOCATION = "Independent";
 
 export const HERO_TAGLINE =
-  "I architect scalable web & mobile products with React, Next.js and Node.js, turning complex ideas into shipped, revenue-ready software.";
+  "We build digital products, curious experiments and carefully engineered experiences.";
 
-export const FLIP_WORDS = ["Scalable", "Modern", "Reliable"];
+export const FLIP_WORDS = ["Thoughtful", "Experimental", "Engineered"];
 
-export const STATS: Stat[] = [
-  { value: "5+", label: "Years building products" },
-  { value: "20+", label: "Shipped projects" },
-  { value: "1k+", label: "End users served" },
-  { value: "40%", label: "Avg. productivity lift" },
-];
+export const STATS: Stat[] = [];
