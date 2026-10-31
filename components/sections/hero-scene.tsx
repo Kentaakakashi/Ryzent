@@ -14,7 +14,7 @@ const Rig: FC = () => {
   useFrame((state: RootState, delta: number) => {
     easing.damp3(
       state.camera.position,
-      [state.mouse.x * 0.28, 1 + state.mouse.y * 0.28, 3],
+      [state.mouse.x * 0.286 * state.viewport.aspect, 1 + state.mouse.y * 0.286, 3],
       0.5,
       delta
     );
