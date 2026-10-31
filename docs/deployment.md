@@ -1,72 +1,169 @@
-# Deployment — Netlify + Supabase
+# Deployment
 
-Ryzent is a Next.js 16 App Router application. Deploy it to Netlify using the managed Next.js runtime rather than exporting it as a static site.
+The site deploys to Vercel with no configuration. What takes a few extra minutes
+is the contact form: a Supabase table, an SMTP account, and the environment
+variables that connect them.
 
-## 1. Netlify site
+If you only want the front end, skip to
+[Front end only](#front-end-only-no-database-no-email). It needs no
+environment variables at all.
 
-1. Push the repository to GitHub.
-2. Open Netlify and choose **Add new site → Import an existing project**.
-3. Connect GitHub and select `Kentaakakashi/Ryzent`.
-4. Use the configuration already committed in `netlify.toml`:
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-   - Node version: `22` (also pinned in `.nvmrc`)
-5. Add optional variables under **Site configuration → Environment variables**. For values read by server-side routes/functions, make sure they are available to both the build and Functions runtime scopes when that scope selector is shown.
-6. Trigger the deploy.
+---
 
-Netlify's current Next.js support uses its managed OpenNext-based runtime for App Router, SSR and related features. Let Netlify detect and manage its adapter; do not pin a second Next plugin manually.
+## 1. Supabase
 
-**Do not** set `output: "export"` in `next.config.*`, and do not add a generic SPA fallback such as `/* /index.html 200`. The site uses Next.js routes and may use server functions.
-
-## 2. Environment variables
-
-The public homepage works with no environment variables. The enquiry form is shown only when both Supabase public variables are configured; otherwise the contact section shows the email/GitHub fallback.
-
-| Variable | Required? | Purpose |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Your primary public URL, without a trailing slash. Used by canonical metadata, sitemap and robots. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | Public email address for the contact link. If blank, the contact link points to Ryzent's GitHub profile. |
-| `NEXT_PUBLIC_SUPABASE_URL` | Optional | Supabase project URL, used by the contact form and private admin inbox. |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Optional | Supabase anon/publishable key. RLS protects the data. |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional | Google Search Console verification token. |
-
-Netlify provides a `URL` value for the primary deployed site; `SITE_URL` uses that as a fallback when `NEXT_PUBLIC_SITE_URL` is not set. For a custom domain, set `NEXT_PUBLIC_SITE_URL` explicitly and redeploy so canonical URLs and generated metadata match the domain.
-
-Only public Supabase URL and anon/publishable key belong in `NEXT_PUBLIC_*` variables. Never expose the service-role key, SMTP credentials or webhook secret to the browser.
-
-## 3. Supabase contact inbox (optional)
-
-Without Supabase, the public site remains usable and the contact section links to email or GitHub. To enable submissions and the private `/admin` inbox:
-
-1. Create a Supabase project.
-2. Open `supabase/migrations/0001_init.sql`, review it, then run it in **SQL Editor**.
-3. The migration creates tables, RLS policies and helper functions, but intentionally does **not** create a public default administrator.
-4. In Supabase Dashboard → **Authentication → Users**, create your own account with a strong password and confirm it.
-5. Disable public email sign-ups under **Authentication → Providers → Email**.
-6. In SQL Editor, grant only your account access:
+1. Create a project at [supabase.com](https://supabase.com).
+2. Open `supabase/migrations/0001_init.sql` and **change the placeholder login**
+   in section 6 at the bottom:
 
    ```sql
-   select public.grant_admin('your-address@example.com');
+   select public.create_admin_user('admin@test.com', 'admin123');
    ```
 
-7. Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in Netlify, available to Build and Functions, then redeploy.
-8. Test signed-out access to `/admin`, sign in at `/admin/login`, and submit a test enquiry.
+   This repository is public, so those values are known to anyone who reads it.
+   Use your own address and a long, unique password.
 
-The anon key is designed to be public; Row Level Security is the actual access boundary. The application does not need a service-role key.
+3. Paste the whole file into **SQL Editor** and run it. One file, idempotent:
+   it creates the table, the admin allowlist, every RLS policy, the
+   `grant_admin` helpers, and your admin account.
 
-## 4. Notification emails (optional)
+4. Turn off public signup: Authentication → Providers → Email → disable
+   **Enable sign-ups**.
+5. Project Settings → **API** → copy the **Project URL** and the **anon** key.
 
-Contact submissions are stored first. Email notifications are sent by the Supabase Edge Function, not by Netlify.
+> There is no service-role key in this project, and you should not add one. The
+> anon key is public by design, and row-level security decides what it can read.
 
-Use the setup in [docs/admin.md](admin.md) to deploy `notify-contact`, set its secrets in Supabase, and configure the database webhook with the `x-webhook-secret` header. SMTP credentials and the webhook secret must stay in Supabase secrets, never GitHub or Netlify public environment variables.
+## 2. The lead notification email
 
-## 5. Production checks
+The web app cannot send email. A Supabase Edge Function does, which is why no
+SMTP credential appears in your host's environment.
 
-- [ ] Netlify builds from `main` with Node 22.
-- [ ] `npm run build` completes successfully.
-- [ ] Primary domain is set in `NEXT_PUBLIC_SITE_URL`.
-- [ ] Homepage, in-page navigation and external project links work on a phone.
-- [ ] `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest` and `/opengraph-image` resolve.
-- [ ] If Supabase is enabled, signed-out visitors cannot read `/admin` or submissions.
-- [ ] A test contact submission is stored and, if email is configured, notification delivery is confirmed.
-- [ ] No unlicensed template demo assets or personal content remain on the public site.
+```bash
+supabase functions deploy notify-contact
+
+supabase secrets set \
+  SMTP_HOST=smtp.example.com \
+  SMTP_PORT=465 \
+  SMTP_USER=you@example.com \
+  SMTP_PASS='app-password-not-your-account-password' \
+  CONTACT_RECIPIENT_EMAIL=you@example.com \
+  OWNER_NAME="Your Name" \
+  SITE_URL=https://yoursite.com \
+  NOTIFY_WEBHOOK_SECRET="$(openssl rand -hex 32)"
+```
+
+Then Dashboard → **Database → Webhooks → Create a new hook**:
+
+| Field | Value |
+| --- | --- |
+| Table | `contact_submissions` |
+| Events | `Insert` only |
+| Type | Supabase Edge Functions |
+| Edge Function | `notify-contact` |
+| HTTP Headers | `x-webhook-secret: <the value you generated>` |
+
+That header is the only thing standing between the function and anyone who
+learns its URL. Skip it and your SMTP account becomes an open relay.
+
+Any provider works: Gmail with an **App Password**, Zoho, Resend, Mailgun,
+Amazon SES. Port 465 is implicit TLS; 587 negotiates STARTTLS.
+
+## 3. Auth emails
+
+Password resets and invites are sent by Supabase, not by the app. Add your own
+SMTP under Authentication → **SMTP Settings**, because the built-in sender is
+rate-limited and not meant for production. They use Supabase's default styling;
+this project ships no templates for them.
+
+## 4. Deploy to Vercel
+
+1. Push the repo to GitHub.
+2. [vercel.com/new](https://vercel.com/new) → import the repo. The Next.js
+   preset is detected; nothing to change.
+3. **Settings → Environment Variables** → add the two values from
+   [`.env.example`](../.env.example), for **Production**, **Preview** and
+   **Development**.
+4. Deploy.
+
+Both are optional: the site deploys and runs without them. You just get the
+setup panel at `/admin` until they are set.
+
+### Custom domain
+
+Vercel → **Settings → Domains** → add yours and follow the DNS instructions,
+then set `NEXT_PUBLIC_SITE_URL` to it and redeploy. That one variable drives
+`metadataBase`, the canonical URL, `robots.txt`, `sitemap.xml` and every Open
+Graph image URL. There is nothing else to update.
+
+Afterwards, submit `https://yourdomain.com/sitemap.xml` in
+[Google Search Console](https://search.google.com/search-console) and check the
+structured data with the
+[Rich Results Test](https://search.google.com/test/rich-results).
+
+## Front end only (no database, no email)
+
+Delete `app/api/contact/`, `app/admin/`, `app/api/admin/`, `lib/admin/`,
+`supabase/` and `proxy.ts`, and point the contact form at a `mailto:` link or a
+hosted form service. What is left is a static-friendly Next.js app that deploys
+anywhere with zero environment variables.
+
+## Other hosts
+
+Nothing here is Vercel-specific. Any Node **20.9+** host works: Netlify,
+Railway, Render, Fly.io, a VPS with `npm run build && npm run start`, or Docker
+on `node:20-alpine`. The 3D scenes are client-only (`ssr: false`), so no host
+needs a GPU. Email is sent by Supabase, not by the host, so there is no mail
+transport to worry about either.
+
+## Production checklist
+
+- [ ] `0001_init.sql` run in the SQL editor
+- [ ] `select email from public.admin_users;` returns **your** address, not `admin@test.com`
+- [ ] Public signup disabled in Authentication → Providers → Email
+- [ ] Both `NEXT_PUBLIC_` values set in the host's dashboard, not just local `.env`
+- [ ] Edge Function deployed and its secrets set
+- [ ] Webhook created, with the `x-webhook-secret` header
+- [ ] Custom SMTP configured under Authentication → SMTP Settings
+- [ ] `/admin` redirects to `/admin/login` when signed out
+- [ ] A test submission appears in `/admin`, emails you, **and** acknowledges the sender
+- [ ] `NEXT_PUBLIC_SITE_URL` set to the live domain
+- [ ] `/sitemap.xml` and `/robots.txt` both resolve and show that domain
+- [ ] `public/og.jpg` replaced with your own 1200×630 preview
+- [ ] `npm run build` passes
+
+Worth confirming, since the whole design rests on it:
+
+```bash
+# Should return nothing at all.
+npm run build && grep -ri "service_role" .next/ | grep -v ".map"
+```
+
+## Troubleshooting
+
+**`/admin` shows "Database not connected".** The two `NEXT_PUBLIC_` values are
+missing or still hold `.env.example` placeholders. Environment changes need a
+redeploy to take effect.
+
+**Signed in, but "Not an admin".** The Supabase account is real; it has no
+`admin_users` row. Run `select public.grant_admin('you@example.com');` and the
+page shows the exact statement.
+
+**Sign-in says "Invalid email or password" and you are sure it isn't.** Check the
+user exists under Authentication → Users and is **confirmed**. An unconfirmed
+user cannot sign in with a password.
+
+**Created the user with SQL and it still can't log in.** The `auth.identities`
+row is what password sign-in looks up. `create_admin_user` writes it; a
+hand-written `insert into auth.users` alone does not.
+
+**HTTP 429 on login.** Supabase's own sign-in rate limit. Wait a few minutes.
+
+**The form saves but no email arrives.** Check `/admin` first. A row that is
+present, with a "notification email was not delivered" warning, means SMTP,
+not the form. `supabase functions logs notify-contact` has the reason. A row
+present with *no* warning means the webhook never fired: check Database →
+Webhooks.
+
+**Login loops back to `/admin/login`.** The session cookie is being dropped.
+Supabase auth cookies are `Secure` in production, so the site must be HTTPS.

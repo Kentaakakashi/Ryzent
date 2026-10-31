@@ -9,7 +9,7 @@ export const SetupNotice: FC<SetupNoticeProps> = ({
 }) => (
   <div className="space-y-4 text-sm">
     <div className="flex items-center gap-2">
-      <span className="inline-block h-2 w-2 rounded-full bg-signal" />
+      <span className="inline-block h-2 w-2 rounded-full bg-sand" />
       <h2 className="font-semibold text-white">
         {variant === "no-schema"
           ? "Migrations not run yet"
@@ -33,9 +33,8 @@ export const SetupNotice: FC<SetupNoticeProps> = ({
             in the SQL editor.
           </li>
           <li>
-            The migration does not create an administrator. Create and confirm
-            your own Supabase Auth user, disable public sign-ups, then grant access
-            with the SQL command in docs/admin.md.
+            It creates your admin account too. Change the placeholder login at
+            the bottom of that file first.
           </li>
         </ol>
       </>
@@ -52,7 +51,7 @@ export const SetupNotice: FC<SetupNoticeProps> = ({
               href="https://supabase.com/dashboard"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-signal hover:underline"
+              className="text-coral hover:underline"
             >
               supabase.com
             </a>

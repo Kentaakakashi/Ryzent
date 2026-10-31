@@ -3,30 +3,50 @@ import { type Service } from "@/types/portfolio-types";
 export const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Product engineering",
-    description: "Turning a clear product idea into a focused, usable software experience.",
+    title: "Web Applications",
+    description:
+      "Production-grade Next.js & React apps that are fast, accessible, SEO-friendly and built to scale.",
     icon: "/assets/logos/react.svg",
-    bullets: ["Product structure", "Interface systems", "Iterative implementation"],
+    bullets: [
+      "Landing pages & marketing sites",
+      "Dashboards & SaaS platforms",
+      "Server rendering & edge runtime",
+    ],
   },
   {
     id: 2,
-    title: "Mobile systems",
-    description: "Exploring useful Android experiences and mobile-first interaction patterns.",
+    title: "Mobile Apps",
+    description:
+      "Cross-platform mobile apps with React Native + Expo, polished UI and native-grade performance.",
     icon: "/assets/logos/react.svg",
-    bullets: ["Android applications", "Mobile interaction", "Device-aware performance"],
+    bullets: [
+      "iOS & Android from one codebase",
+      "Push notifications & deep links",
+      "Offline-first patterns",
+    ],
   },
   {
     id: 3,
-    title: "Interactive experiences",
-    description: "Building responsive interfaces with deliberate motion, depth and feedback.",
+    title: "Admin Panels & CMS",
+    description:
+      "Powerful internal tools and admin portals with reusable components and role-based access.",
     icon: "/assets/logos/tailwindcss.svg",
-    bullets: ["Motion systems", "Spatial interface studies", "Responsive interaction"],
+    bullets: [
+      "Bespoke admin dashboards",
+      "Data tables, filters & exports",
+      "Auth, roles & permissions",
+    ],
   },
   {
     id: 4,
-    title: "Experimental technology",
-    description: "Prototyping unusual concepts to discover what is useful, delightful or possible.",
+    title: "APIs & Backends",
+    description:
+      "Robust Node.js / Express APIs with SQL or MongoDB, cron jobs, and clean integration patterns.",
     icon: "/assets/logos/javascript.svg",
-    bullets: ["Procedural visuals", "Creative coding", "Technical prototypes"],
+    bullets: [
+      "REST API design & docs",
+      "Database modelling (SQL & NoSQL)",
+      "Background jobs & webhooks",
+    ],
   },
 ];

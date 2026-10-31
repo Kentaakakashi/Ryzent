@@ -1,5 +1,5 @@
 {
-  "name": "ryzent",
+  "name": "hasnain-protfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -33,8 +33,5 @@
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "engines": {
-    "node": ">=20.9.0"
   }
 }

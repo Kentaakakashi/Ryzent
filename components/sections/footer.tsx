@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, type FC } from "react";
-import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import {
   CONTACT_EMAIL,
@@ -35,8 +34,8 @@ export const Footer: FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 text-base font-semibold tracking-tight text-white">
-            <span className="inline-flex h-8 w-8 items-center justify-center">
-              <Image src="/brand/ryzent-emblem.svg" alt="" width={361} height={282} className="h-full w-full object-contain" />
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-royal to-coral text-white text-sm font-black">
+              H
             </span>
             <span>{HERO_NAME}</span>
           </div>
@@ -85,7 +84,7 @@ export const Footer: FC = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="mt-16 text-center text-[20vw] md:text-[14rem] font-black leading-none text-white/[0.03] select-none"
       >
-        RYZENT
+        HASNAIN
       </motion.p>
     </footer>
   );
