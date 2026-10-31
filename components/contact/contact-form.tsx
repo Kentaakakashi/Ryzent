@@ -54,9 +54,9 @@ export const ContactForm: FC = () => {
 
         <div className="relative mb-7 flex items-end justify-between gap-6">
           <div>
-            <p className="text-eyebrow">Place an order</p>
+            <p className="text-eyebrow">Send a note</p>
             <h3 className="mt-1 text-xl font-bold md:text-2xl">
-              Tell me about your project
+              Tell us what you're exploring
             </h3>
           </div>
           <div className="flex items-center gap-3">
@@ -87,7 +87,7 @@ export const ContactForm: FC = () => {
             />
             <FloatingField
               id="email"
-              label="Email"
+              label="Your email"
               type="email"
               value={formData.email}
               onChange={(value) => update("email", value)}
@@ -103,7 +103,7 @@ export const ContactForm: FC = () => {
 
           <FloatingField
             id="message"
-            label="What are you building?"
+            label="A little context about your idea..."
             value={formData.message}
             onChange={(value) => update("message", value)}
             required
@@ -147,7 +147,7 @@ export const ContactForm: FC = () => {
           </motion.button>
 
           <p className="text-center text-[11px] text-neutral-500">
-            By sending, you agree to be contacted at the email provided.
+            By sending, you agree that Ryzent may reply to the email address you provide.
           </p>
         </form>
       </motion.div>
