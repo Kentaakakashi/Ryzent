@@ -12,7 +12,7 @@ export const ServicesCtaCard: FC = () => (
     <div>
       <p className="text-eyebrow mb-2">Have an interesting idea?</p>
       <h3 className="text-2xl font-bold md:text-3xl">
-        Let's explore what it could become.
+        Let&apos;s explore what it could become.
       </h3>
       <p className="mt-2 max-w-xl text-neutral-400">
         Product feedback, a thoughtful collaboration or a genuinely interesting
