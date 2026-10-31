@@ -20,7 +20,7 @@ export const HireMeButton: FC<HireMeButtonProps> = ({ onClick, full }) => {
         full ? "w-full justify-between" : ""
       }`}
     >
-      <span>Hire Me</span>
+      <span>Talk to Ryzent</span>
       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition-transform duration-300 group-hover:translate-x-0.5">
         <ArrowIcon />
       </span>
