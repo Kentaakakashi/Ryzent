@@ -9,7 +9,7 @@ import { type BudgetFieldProps } from "@/types/contact-types";
 export const BudgetField: FC<BudgetFieldProps> = ({ value, onChange }) => (
   <div>
     <p className="mb-3 text-[10px] uppercase tracking-[0.25em] text-neutral-400">
-      Project budget
+      What best describes your message?
     </p>
     <div className="flex flex-wrap gap-2">
       {BUDGET_OPTIONS.map((option) => {
