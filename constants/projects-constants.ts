@@ -2,7 +2,7 @@ import { type Transition } from "motion/react";
 import { type Project } from "@/types/portfolio-types";
 
 // Ryzent's own product work. Private relationship projects are deliberately
-// excluded from this public showcase.
+// excluded from this public showcase. A blank href means no public project link yet.
 export const MY_PROJECTS: Project[] = [
   {
     id: 1,
@@ -52,25 +52,71 @@ export const MY_PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: "The God Who Forgot",
-    category: "Narrative RPG · In development",
+    title: "Presence Studio",
+    category: "Discord companion · In development",
     description:
-      "A 2D pixel-art role-playing game about a forgotten god, built around exploration, atmosphere and a story that unfolds through the world itself.",
+      "An Android app for creating and organizing custom Discord Rich Presence preset ideas, with a native Kotlin and Jetpack Compose interface.",
     subDescription: [
-      "A top-down world built for exploration, with side-scroller-style interiors when entering buildings.",
-      "No combat: the focus is on narrative, environmental discovery and meaningful gameplay interactions.",
-      "Planned for Android and developed with Godot 4.7.1 using a phone-first, cost-conscious workflow.",
-      "An original game project in development, with its own world, characters and visual direction.",
+      "Create, edit, select and delete local presets for Playing, Watching and Listening activities.",
+      "Presets support details, state, button fields, artwork asset keys, optional timestamps, and JSON import/export.",
+      "Discord sign-in uses a browser-based OAuth2 flow with PKCE; account passwords and user tokens are not requested.",
+      "Important: activity publishing to Discord is not implemented yet. Presets currently provide a local preview, and publishing requires integration with Discord's supported Android SDK/RPC route.",
     ],
-    href: "https://github.com/Kentaakakashi/The-God-Who-Forgot",
+    href: "https://github.com/Kentaakakashi/Discord-widget",
     logo: "",
     image: "",
-    accent: "from-lavender/40 to-aqua/10",
+    accent: "from-indigo/40 to-fuchsia/10",
     tags: [
-      { id: 1, name: "Godot 4", path: "/assets/logos/javascript.svg" },
-      { id: 2, name: "2D pixel art", path: "/assets/logos/react.svg" },
-      { id: 3, name: "Narrative design", path: "/assets/logos/javascript.svg" },
-      { id: 4, name: "Android", path: "/assets/logos/react.svg" },
+      { id: 1, name: "Android", path: "/assets/logos/react.svg" },
+      { id: 2, name: "Kotlin", path: "/assets/logos/javascript.svg" },
+      { id: 3, name: "Jetpack Compose", path: "/assets/logos/react.svg" },
+      { id: 4, name: "Discord", path: "/assets/logos/javascript.svg" },
+    ],
+  },
+  {
+    id: 4,
+    title: "API Sentinel",
+    category: "API reliability platform · Pre-alpha",
+    description:
+      "An open-source API observability project aiming to make endpoint health, latency, and service incidents easier to understand.",
+    subDescription: [
+      "The foundation includes a TypeScript workspace, a Fastify API, initial PostgreSQL/Prisma schema, and Redis/BullMQ queue infrastructure.",
+      "Current health endpoints cover process liveness and dependency readiness.",
+      "Scheduled HTTP monitoring, historical analytics, incident processing, notifications, authentication and the dashboard remain planned work.",
+      "Pre-alpha foundation only: this is not yet a complete monitoring service, and no uptime or monitoring results are fabricated.",
+    ],
+    href: "https://github.com/Kentaakakashi/API-sentinal",
+    logo: "",
+    image: "",
+    accent: "from-aqua/35 to-indigo/15",
+    tags: [
+      { id: 1, name: "TypeScript", path: "/assets/logos/javascript.svg" },
+      { id: 2, name: "Fastify", path: "/assets/logos/javascript.svg" },
+      { id: 3, name: "PostgreSQL", path: "/assets/logos/javascript.svg" },
+      { id: 4, name: "Observability", path: "/assets/logos/react.svg" },
+    ],
+  },
+  {
+    id: 5,
+    title: "Northstar",
+    category: "Adaptive life planning · In development",
+    description:
+      "An adaptive life-planning concept that turns a goal into context, reality checks, possible routes, milestones and next actions—then adjusts when life changes.",
+    subDescription: [
+      "Built around intent before forms, realistic constraints before empty motivation, and multiple routes instead of a rigid checklist.",
+      "Plans are meant to remain human-editable: AI can propose options, while the user stays in control.",
+      "The visual direction is calm, precise and premium, with interaction used to improve understanding rather than decorate the interface.",
+      "In development. No public repository or live product link is attached yet.",
+    ],
+    href: "",
+    logo: "",
+    image: "",
+    accent: "from-amber/30 to-aqua/10",
+    tags: [
+      { id: 1, name: "Life planning", path: "/assets/logos/react.svg" },
+      { id: 2, name: "Adaptive workflows", path: "/assets/logos/javascript.svg" },
+      { id: 3, name: "Human-centred UX", path: "/assets/logos/react.svg" },
+      { id: 4, name: "Product design", path: "/assets/logos/javascript.svg" },
     ],
   },
 ];
