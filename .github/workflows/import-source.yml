@@ -1,6 +1,11 @@
 name: Import upstream template files
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/import-source.yml"
   workflow_dispatch:
 
 permissions:
@@ -21,7 +26,6 @@ jobs:
           set -euo pipefail
           git clone --depth 1 https://github.com/HasnainIrfan/3d-portfolio.git /tmp/ryzent-source
           rsync -a --delete --exclude='.git' /tmp/ryzent-source/ ./
-          # Remove the temporary importer from the imported project.
           rm -f .github/workflows/import-source.yml
           find .github/workflows -maxdepth 1 -type f -print -quit | grep -q . || rmdir .github/workflows || true
           find .github -maxdepth 1 -type f -print -quit | grep -q . || rmdir .github || true
