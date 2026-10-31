@@ -24,10 +24,7 @@ export const HeroText: FC = () => (
         </span>
       </div>
 
-      <h1
-        className="reveal text-3xl font-light text-neutral-300"
-        style={delay(0.12)}
-      >
+      <h1 className="reveal text-3xl font-light text-neutral-300" style={delay(0.12)}>
         {HERO_NAME}
       </h1>
 
@@ -35,7 +32,7 @@ export const HeroText: FC = () => (
         className="reveal mt-2 text-5xl font-bold leading-tight text-gradient lg:text-6xl"
         style={delay(0.19)}
       >
-        Engineer the
+        Ideas into
       </p>
 
       <div className="reveal" style={delay(0.26)}>
@@ -49,7 +46,7 @@ export const HeroText: FC = () => (
         className="reveal text-3xl font-semibold text-neutral-300 lg:text-4xl"
         style={delay(0.33)}
       >
-        software &amp; digital experiences.
+        engineered with intent.
       </p>
 
       <p
@@ -84,18 +81,12 @@ export const HeroText: FC = () => (
         </span>
       </div>
 
-      <p
-        className="reveal text-3xl font-light text-neutral-300"
-        style={delay(0.12)}
-      >
+      <p className="reveal text-3xl font-light text-neutral-300" style={delay(0.12)}>
         {HERO_NAME}
       </p>
 
-      <p
-        className="reveal text-4xl font-bold text-gradient"
-        style={delay(0.19)}
-      >
-        Engineer the
+      <p className="reveal text-4xl font-bold text-gradient" style={delay(0.19)}>
+        Ideas into
       </p>
 
       <div className="reveal" style={delay(0.26)}>
@@ -109,7 +100,7 @@ export const HeroText: FC = () => (
         className="reveal text-2xl font-semibold text-neutral-300"
         style={delay(0.33)}
       >
-        software &amp; digital experiences.
+        engineered with intent.
       </p>
 
       <p
