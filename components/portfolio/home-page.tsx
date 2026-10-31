@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { type FC } from "react";
+import { ContactForm } from "@/components/contact/contact-form";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const PRODUCTS = [
   {
@@ -250,16 +252,28 @@ export const HomePage: FC = () => (
         <p className="section-kicker"><span>04</span> / ESTABLISH CONTACT</p>
         <h2 id="contact-title">Have an idea<br />that feels <em>impossible?</em></h2>
         <p>Good. That's usually where the interesting work begins.</p>
-        <a className="button-primary" href={CONTACT_HREF} target={CONTACT_EMAIL ? undefined : "_blank"} rel={CONTACT_EMAIL ? undefined : "noreferrer"}>
-          {CONTACT_LABEL} <ArrowUpRight />
-        </a>
+        {isSupabaseConfigured ? (
+          <a className="button-primary" href="#contact-form">
+            Send a message <ArrowUpRight />
+          </a>
+        ) : (
+          <a className="button-primary" href={CONTACT_HREF} target={CONTACT_EMAIL ? undefined : "_blank"} rel={CONTACT_EMAIL ? undefined : "noreferrer"}>
+            {CONTACT_LABEL} <ArrowUpRight />
+          </a>
+        )}
       </div>
-      <div className="contact-code" aria-hidden="true">
-        <span>RYZENT / OPEN CHANNEL</span>
-        <span className="contact-code__line" />
-        <span>TRANSMISSION READY</span>
-        <span>END OF SIGNAL_</span>
-      </div>
+      {isSupabaseConfigured ? (
+        <div className="contact-form-wrap" id="contact-form">
+          <ContactForm />
+        </div>
+      ) : (
+        <div className="contact-code" aria-hidden="true">
+          <span>RYZENT / OPEN CHANNEL</span>
+          <span className="contact-code__line" />
+          <span>TRANSMISSION READY</span>
+          <span>END OF SIGNAL_</span>
+        </div>
+      )}
     </section>
 
     <footer className="site-footer">
