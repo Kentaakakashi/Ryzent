@@ -210,12 +210,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 720px) {
   html { scroll-padding-top: 72px; }
   .site-header, .hero-section, .content-section, .experiment-section, .contact-section, .site-footer { width: calc(100% - 40px); }
-  .site-header { height: 72px; }
-  .brand-lockup { min-width: 0; gap: 8px; }
+  .site-header { height: auto; min-height: 72px; flex-wrap: wrap; padding: 10px 0 12px; row-gap: 12px; }
+  .brand-lockup { min-width: 0; gap: 8px; order: 1; }
   .brand-lockup__mark { width: 34px; height: 34px; }
   .brand-lockup__name { font-size: 11px; }
-  .desktop-nav { display: none; }
-  .header-contact { min-width: 0; font-size: 9px; gap: 7px; }
+  .desktop-nav { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 10px; padding-top: 11px; border-top: 1px solid var(--line); }
+  .desktop-nav a { font-size: 9px; letter-spacing: .14em; }
+  .header-contact { min-width: 0; order: 2; font-size: 9px; gap: 7px; }
   .hero-section { display: flex; flex-direction: column; align-items: stretch; padding: 76px 0 50px; gap: 25px; min-height: 0; }
   .hero-copy { padding: 0; }
   .hero-copy h1 { font-size: clamp(3.8rem, 14vw, 6.3rem); margin: 26px 0 20px; }
