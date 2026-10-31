@@ -39,9 +39,7 @@ export default function AppleIcon() {
             lineHeight: 1,
             letterSpacing: -4,
           }}
-        >
-          H
-        </div>
+        >R</div>
       </div>
     ),
     { ...size }
