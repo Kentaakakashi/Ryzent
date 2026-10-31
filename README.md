@@ -14,7 +14,7 @@ The public site is built with Next.js App Router, React, TypeScript, Tailwind CS
 - **Studio** — the principles behind the work.
 - **Contact** — a mail link when `NEXT_PUBLIC_CONTACT_EMAIL` is configured, otherwise the public GitHub profile.
 
-Private relationship projects are intentionally not listed.
+Only projects approved for public display are featured.
 
 ## Stack
 
