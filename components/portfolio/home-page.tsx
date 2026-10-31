@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { type FC } from "react";
 
 const PRODUCTS = [
@@ -42,17 +43,6 @@ const CONTACT_HREF = CONTACT_EMAIL
   : "https://github.com/Kentaakakashi";
 const CONTACT_LABEL = CONTACT_EMAIL ? "Send an email" : "Find us on GitHub";
 
-function BrandMark() {
-  return (
-    <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <path d="M7 8.5h21.5L37 17v18.5H15.5L7 27V8.5Z" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M15 15h14v14H15z" stroke="currentColor" strokeWidth="1.5" />
-      <path d="m7.5 8.5 7.5 6.5M29 29l8 6.5M29 15l8-6.5M15 29l-8 6.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M22 18v8m-4-4h8" stroke="#7DE3D0" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function ArrowUpRight() {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -70,8 +60,13 @@ export const HomePage: FC = () => (
 
     <header className="site-header">
       <a className="brand-lockup" href="#top" aria-label="Ryzent home">
-        <span className="brand-lockup__mark"><BrandMark /></span>
-        <span className="brand-lockup__name">RYZENT<span> / STUDIO</span></span>
+        <span className="brand-lockup__mark">
+          <Image src="/brand/ryzent-emblem.svg" alt="" width={361} height={282} priority />
+        </span>
+        <span className="brand-lockup__wordmark">
+          <Image src="/brand/ryzent-wordmark.svg" alt="Ryzent" width={815} height={88} priority />
+        </span>
+        <span className="brand-lockup__tag">/ STUDIO</span>
       </a>
 
       <nav className="desktop-nav" aria-label="Main navigation">
@@ -269,8 +264,13 @@ export const HomePage: FC = () => (
 
     <footer className="site-footer">
       <a className="brand-lockup brand-lockup--footer" href="#top">
-        <span className="brand-lockup__mark"><BrandMark /></span>
-        <span className="brand-lockup__name">RYZENT<span> / STUDIO</span></span>
+        <span className="brand-lockup__mark">
+          <Image src="/brand/ryzent-emblem.svg" alt="" width={361} height={282} />
+        </span>
+        <span className="brand-lockup__wordmark">
+          <Image src="/brand/ryzent-wordmark.svg" alt="Ryzent" width={815} height={88} />
+        </span>
+        <span className="brand-lockup__tag">/ STUDIO</span>
       </a>
       <p>Engineer the unexpected.</p>
       <div className="footer-meta"><span>© {new Date().getFullYear()} RYZENT</span><span>INDEPENDENT SOFTWARE STUDIO</span><a href="https://github.com/Kentaakakashi" target="_blank" rel="noreferrer">GITHUB <ArrowUpRight /></a></div>
