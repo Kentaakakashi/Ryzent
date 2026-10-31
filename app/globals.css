@@ -8,6 +8,21 @@
   --color-nebula: #B9D7FF;
   --color-dust: #8FA2BE;
   --color-signal: #7DE3D0;
+
+  /* Legacy admin/contact components share the Ryzent palette. */
+  --color-primary: #070A12;
+  --color-midnight: #0D1422;
+  --color-navy: #0D1422;
+  --color-indigo: #28364D;
+  --color-storm: #28364D;
+  --color-aqua: #7DE3D0;
+  --color-mint: #7DE3D0;
+  --color-royal: #B9D7FF;
+  --color-lavender: #8FA2BE;
+  --color-fuchsia: #7DE3D0;
+  --color-orange: #B9D7FF;
+  --color-sand: #8FA2BE;
+  --color-coral: #7DE3D0;
 }
 
 :root {
@@ -24,6 +39,81 @@
   --font-display: "Avenir Next", Avenir, "Segoe UI", sans-serif;
 }
 
+.glass {
+  background: rgba(13, 20, 34, .78);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.gradient-border {
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .18);
+}
+.text-eyebrow {
+  color: var(--dust);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.text-heading {
+  color: var(--starlight);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.045em;
+}
+.text-gradient {
+  background: linear-gradient(90deg, var(--nebula), var(--signal));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.field-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.field-input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(7, 10, 18, .72);
+  padding: 10px 12px;
+  color: var(--starlight);
+  font: inherit;
+  font-size: 13px;
+}
+.field-input::placeholder { color: rgba(143, 162, 190, .52); }
+.field-input-focus:focus-visible {
+  outline: 1px solid var(--signal);
+  border-color: rgba(125, 227, 208, .62);
+}
+.btn-primary, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 12px;
+  letter-spacing: .04em;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn-primary {
+  border: 1px solid rgba(125, 227, 208, .42);
+  background: rgba(125, 227, 208, .13);
+  color: var(--starlight);
+}
+.btn-primary:hover { background: rgba(125, 227, 208, .22); }
+.btn-ghost {
+  border: 1px solid var(--line);
+  background: rgba(185, 215, 255, .04);
+  color: var(--muted);
+}
+.btn-ghost:hover { border-color: rgba(185,215,255,.38); color: var(--starlight); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 92px; background: var(--void); }
 body {
