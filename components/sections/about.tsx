@@ -37,13 +37,13 @@ export const About: FC = () => {
       </motion.div>
 
       <SectionHeader
-        eyebrow="About"
+        eyebrow="Inside Ryzent"
         title={
           <>
-            Engineering products that{" "}
-            <span className="text-gradient">people actually use.</span>
+            Software with a <span className="text-gradient">point of view.</span>
           </>
         }
+        hint={["Explore", "Scroll"]}
       />
 
       <div className="mt-12 grid grid-cols-1 items-start gap-6 lg:grid-cols-12">
