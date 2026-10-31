@@ -20,7 +20,7 @@ const GemEmblem: FC = () => (
       <GemSmoke
         width={760}
         height={760}
-        image="https://shaders.paper.design/images/logos/diamond.svg"
+        image="/Picsart_26-11-01_01-15-58-790.png"
         colors={["#333333", "#e7e6df"]}
         colorBack="#00000000"
         colorInner="#fafaf5"
