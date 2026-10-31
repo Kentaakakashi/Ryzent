@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
-import { CONTACT_EMAIL } from "@/constants/portfolio-constants";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONTACT_FALLBACK =
+  "The contact form is not connected on this deployment yet. Please reach the studio through https://github.com/Kentaakakashi.";
 
 interface Body {
   name?: string;
@@ -45,20 +46,12 @@ export async function POST(req: Request) {
   }
 
   if (!isSupabaseConfigured) {
-    return NextResponse.json(
-      {
-        error: `The contact form is not connected on this deployment. Please email ${CONTACT_EMAIL} directly.`,
-      },
-      { status: 503 }
-    );
+    return NextResponse.json({ error: CONTACT_FALLBACK }, { status: 503 });
   }
 
   const supabase = await createClient();
   if (!supabase) {
-    return NextResponse.json(
-      { error: `Please email ${CONTACT_EMAIL} directly.` },
-      { status: 503 }
-    );
+    return NextResponse.json({ error: CONTACT_FALLBACK }, { status: 503 });
   }
 
   const forwarded = req.headers.get("x-forwarded-for") ?? "";
