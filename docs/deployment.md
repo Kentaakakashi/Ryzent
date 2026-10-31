@@ -20,6 +20,15 @@ For a fresh setup:
 
 The canonical website URL is currently configured in constants/seo-constants.ts as https://ryzent.netlify.app. Update it when Ryzent moves to an owned domain, then redeploy.
 
+
+### Important: earlier public starter login
+
+An earlier revision of this public repository's SQL migration contained a placeholder Supabase admin account using the address Admin@gmail.com. The current migration no longer creates that account, but deleting the SQL line does not erase it from Git history or revoke an account already created by running the older file. If that older migration was run against the Supabase project used by Ryzent, execute:
+
+    select public.revoke_admin('Admin@gmail.com');
+
+Then delete that placeholder user from Supabase Dashboard → Authentication → Users. Do not make changes to a different Supabase project (for example, a project used by another Ryzent app).
+
 ## 2. Optional Supabase contact inbox
 
 The contact form submits to /api/contact. With Supabase configured, submissions are stored in public.contact_submissions and the private inbox is available at /admin.
