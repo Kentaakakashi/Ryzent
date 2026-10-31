@@ -1,122 +1,67 @@
-<div align="center">
+# Ryzent
 
-# Portfolio Website Template: Next.js, 3D Hero, Admin Panel & SEO
+**Engineer the unexpected.**
 
-**A free, production-ready developer portfolio template.** 3D animated hero, a built-in admin
-panel that captures your contact-form leads, and full SEO out of the box: sitemap, structured data
-and Open Graph. Build your personal website with Next.js 16, React 19, TypeScript, Three.js and
-Tailwind CSS v4.
+Ryzent is an independent software studio exploring digital products, experimental interfaces and carefully engineered experiences.
 
-[**Live Demo**](https://www.hasnainirfan.com) · [Documentation](docs/) · [Deploy](docs/deployment.md)
+The public site is built with Next.js App Router, React, TypeScript, Tailwind CSS v4, Motion and a small amount of custom CSS/SVG artwork. The homepage is intentionally lightweight: the hero geometry is CSS/SVG rather than a mandatory WebGL scene, so the first meaningful content remains available on mobile and devices without strong GPU support.
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
-[![Three.js](https://img.shields.io/badge/Three.js-r184-000000?logo=threedotjs&logoColor=white)](https://threejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](LICENSE)
+## Public sections
 
-[![Developer portfolio website template with 3D animated hero, built with Next.js, Three.js and Tailwind CSS](docs/images/screenshot.jpg)](https://www.hasnainirfan.com)
+- **Home** — the Ryzent identity and geometric anomaly.
+- **Systems** — Theo, Ryu and The God Who Forgot, each linked to its public repository and labelled as in development.
+- **Experiments** — a space for procedural visuals, interaction studies and prototypes.
+- **Studio** — the principles behind the work.
+- **Contact** — a mail link when `NEXT_PUBLIC_CONTACT_EMAIL` is configured, otherwise the public GitHub profile.
 
-</div>
+Private relationship projects are intentionally not listed.
 
-## What you get
+## Stack
 
-Most portfolio templates give you a page and stop. This one also tells you who got in touch, and
-makes sure people can find you.
+- Next.js 16 App Router and React 19
+- TypeScript (strict)
+- Tailwind CSS v4 and custom CSS
+- Motion and Three.js / React Three Fiber (available for future sections)
+- Optional Supabase Auth, Postgres, RLS and Edge Function email notifications
+- Netlify hosting through its managed Next.js runtime
 
-| | |
-| --- | --- |
-| **3D portfolio** | Animated GLTF hero, a GPU shader globe that travels with your scroll, a pinned horizontal case-study showcase, and scroll-driven reveals throughout |
-| **Admin panel** | Enquiries save to *your* Supabase database and appear in a private inbox at `/admin` with search, pagination and delete. No form-service fee, no one else holding your leads |
-| **SEO ready** | `sitemap.xml`, `robots.txt`, canonical URLs, Open Graph, Twitter cards and JSON-LD structured data, all generated from your own content |
+## Run locally
 
-Every string, project and testimonial lives in `constants/`, one typed file per domain. Fork it,
-edit that folder, and it is your portfolio, with no component changes needed.
-
-## Features
-
-**Design:** 3D animated hero · shader globe · pinned case-study showcase · sticky service cards ·
-experience timeline · skills marquee · particle field · parallax background · responsive from 320px ·
-respects `prefers-reduced-motion`
-
-**Admin & leads:** contact form → your database · private inbox with search and pagination ·
-Supabase Auth + an `admin_users` allowlist · an acknowledgement email to the visitor and the lead to
-you · **zero secrets in the repo**
-
-**SEO:** sitemap · robots · canonical · Open Graph + Twitter cards · JSON-LD (`Person`, `WebSite`,
-`ProfilePage`, `ProfessionalService`) · Web App Manifest · generated favicons · self-hosted fonts ·
-`/admin` excluded from indexing
-
-**Code:** TypeScript strict · 0 lint errors · no file over 250 lines · organised by kind
-(`constants/` `types/` `hooks/` `helpers/` `animations/`) · runs with an empty `.env`
-
-## Tech stack
-
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Three.js + React Three Fiber ·
-Motion · Supabase (Postgres, Auth, RLS, Edge Functions) · Vercel
-
-## Quick start
+Requires Node.js 20.9 or newer (Node 22 is pinned for the project).
 
 ```bash
-git clone https://github.com/HasnainIrfan/myportfolio.git
-cd myportfolio
-npm install
+npm ci
 npm run dev
 ```
 
-Open <http://localhost:3000>. Requires Node 20.9+. **No environment variables needed.** The site
-builds, deploys and runs with an empty `.env`.
+The public site renders without environment variables. Optional integrations are documented below.
 
-## Environment variables
-
-Four, all optional:
+## Environment
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Your domain. Drives the sitemap, canonical and Open Graph URLs. |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console token. Renders the verification meta tag. |
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
+| `NEXT_PUBLIC_SITE_URL` | Canonical public URL. In Netlify, the `URL` environment variable is used as a fallback. Set this explicitly for a custom domain. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Public contact email. Leave blank to use the GitHub profile link instead. |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL for contact submissions and the private admin inbox. |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon/publishable key. RLS remains the access-control boundary. |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional Search Console verification value. |
 
-There are **no server-only secrets**: no admin password, no session key, no service-role key, no
-SMTP credentials. Row-level security does the enforcing, and SMTP lives in Supabase.
+Never put a Supabase service-role key, SMTP password, webhook secret or administrator password in a `NEXT_PUBLIC_*` variable or in this repository.
 
-## Make it yours
+## Deploy to Netlify
 
-1. **Content:** edit `constants/` (hero, projects, services, experience, reviews, skills, socials)
-2. **Images:** `public/assets/`, and replace `public/og.jpg` with your own 1200×630 preview
-3. **Colours:** the `@theme` block at the top of `app/globals.css`
-4. **SEO:** `constants/seo-constants.ts`, then set `NEXT_PUBLIC_SITE_URL`
-5. **3D model:** drop a `.glb` in `public/models/` and update `components/portfolio/astronaut.tsx`
+1. Push this repository to GitHub.
+2. In Netlify, choose **Add new site → Import an existing project** and select `Kentaakakashi/Ryzent`.
+3. Keep the repository's `netlify.toml` settings: build command `npm run build`, publish directory `.next`, Node 22.
+4. Add any optional environment variables above in the Netlify site settings. Add runtime values to both **Builds** and **Functions** scopes where Netlify exposes those scopes.
+5. Deploy. Netlify's Next.js runtime handles App Router routes and server features; this project is not configured as a static export.
 
-Full walkthrough: [`docs/customization.md`](docs/customization.md)
+Do not add a catch-all `/* /index.html 200` redirect. It can interfere with Next.js routes and server rendering.
 
-## Deployment
+For Supabase setup, see [docs/deployment.md](docs/deployment.md) and [docs/admin.md](docs/admin.md).
 
-Import the repo on Vercel and ship. There is nothing to configure. Add the Supabase values when you want the
-contact form and admin panel. Setup for the database, admin account and lead emails:
-[`docs/deployment.md`](docs/deployment.md).
+## Source and licensing
 
-## Documentation
+The upstream source code was adapted from [HasnainIrfan/3d-portfolio](https://github.com/HasnainIrfan/3d-portfolio). The upstream MIT `LICENSE` is retained. The original creator's personal content and separately licensed demo assets are not part of Ryzent's branding; see [NOTICE](NOTICE) for the remaining attribution boundary.
 
-| | |
-| --- | --- |
-| [`docs/customization.md`](docs/customization.md) | Making it your own, end to end |
-| [`docs/deployment.md`](docs/deployment.md) | Vercel, Supabase, Edge Function, checklist |
-| [`docs/admin.md`](docs/admin.md) | Admin panel: auth model, SQL, lead emails |
-| [`docs/architecture.md`](docs/architecture.md) | Project structure, the 3D layer, auth, database |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Conventions and PR flow |
-
-## Credits & licensing
-
-Code is [MIT](LICENSE). The content and assets are **not** - see [`NOTICE`](NOTICE).
-Replace them before deploying:
-
-- Personal content (name, biography, project write-ups, testimonials, résumé) belongs to Hasnain Irfan
-- `public/models/*.glb` is third-party fan art from Sketchfab, so **check its licence and keep the attribution**
-- Project screenshots and client logos belong to their owners
-
-3D helpers by [pmndrs](https://github.com/pmndrs), animation by [Motion](https://motion.dev).
-
-If this helped you build your portfolio website, a ⭐ is very welcome.
+Ryzent-specific name, copy, page design, geometry and product presentation in this repository are maintained for the Ryzent project.
