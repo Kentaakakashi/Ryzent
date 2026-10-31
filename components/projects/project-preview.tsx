@@ -65,11 +65,11 @@ const RyuConceptPreview: FC = () => (
           <div className="relative z-10 my-auto py-3">
             <p className="text-[8px] uppercase tracking-[0.2em] text-white/40">UP NEXT</p>
             <h3 className="mt-1.5 text-[clamp(18px,3vw,29px)] font-semibold leading-[0.98] tracking-[-0.055em]">Upper body<br /> <span className="text-[#d2f36b]">focus.</span></h3>
-            <p className="mt-2 max-w-[220px] text-[9px] leading-relaxed text-white/48 sm:text-[10px]">Push strength, shoulder control and clean reps. One set at a time.</p>
+            <p className="mt-2 max-w-[220px] text-[9px] leading-relaxed text-white/[0.48] sm:text-[10px]">Push strength, shoulder control and clean reps. One set at a time.</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/65">20 MIN</span>
-              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/65">3 EXERCISES</span>
-              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/65">FOUNDATION</span>
+              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/[0.65]">20 MIN</span>
+              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/[0.65]">3 EXERCISES</span>
+              <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/[0.65]">FOUNDATION</span>
             </div>
           </div>
           <div className="relative z-10 flex items-center justify-between gap-2 border-t border-white/10 pt-3">
@@ -80,7 +80,7 @@ const RyuConceptPreview: FC = () => (
 
         <div className="grid min-h-0 grid-rows-[1.12fr_.88fr] gap-2.5 sm:gap-3">
           <section className="flex min-h-0 flex-col items-center justify-center rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-2.5 sm:p-3">
-            <div className="mb-1 flex w-full items-center justify-between text-[7px] uppercase tracking-[0.16em] text-white/38"><span>PLAYER LEVEL</span><span className="text-[#d2f36b]">DISCIPLE</span></div>
+            <div className="mb-1 flex w-full items-center justify-between text-[7px] uppercase tracking-[0.16em] text-white/[0.38]"><span>PLAYER LEVEL</span><span className="text-[#d2f36b]">DISCIPLE</span></div>
             <div className="relative my-1 grid aspect-square w-[clamp(76px,12vw,112px)] place-items-center rounded-full p-[5px]" style={{background:"conic-gradient(#d2f36b 0deg 246deg, rgba(255,255,255,.08) 246deg 360deg)"}}>
               <div className="grid h-full w-full place-items-center rounded-full border border-white/[0.06] bg-[#171a14]">
                 <div className="text-center"><p className="text-[7px] tracking-[0.15em] text-white/35">LEVEL</p><p className="text-[clamp(23px,3.3vw,34px)] font-semibold leading-none tracking-[-0.08em] text-[#f0f1e8]">08</p></div>
@@ -92,7 +92,7 @@ const RyuConceptPreview: FC = () => (
             </div>
           </section>
           <section className="flex min-h-0 flex-col justify-between rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-3 sm:p-3.5">
-            <p className="text-[7px] uppercase tracking-[0.16em] text-white/38">WEEK AT A GLANCE</p>
+            <p className="text-[7px] uppercase tracking-[0.16em] text-white/[0.38]">WEEK AT A GLANCE</p>
             <div className="grid grid-cols-2 gap-x-2 gap-y-2.5">
               <div><p className="text-[clamp(18px,2.6vw,25px)] font-semibold leading-none tracking-[-0.06em]">04</p><p className="mt-1 text-[7px] text-white/40">SESSIONS</p></div>
               <div><p className="text-[clamp(18px,2.6vw,25px)] font-semibold leading-none tracking-[-0.06em]">05<span className="ml-0.5 text-[10px] text-[#d2f36b]">↗</span></p><p className="mt-1 text-[7px] text-white/40">DAY STREAK</p></div>
@@ -107,8 +107,8 @@ const RyuConceptPreview: FC = () => (
       <section className="shrink-0 rounded-[16px] border border-white/[0.10] bg-black/20 px-3 py-2.5 sm:px-4">
         <div className="mb-2 flex items-center justify-between gap-2"><div className="flex items-center gap-2"><span className="grid h-5 w-5 place-items-center rounded-md bg-[#d2f36b]/10 text-[10px] text-[#d2f36b]">✦</span><p className="text-[8px] font-semibold tracking-[0.12em]">DAILY QUESTS</p></div><span className="text-[7px] tracking-[0.1em] text-white/35">BONUS XP AVAILABLE</span></div>
         <div className="grid grid-cols-2 gap-3">
-          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/65">Log a training session</span><span className="shrink-0 text-[#d2f36b]">+50 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-2/3 rounded-full bg-[#d2f36b]" /></div></div>
-          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/65">Complete 3 exercises</span><span className="shrink-0 text-[#d2f36b]">+30 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-1/3 rounded-full bg-[#d2f36b]" /></div></div>
+          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Log a training session</span><span className="shrink-0 text-[#d2f36b]">+50 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-2/3 rounded-full bg-[#d2f36b]" /></div></div>
+          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Complete 3 exercises</span><span className="shrink-0 text-[#d2f36b]">+30 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-1/3 rounded-full bg-[#d2f36b]" /></div></div>
         </div>
       </section>
 
