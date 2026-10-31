@@ -10,10 +10,10 @@ export const ContactDetails: FC = () => (
     <p className="text-eyebrow">Get in touch</p>
     <h2 className="text-heading mt-3">
       Something on your mind? <br />
-      <span className="text-gradient">Let's talk.</span>
+      <span className="text-gradient">Let&apos;s talk.</span>
     </h2>
     <p className="mt-4 leading-relaxed text-neutral-400">
-      Have a product idea, feedback on something we're building, or a
+      Have a product idea, feedback on something we&apos;re building, or a
       collaboration worth exploring? Send a note with the context. No sales
       script—just a starting point for a useful conversation.
     </p>
