@@ -4,150 +4,55 @@ import { type Project } from "@/types/portfolio-types";
 export const MY_PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Inverex Global",
-    category: "Solar Energy · Pakistan",
-    description:
-      "Marketing & product site for Inverex, a renewable and scalable solar energy provider for homes and businesses worldwide.",
+    title: "Theo",
+    category: "Android · Personal assistant",
+    description: "A context-aware Android assistant project focused on conversation, screen awareness and everyday utility.",
     subDescription: [
-      "Designed and shipped a fast, SEO-friendly marketing site with crisp motion polish.",
-      "Built reusable section components for products, services and customer stories.",
-      "Tuned image delivery, fonts and route transitions for premium feel on every device.",
-      "Implemented responsive layouts and accessibility from the ground up.",
+      "A mobile-first assistant experience under active development.",
+      "Designed around useful context and direct interaction.",
     ],
-    href: "https://www.inverexglobal.com/",
+    href: "https://github.com/Kentaakakashi/Theo-AI",
     logo: "",
-    image: "/projects/inverex.webp",
-    accent: "from-aqua/40 to-royal/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "TypeScript", path: "/assets/logos/javascript.svg" },
-      { id: 3, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
-      { id: 4, name: "Motion", path: "/assets/logos/javascript.svg" },
-    ],
+    image: "",
+    accent: "from-aqua/30 to-storm/10",
+    tags: [],
   },
   {
     id: 2,
-    title: "Getweys",
-    category: "Digital Product Agency",
-    description:
-      "AI-first product agency shipping web platforms, mobile apps and growth systems. 1,000+ projects since 2020 across Austin, Karachi and Auckland.",
+    title: "Ryu",
+    category: "Fitness · Progression system",
+    description: "A gamified training companion focused on consistency, progression and personal goals.",
     subDescription: [
-      "Built the agency site around a service catalogue spanning web, mobile, design and marketing.",
-      "Structured case-study and sector sections covering fintech, healthcare, energy and government work.",
-      "Implemented a clear discovery-to-launch process narrative with scroll-driven motion.",
-      "Tuned performance, SEO and accessibility for B2B discovery at scale.",
+      "A workout and progression experience under active development.",
+      "Designed to make training history and goals easier to follow.",
     ],
-    href: "https://getweys.com/",
+    href: "https://github.com/Kentaakakashi/Ryu-Workout",
     logo: "",
-    image: "/projects/getweys.webp",
-    accent: "from-royal/40 to-lavender/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "TypeScript", path: "/assets/logos/javascript.svg" },
-      { id: 3, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
-      { id: 4, name: "SEO", path: "/assets/logos/javascript.svg" },
-    ],
+    image: "",
+    accent: "from-storm/40 to-aqua/10",
+    tags: [],
   },
   {
     id: 3,
-    title: "PromptStore",
-    category: "AI Marketplace",
-    description:
-      "Marketplace for buying and selling AI prompts tuned for ChatGPT, Claude, Midjourney, Flux and Cursor.",
+    title: "The God Who Forgot",
+    category: "Game · Narrative RPG",
+    description: "A 2D pixel-art narrative role-playing game exploring memory, identity and a forgotten world.",
     subDescription: [
-      "Built a curated, category-driven prompt library with trending and community feeds.",
-      "Implemented one-click checkout across Stripe, PayPal and crypto with instant delivery.",
-      "Shipped a creator dashboard for listing, pricing and tracking prompt sales.",
-      "Designed dense browse and preview surfaces that stay fast at catalogue scale.",
+      "A story-led 2D game under active development.",
+      "Built around exploration and narrative rather than combat.",
     ],
-    href: "https://promptstore.io/",
+    href: "https://github.com/Kentaakakashi/The-God-Who-Forgot",
     logo: "",
     image: "",
-    accent: "from-fuchsia/40 to-royal/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "TypeScript", path: "/assets/logos/javascript.svg" },
-      { id: 3, name: "Stripe", path: "/assets/logos/javascript.svg" },
-      { id: 4, name: "Rest APIs", path: "/assets/logos/javascript.svg" },
-    ],
-  },
-  {
-    id: 4,
-    title: "ClipSave",
-    category: "Media Tools",
-    description:
-      "Browser-based video downloader supporting nine platforms in SD, HD and FHD. No account, no caps, nothing stored.",
-    subDescription: [
-      "Built a single-input flow that resolves and returns downloads in seconds.",
-      "Supported nine sources including YouTube, Instagram, TikTok and Vimeo across quality tiers.",
-      "Shipped companion utilities: URL shortener, subtitle downloader and thumbnail extractor.",
-      "Designed for zero-retention: no download history and no activity tracking.",
-    ],
-    href: "https://clipsaves.com/",
-    logo: "",
-    image: "",
-    accent: "from-sand/40 to-coral/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "Node.js", path: "/assets/logos/javascript.svg" },
-      { id: 3, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
-      { id: 4, name: "Rest APIs", path: "/assets/logos/javascript.svg" },
-    ],
-  },
-  {
-    id: 5,
-    title: "Fast Digital Technology",
-    category: "Cyber Security Services",
-    description:
-      "Marketing & service site for a cyber security firm with motion-rich storytelling.",
-    subDescription: [
-      "Crafted high-impact landing experience with scroll-driven storytelling.",
-      "Built a service catalogue and lead-capture flow.",
-      "Optimised SEO and performance for B2B discovery.",
-    ],
-    href: "https://fastdigitaltechnology.com/",
-    logo: "",
-    image: "",
-    accent: "from-aqua/40 to-royal/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
-      { id: 3, name: "Motion", path: "/assets/logos/javascript.svg" },
-      { id: 4, name: "SEO", path: "/assets/logos/javascript.svg" },
-    ],
-  },
-  {
-    id: 6,
-    title: "ATF Catalogue",
-    category: "Interactive Flipbook · UAE",
-    description:
-      "Print product catalogue rebuilt as a page-turning digital flipbook for All Things Food, a premium F&B distributor in the UAE.",
-    subDescription: [
-      "Built a spread-based flipbook reader with page-turn transitions.",
-      "Implemented progressive page preloading behind a branded loading sequence.",
-      "Tuned spread rendering so paging stays smooth on mobile as well as desktop.",
-      "Carried the client's brand type and colour system across every spread.",
-    ],
-    href: "https://online-flipbook.vercel.app/",
-    logo: "",
-    image: "",
-    accent: "from-lavender/40 to-sand/10",
-    tags: [
-      { id: 1, name: "Next.js", path: "/assets/logos/react.svg" },
-      { id: 2, name: "TypeScript", path: "/assets/logos/javascript.svg" },
-      { id: 3, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
-      { id: 4, name: "Motion", path: "/assets/logos/javascript.svg" },
-    ],
+    accent: "from-navy/40 to-aqua/10",
+    tags: [],
   },
 ];
 
 export const TILT_SPRING: Transition = { stiffness: 200, damping: 18 };
-
 export const TILT_RANGE: { x: [number, number]; y: [number, number] } = {
   x: [10, -10],
   y: [-14, 14],
 };
-
 export const TRACK_SPRING: Transition = { stiffness: 60, damping: 20 };
-
 export const PREVIEW_WINDOW = 1;
