@@ -37,7 +37,7 @@ supabase/
   migrations/0001_init.sql  The whole schema in one file
   functions/                notify-contact Edge Function
 public/
-  models/ assets/ og.jpg
+  models/ assets/ (no inherited personal Open Graph artwork)
 ```
 
 ## The render path
