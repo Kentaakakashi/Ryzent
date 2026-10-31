@@ -44,7 +44,7 @@ export const SERVICES: Service[] = [
     title: "Games & Playful Systems",
     description:
       "Small worlds, progression systems and narrative-driven experiences that make software feel memorable.",
-    icon: "/assets/logos/react.svg",
+    icon: "/assets/ryzent-icons/game-worlds.svg",
     bullets: [
       "Story-led and exploration-focused game concepts",
       "Gamified fitness and habit experiences",
