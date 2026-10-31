@@ -48,7 +48,7 @@ app/page.tsx  →  <HomePage />  (client)
                    ├─ <ThemedGlobe />       WebGL, fixed, z-0
                    └─ <div class="relative z-10">
                         Navbar · Hero · About · Services · Projects
-                        Experiences · Testimonial · Contact · Footer
+                        Studio Log · Studio Principles · Contact · Footer
 ```
 
 `Hero` and `ThemedGlobe` are pulled in with `dynamic(..., { ssr: false })`.
@@ -158,10 +158,7 @@ settles on the hero reveal, around 1.0s.
 ### The astronaut (`components/portfolio/astronaut.tsx`)
 
 A GLB loaded with `useGLTF`, whose first embedded animation clip is played on
-mount via `useAnimations`. Entry is a `motion` spring on `position.y` (from `2`
-down to `-1`) applied inside `useFrame`, physics-driven rather than a fixed
-`transition`, so it settles naturally regardless of how long the model took to
-download. The drop is kept short because it is the largest moving object above
+mount via `useAnimations`. Entry is a `motion` spring on `position.y` (from `2` down to `0`) applied inside `useFrame`, physics-driven rather than a fixed transition, so it settles naturally regardless of how long the model took to download. The drop is kept short because it is the largest moving object above
 the fold, and Speed Index measures how long the viewport takes to stop changing.
 
 The camera follows the pointer through a `Rig` component that calls
@@ -205,13 +202,7 @@ component stays a renderer.
 
 ## Content and data
 
-Every string, project, testimonial and skill on the page comes from
-`constants/portfolio-constants.ts`, typed against `types/portfolio-types.ts`.
-No component holds copy. This is what makes forking cheap. See
-[`customization.md`](customization.md).
-
-`STATS` is hand-written copy, not derived from `MY_PROJECTS.length`. If you add
-or remove projects, update the numbers yourself.
+Studio copy and product data are centralised in the `constants/` folder and typed against `types/portfolio-types.ts`. The public product showcase currently contains Theo, Ryu and The God Who Forgot. TwoFold is private and intentionally excluded. There are no client testimonials or inherited employment claims in the public page. The four `STATS` cards describe product disciplines, not numerical performance claims. See [`customization.md`](customization.md).
 
 ## Contact form → inbox
 
