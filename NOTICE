@@ -1,18 +1,16 @@
-NOTICE — content and assets
-===========================
+NOTICE — upstream code and third-party assets
+==============================================
 
-The MIT license in LICENSE covers the SOURCE CODE of this project only.
-It does not grant any rights to the following, which are included so the
-demo site renders but are not the author's to relicense:
+Ryzent adapts source code from Hasnain Irfan's
+3d-portfolio repository. The upstream MIT LICENSE is retained and must remain
+with copies or substantial portions of that source code.
 
-  * Personal content: the name "Hasnain Irfan", biography, project
-    descriptions, testimonials, work history and the resume PDF.
+The upstream project explicitly excludes the creator's personal content and
+certain demo assets from its MIT grant. Ryzent's homepage has been rewritten
+and does not use the upstream creator's biography, résumé, testimonials,
+client project screenshots, astronaut model or original social-preview image.
+Those unused demo assets are being removed from the public project.
 
-  * The 3D model in public/models/, which is third-party work sourced from
-    Sketchfab and carries its own license and attribution requirement.
-
-  * Project screenshots, client logos and brand marks in public/assets/,
-    which belong to their respective owners.
-
-If you use this project as a template, replace all of the above with your
-own before deploying. See the "Credits & licensing" section of README.md.
+Any third-party asset introduced in future must be checked and credited under
+its own licence. The MIT license for the source code does not automatically
+license third-party models, logos, images, fonts or trademarks.
