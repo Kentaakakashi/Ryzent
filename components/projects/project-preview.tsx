@@ -38,6 +38,8 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
     pointerY.set(0.5);
   };
 
+  const isRepository = project.href.includes("github.com/");
+
   return (
     <div className="order-1 lg:order-2 lg:col-span-7">
       <div style={{ perspective: "1400px" }} className="relative">
@@ -48,11 +50,11 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
           className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-midnight shadow-2xl shadow-black/50 md:aspect-[16/10]"
         >
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-40`}
+            className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-50`}
           />
 
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <span className="text-[10rem] font-black leading-none tracking-tighter text-white/10 md:text-[14rem]">
+            <span className="text-[10rem] font-black leading-none tracking-tighter text-white/[0.08] md:text-[14rem]">
               {padIndex(index + 1)}
             </span>
           </div>
@@ -60,49 +62,31 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
           {project.image ? (
             <Image
               src={project.image}
-              alt={`${project.title} homepage`}
+              alt={`${project.title} project artwork`}
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="pointer-events-none select-none object-cover object-top"
             />
           ) : (
-            showPreview && (
-              <iframe
-                src={project.href}
-                title={project.title}
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"
-                referrerPolicy="no-referrer"
-                className="pointer-events-none absolute inset-0 select-none bg-transparent"
-                style={{
-                  width: "180%",
-                  height: "180%",
-                  transform: "scale(0.555)",
-                  transformOrigin: "top left",
-                  border: 0,
-                  colorScheme: "normal",
-                }}
-              />
-            )
+            <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+              <span className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.08em] text-white/85">
+                {project.title}
+              </span>
+              <span className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/45">
+                RYZENT / PRODUCT LAB
+              </span>
+            </div>
           )}
 
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.06),transparent_45%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.35),transparent_45%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_45%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.4),transparent_45%)]" />
 
           <div
             style={{ transform: "translateZ(70px)" }}
             className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"
           >
-            <span
-              className={`${BADGE} inline-flex items-center gap-2 border-white/25 bg-black/50 text-white`}
-            >
-              {!project.image && (
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-mint opacity-75" />
-                  <span className="relative h-1.5 w-1.5 rounded-full bg-mint" />
-                </span>
-              )}
-              {project.image ? "Preview" : "Live Preview"}
+            <span className={`${BADGE} text-white/90`}>
+              {project.image ? "Project artwork" : "In development"}
             </span>
             <span className={`${BADGE} text-white/70`}>
               {formatCounter(index, total)}
@@ -116,7 +100,7 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({
             style={{ transform: "translateZ(80px)" }}
             className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"
           >
-            <span>Open Site</span>
+            <span>{isRepository ? "Open repository" : "Open project"}</span>
             <span aria-hidden>↗</span>
           </a>
 
