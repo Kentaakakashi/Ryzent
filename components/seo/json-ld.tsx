@@ -1,38 +1,22 @@
 import { type FC } from "react";
 import {
-  CONTACT_POINT_EMAIL,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_SECTIONS,
   SITE_URL,
   SOCIAL_PROFILES,
 } from "@/constants/seo-constants";
-import {
-  HERO_LOCATION,
-  HERO_NAME,
-  HERO_ROLE,
-} from "@/constants/hero-constants";
 import { SERVICES } from "@/constants/services-constants";
 import { SKILL_CHIPS } from "@/constants/skills-constants";
 
-const [city, country] = HERO_LOCATION.split(",").map((part) => part.trim());
-
-const person = {
-  "@type": "Person",
-  "@id": `${SITE_URL}/#person`,
-  name: HERO_NAME,
-  jobTitle: HERO_ROLE,
+const organization = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: SITE_NAME,
   description: SITE_DESCRIPTION,
   url: SITE_URL,
-  email: `mailto:${CONTACT_POINT_EMAIL}`,
-  image: `${SITE_URL}/og.jpg`,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: city,
-    addressCountry: country,
-  },
-  knowsAbout: SKILL_CHIPS,
   sameAs: SOCIAL_PROFILES,
+  knowsAbout: SKILL_CHIPS,
 };
 
 const website = {
@@ -42,7 +26,7 @@ const website = {
   name: SITE_NAME,
   description: SITE_DESCRIPTION,
   inLanguage: "en",
-  publisher: { "@id": `${SITE_URL}/#person` },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 const sectionId = (hash: string) => `${SITE_URL}/${hash}`;
@@ -70,52 +54,40 @@ const navigation = {
   })),
 };
 
-const profilePage = {
-  "@type": "ProfilePage",
+const webpage = {
+  "@type": "WebPage",
   "@id": `${SITE_URL}/#webpage`,
   url: SITE_URL,
   name: SITE_NAME,
   description: SITE_DESCRIPTION,
   isPartOf: { "@id": `${SITE_URL}/#website` },
-  about: { "@id": `${SITE_URL}/#person` },
-  mainEntity: { "@id": `${SITE_URL}/#person` },
+  about: { "@id": `${SITE_URL}/#organization` },
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en",
-  primaryImageOfPage: `${SITE_URL}/og.jpg`,
   hasPart: sections.map((section) => ({ "@id": section["@id"] })),
   significantLink: SITE_SECTIONS.map((section) => sectionId(section.hash)),
 };
 
-const professionalService = {
-  "@type": "ProfessionalService",
-  "@id": `${SITE_URL}/#service`,
-  name: `${HERO_NAME} Web & Mobile Development`,
-  url: SITE_URL,
-  provider: { "@id": `${SITE_URL}/#person` },
-  areaServed: "Worldwide",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Services",
-    itemListElement: SERVICES.map((service) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: service.title,
-        description: service.description,
-      },
-    })),
-  },
+const focusAreas = {
+  "@type": "ItemList",
+  "@id": `${SITE_URL}/#focus-areas`,
+  name: "Ryzent focus areas",
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  numberOfItems: SERVICES.length,
+  itemListElement: SERVICES.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Thing",
+      name: service.title,
+      description: service.description,
+    },
+  })),
 };
 
 const graph = {
   "@context": "https://schema.org",
-  "@graph": [
-    person,
-    website,
-    profilePage,
-    navigation,
-    ...sections,
-    professionalService,
-  ],
+  "@graph": [organization, website, webpage, navigation, focusAreas, ...sections],
 };
 
 export const JsonLd: FC = () => (
