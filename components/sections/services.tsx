@@ -38,14 +38,13 @@ export const Services: FC = () => {
 
       <SectionHeader
         className="mb-12"
-        eyebrow={`Services · ${padIndex(SERVICES.length)}`}
+        eyebrow={`Focus Areas · ${padIndex(SERVICES.length)}`}
         title={
           <>
-            What I can build for you,{" "}
-            <span className="text-gradient">end-to-end.</span>
+            The spaces we <span className="text-gradient">like to explore.</span>
           </>
         }
-        hint={["Scroll", "Stack"]}
+        hint={["Scroll", "Explore"]}
       />
 
       <div className="relative space-y-6 md:space-y-8">
