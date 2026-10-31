@@ -4,7 +4,6 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { HERO_NAME } from "@/constants/hero-constants";
 import {
   GOOGLE_SITE_VERIFICATION,
-  OG_IMAGES,
   OG_LOCALE,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -40,13 +39,11 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_TAGLINE,
     locale: OG_LOCALE,
-    images: OG_IMAGES,
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: SITE_TITLE,
     description: SITE_TAGLINE,
-    images: OG_IMAGES,
   },
   category: "technology",
   ...(GOOGLE_SITE_VERIFICATION
@@ -89,13 +86,8 @@ export default function RootLayout({
       className={`${funnelDisplay.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body
-        className="min-h-full flex flex-col"
-        suppressHydrationWarning
-      >
-        <script
-          dangerouslySetInnerHTML={{ __html: INTRO_SKIP_SCRIPT }}
-        />
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SKIP_SCRIPT }} />
         <noscript>
           <style>{NOSCRIPT_CSS}</style>
         </noscript>
