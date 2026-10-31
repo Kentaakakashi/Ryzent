@@ -47,7 +47,9 @@ export async function POST(req: Request) {
   if (!isSupabaseConfigured) {
     return NextResponse.json(
       {
-        error: `The contact form is not connected on this deployment. Please email ${CONTACT_EMAIL} directly.`,
+        error: CONTACT_EMAIL
+          ? `The contact form is not connected. Please email ${CONTACT_EMAIL} directly.`
+          : "The contact form is not connected yet. Please use the Ryzent GitHub profile to get in touch.",
       },
       { status: 503 }
     );
@@ -56,7 +58,7 @@ export async function POST(req: Request) {
   const supabase = await createClient();
   if (!supabase) {
     return NextResponse.json(
-      { error: `Please email ${CONTACT_EMAIL} directly.` },
+      { error: CONTACT_EMAIL ? `Please email ${CONTACT_EMAIL} directly.` : "Please use the Ryzent GitHub profile to get in touch." },
       { status: 503 }
     );
   }
