@@ -20,7 +20,7 @@ Netlify's current Next.js support uses its managed OpenNext-based runtime for Ap
 
 ## 2. Environment variables
 
-The public homepage works with no environment variables.
+The public homepage works with no environment variables. The enquiry form is shown only when both Supabase public variables are configured; otherwise the contact section shows the email/GitHub fallback.
 
 | Variable | Required? | Purpose |
 | --- | --- | --- |
