@@ -1,4 +1,4 @@
--- Portfolio schema. Run once, top to bottom, in Supabase → SQL Editor.
+-- Ryzent contact schema. Run once, top to bottom, in Supabase → SQL Editor.
 -- Safe to re-run.
 
 -- Your admin login is created at the bottom of this file.
@@ -15,7 +15,7 @@ create table if not exists public.contact_submissions (
   email       text not null,
   budget      text,
   message     text not null,
-  source      text default 'portfolio',
+  source      text default 'ryzent',
   user_agent  text,
   ip_address  text,
   created_at  timestamptz not null default now(),
@@ -232,24 +232,19 @@ revoke all on function public.create_admin_user(text, text) from public, anon, a
 
 -- 6. Create the admin ---------------------------------------------------------
 --
--- ############################################################################
--- #  CHANGE THESE TWO VALUES BEFORE RUNNING THIS FILE                        #
--- #                                                                          #
--- #  They are a placeholder so the file works out of the box. This           #
--- #  repository is public, so anyone who reads it knows them. Left as they    #
--- #  are, a stranger can sign in at /admin and read every visitor's name,     #
--- #  email address and IP address.                                            #
--- #                                                                          #
--- #  Use your own address and a long, unique password. Already ran it with    #
--- #  the placeholder? Change the password in Supabase → Authentication →      #
--- #  Users, or run:                                                           #
--- #      select public.revoke_admin('admin@test.com');                        #
--- ############################################################################
-
-select public.create_admin_user('Admin@gmail.com', 'Admin@inUS2');
-
-
--- Useful later:
---   select email, created_at from public.admin_users order by created_at;
---   select public.grant_admin('someone@example.com');
---   select public.revoke_admin('someone@example.com');
+-- Do not commit a real admin email or password to this public repository.
+-- Create your first admin after running this schema:
+--
+--   1. Supabase Dashboard → Authentication → Users → Add user.
+--   2. Use an email address you control and a unique strong password.
+--   3. Confirm the account, then run the statement below with that same email:
+--
+--      select public.grant_admin('YOUR_ADMIN_EMAIL');
+--
+-- Never use credentials copied from a public example repository.
+-- If the earlier version of this migration was already run with a public
+-- placeholder account, review public.admin_users and revoke that account:
+--
+--      select public.revoke_admin('THE_OLD_PLACEHOLDER_EMAIL');
+--
+-- Example commands are intentionally comments, not executable defaults.
