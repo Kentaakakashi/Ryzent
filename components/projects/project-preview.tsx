@@ -13,7 +13,7 @@ const TheoConceptPreview: FC = () => (
   <div className="absolute inset-0 overflow-hidden bg-[#080b13] text-white">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_0%,rgba(104,82,255,0.22),transparent_48%),radial-gradient(ellipse_at_0%_100%,rgba(44,199,209,0.10),transparent_42%)]" />
     <div className="relative flex h-full flex-col p-4 sm:p-6 md:p-7">
-      <div className="flex items-center justify-between border-b border-white/[0.09] pb-2 sm:pb-3">
+      <div className="flex items-center justify-between border-b border-white/[0.09] pb-3">
         <div className="flex min-w-0 items-center gap-3">
           <div className="grid h-9 w-9 shrink-0 place-items-center rounded-2xl border border-violet-300/30 bg-gradient-to-br from-violet-400/30 to-cyan-300/10 shadow-[0_0_28px_rgba(129,107,255,0.18)]"><span className="h-3 w-3 rounded-full bg-gradient-to-br from-cyan-200 to-violet-400 shadow-[0_0_14px_rgba(125,211,252,0.9)]" /></div>
           <div className="min-w-0"><p className="truncate text-sm font-semibold tracking-wide">Theo</p><p className="mt-0.5 flex items-center gap-1.5 text-[10px] text-emerald-300/90"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />Personal assistant concept</p></div>
@@ -36,7 +36,7 @@ const RyuConceptPreview: FC = () => (
   <div className="absolute inset-0 overflow-hidden bg-[#11130f] text-[#f0f1e8]">
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_0%,rgba(210,243,107,0.13),transparent_38%),radial-gradient(ellipse_at_100%_90%,rgba(154,174,91,0.09),transparent_38%)]" />
     <div className="relative flex h-full flex-col gap-2 p-3 sm:gap-3.5 sm:p-5 md:gap-4 md:p-6">
-      <header className="flex shrink-0 items-center justify-between border-b border-white/[0.09] pb-3">
+      <header className="flex shrink-0 items-center justify-between border-b border-white/[0.09] pb-2 sm:pb-3">
         <div className="flex items-center gap-2.5">
           <div className="grid h-8 w-8 place-items-center rounded-xl border border-[#d2f36b]/30 bg-[#d2f36b]/[0.09] text-[15px] font-black italic tracking-[-0.12em] text-[#d2f36b] shadow-[0_0_25px_rgba(210,243,107,0.10)]">R</div>
           <div><p className="text-[12px] font-black tracking-[0.2em]">RYU</p><p className="mt-0.5 text-[8px] tracking-[0.14em] text-white/35">TRAIN WITH INTENT</p></div>
