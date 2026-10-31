@@ -1,18 +1,32 @@
-NOTICE — content and assets
-===========================
+NOTICE — upstream code and third-party assets
+==============================================
 
-The MIT license in LICENSE covers the SOURCE CODE of this project only.
-It does not grant any rights to the following, which are included so the
-demo site renders but are not the author's to relicense:
+1. Upstream code
 
-  * Personal content: the name "Hasnain Irfan", biography, project
-    descriptions, testimonials, work history and the resume PDF.
+This repository began from the portfolio template by Hasnain Irfan:
+https://github.com/HasnainIrfan/3d-portfolio
 
-  * The 3D model in public/models/, which is third-party work sourced from
-    Sketchfab and carries its own license and attribution requirement.
+The upstream source code is distributed under the MIT License. See LICENSE for
+the applicable copyright and permission notice. Retain the MIT notice when
+redistributing the source.
 
-  * Project screenshots, client logos and brand marks in public/assets/,
-    which belong to their respective owners.
+2. Upstream content
 
-If you use this project as a template, replace all of the above with your
-own before deploying. See the "Credits & licensing" section of README.md.
+The upstream template included personal content belonging to its original
+author, including a name, biography, résumé, work history, testimonials,
+project descriptions and client materials. Ryzent's public content should not
+reuse those personal claims or imply those people or companies endorse Ryzent.
+
+3. Third-party assets
+
+The MIT license for source code does not automatically license artwork,
+models, screenshots, logos, fonts or other third-party assets. In particular:
+
+  * The astronaut GLB model in public/models/ is third-party work sourced from
+    Sketchfab and may carry separate license and attribution conditions.
+  * Third-party icons and technology marks in public/assets/ remain the
+    property of their respective owners and are included only as applicable.
+  * Dependencies listed in package.json are governed by their own licenses.
+
+Before redistributing or replacing any third-party asset, verify its current
+license and preserve the required attribution.
