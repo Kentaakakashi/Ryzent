@@ -232,23 +232,14 @@ revoke all on function public.create_admin_user(text, text) from public, anon, a
 
 -- 6. Create the admin ---------------------------------------------------------
 --
--- ############################################################################
--- #  CHANGE THESE TWO VALUES BEFORE RUNNING THIS FILE                        #
--- #                                                                          #
--- #  They are a placeholder so the file works out of the box. This           #
--- #  repository is public, so anyone who reads it knows them. Left as they    #
--- #  are, a stranger can sign in at /admin and read every visitor's name,     #
--- #  email address and IP address.                                            #
--- #                                                                          #
--- #  Use your own address and a long, unique password. Already ran it with    #
--- #  the placeholder? Change the password in Supabase → Authentication →      #
--- #  Users, or run:                                                           #
--- #      select public.revoke_admin('admin@test.com');                        #
--- ############################################################################
-
-select public.create_admin_user('Admin@gmail.com', 'Admin@inUS2');
-
-
+-- The migration deliberately does not create a default admin account.
+-- Create your own user in Supabase Dashboard → Authentication → Users, disable
+-- public sign-ups, then grant that user access from the SQL editor:
+--
+--   select public.grant_admin('your-address@example.com');
+--
+-- Never put a real email/password pair in a public migration.
+--
 -- Useful later:
 --   select email, created_at from public.admin_users order by created_at;
 --   select public.grant_admin('someone@example.com');
