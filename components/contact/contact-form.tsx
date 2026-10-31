@@ -56,7 +56,7 @@ export const ContactForm: FC = () => {
           <div>
             <p className="text-eyebrow">Send a note</p>
             <h3 className="mt-1 text-xl font-bold md:text-2xl">
-              Tell us what you're exploring
+              Tell us what you&apos;re exploring
             </h3>
           </div>
           <div className="flex items-center gap-3">
