@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FC } from "react";
-import { HERO_NAME } from "@/constants/portfolio-constants";
+import { HERO_NAME, HERO_ROLE } from "@/constants/portfolio-constants";
 
 const FIRST_LINE = HERO_NAME.split(" ");
 
@@ -39,12 +39,12 @@ export const PageLoader: FC = () => {
         <div className="reveal-pop relative">
           <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-royal/40 to-coral/40 blur-2xl" />
           <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-royal to-coral text-3xl font-black text-white shadow-2xl shadow-coral/30 md:h-20 md:w-20 md:text-4xl">
-            H
+            R
           </span>
         </div>
 
         <div className="mt-7 overflow-hidden md:mt-9">
-          <div className="flex items-center gap-3 text-3xl font-black tracking-tight md:gap-4 md:text-5xl">
+          <div className="flex items-center justify-center gap-3 text-3xl font-black tracking-tight md:gap-4 md:text-5xl">
             {FIRST_LINE.map((word, i) => (
               <span
                 key={word + i}
@@ -61,7 +61,7 @@ export const PageLoader: FC = () => {
           className="reveal mt-3 text-[10px] uppercase tracking-[0.4em] text-neutral-400 md:text-xs"
           style={{ animationDelay: "0.16s" }}
         >
-          Software Engineer · Building scalable products
+          {HERO_ROLE} · Engineer the unexpected
         </p>
 
         <div
@@ -88,7 +88,7 @@ export const PageLoader: FC = () => {
         >
           <span className="block h-2 w-2 rounded-full bg-mint shadow-[0_0_12px_rgba(87,219,150,0.8)]" />
           <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-400">
-            Available for new projects
+            Building original software
           </span>
         </div>
       </div>
