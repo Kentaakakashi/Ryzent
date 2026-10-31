@@ -17,10 +17,10 @@ export const SITE_DESCRIPTION =
 export const SITE_TAGLINE =
   "Independent software studio. Engineer the unexpected.";
 
-export const OG_IMAGE = "/og.jpg";
+export const OG_IMAGE = "/opengraph-image";
 export const OG_IMAGE_ALT = "Ryzent — Engineer the unexpected";
 export const OG_LOCALE = "en_US";
-export const OG_IMAGES = [];
+export const OG_IMAGES = [{ url: OG_IMAGE, width: 1200, height: 630, alt: OG_IMAGE_ALT }];
 
 export const GOOGLE_SITE_VERIFICATION =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
