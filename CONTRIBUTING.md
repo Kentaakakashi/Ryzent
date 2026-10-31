@@ -1,85 +1,73 @@
-# Contributing
+# Contributing to Ryzent
 
-This is a personal portfolio, so the scope is narrower than a typical open
-source project, but issues and PRs are welcome, and forks are the whole point.
+Ryzent is an independent software studio exploring intelligent assistants, mobile-first products, interactive digital experiences and original games. This repository contains the studio's public website.
+
+Issues and pull requests are welcome for focused improvements that fit the current product and visual direction.
 
 ## What's in scope
 
-**Welcome:**
-- Bug fixes: layout breaks, WebGL errors, accessibility problems, broken links
-- Performance work, especially asset weight and the 3D scenes
-- Documentation fixes, and anything that makes forking this easier
-- Browser/device compatibility fixes (particularly Safari and low-end mobile)
+**Welcome**
+- Bug fixes: layout breaks, WebGL errors, accessibility problems and broken links.
+- Performance improvements, especially for the astronaut/GridScan hero and low-end mobile devices.
+- Improvements to responsive behavior and device compatibility.
+- Documentation corrections and setup improvements.
+- Security fixes for contact submissions, admin access and Supabase policies.
+- Accurate updates to public descriptions of Ryzent products.
 
-**Not in scope:**
-- Changes to the personal content: projects, testimonials, work history, the
-  résumé. That's mine; fork it and replace it with yours.
-- Rewrites into another framework or styling system
-- New dependencies that duplicate something already here
+**Out of scope unless explicitly discussed**
+- Replacing the Ryzent identity with the upstream personal portfolio identity.
+- Adding fictional client work, testimonials, employment history, résumé details or achievement metrics.
+- Publishing private projects or private personal information.
+- Large visual redesigns that replace the current hero, layout or interactions without an agreed direction.
+- Rewrites into another framework or styling system.
+- New dependencies that duplicate existing functionality.
 
-Not sure? Open an issue first.
+## Getting started
 
-## Getting set up
+Requires Node.js 20.9 or later.
 
-```bash
-git clone https://github.com/<you>/myportfolio.git
-cd myportfolio
-npm install
-npm run dev
-```
+    npm install
+    npm run dev
 
-No `.env` needed. The two Supabase variables are optional, and running without
-them is a supported state the code branches on, so if you touch that path, test it
-by leaving them unset.
+The public website can run without Supabase variables. Supabase is needed for stored contact submissions, the private admin inbox and optional notification emails.
 
-Before opening a PR:
+Before submitting a change:
 
-```bash
-npm run lint
-npm run build
-```
+    npm run lint
+    npm run build
 
-Both must pass. There is no test suite, so the build's type-check is the gate.
-`npm run lint` is currently at **zero errors**; the remaining warnings are all
-`<img>`-versus-`next/image` judgment calls on small SVG icons. Keep it at zero.
+A successful build and lint are minimum checks. Test any visible change on a real phone-sized viewport as well as desktop. Test the 3D hero on a device with WebGL support, and confirm reduced-motion behavior remains usable.
+
+## Project structure
+
+- app/: Next.js routes, metadata, API handlers and global styles.
+- components/: studio sections, interactive UI and 3D scenes.
+- constants/: studio copy, product data, navigation and metadata.
+- hooks/, helpers/, animations/: shared behavior and utilities.
+- lib/ and supabase/: backend integration, schema and Edge Function.
+- public/: static assets, product artwork and the astronaut model.
 
 ## Conventions
 
-- **TypeScript, strict.** No `any`. Components are typed `FC<Props>`, with props
-  declared in `types/portfolio-types.ts` when they're shared.
-- **Content lives in constants**, never in components. A new string on the page
-  belongs in `constants/portfolio-constants.ts` with a type in
-  `types/portfolio-types.ts`.
-- **Tailwind v4, CSS-first.** New colours go in the `@theme` block in
-  `app/globals.css`, not as hex values in class names. There is no
-  `tailwind.config.js` and there should not be one.
-- **`"use client"` only where it's needed:** anything with hooks, WebGL or
-  browser APIs. Keep the server boundary as low as it will go.
-- **Comments explain *why*.** The codebase's existing comments are the model:
-  they record the trade-off or the bug being avoided, not what the line does.
-  See `lib/admin/session.ts` and `components/portfolio/themed-globe.tsx`.
-- **Commits:** short, imperative, present tense, e.g. `fix: globe z-index on Safari`.
+- TypeScript strict. Avoid any unless there is a documented reason.
+- Keep public copy and product data in constants/ rather than scattering it through components.
+- Distinguish real implementation from planned features in all product descriptions.
+- Keep components typed and the server/client boundary as low as practical.
+- Tailwind CSS v4 is configured CSS-first in app/globals.css.
+- Comments should explain non-obvious decisions and the bugs they prevent.
+- Keep changes focused; do not modify unrelated sections while fixing a specific issue.
+- Never commit .env files, admin credentials, SMTP passwords, service-role keys or webhook secrets.
 
 ## Working on the 3D
 
-`components/portfolio/themed-globe.tsx` is dense and its header comment lists
-every deliberate deviation from the demo it was ported from. **Read it before
-changing anything there**, because several "missing" features (shadow maps, refraction,
-hold-to-destroy) were removed for stated reasons and shouldn't be reintroduced
-without addressing them.
+Read the relevant component and hook before changing the globe, astronaut or GridScan. The astronaut loader expects the model at public/models/astronaut.glb and the component relies on model node names. Preserve the GLB license and attribution.
 
-Test any 3D change on a real mid-range phone, not just a desktop with the
-devtools throttle on.
+GridScan has an optional webcam/face-tracking implementation, but the current hero does not enable it. Do not switch it on without explicit user-facing permission and a clear explanation.
+
+Test 3D changes on a real mid-range Android phone as well as desktop. Respect reduced-motion preferences and retain a usable fallback when WebGL is unavailable.
 
 ## Security
 
-Found something exploitable? **Don't open a public issue.** Email
-`hasnainirfandeveloper@gmail.com` directly.
+Do not put credentials in GitHub. Do not expose Supabase service-role keys or SMTP secrets in client-side code. Contact email delivery must target a mailbox controlled by Ryzent through the explicit CONTACT_RECIPIENT_EMAIL secret. The Edge Function must keep its webhook secret enabled.
 
-Never commit a `.env` or a real credential. `.env*` is gitignored, so keep it that
-way.
-
-This project deliberately has **no server-only secrets**: no service-role key,
-no admin password, no session signing key, no SMTP credentials. If a change
-needs one, that is worth discussing in an issue first, because it is usually a sign the
-work belongs in a Supabase Edge Function or an RLS policy instead.
+If an exploitable issue is found, report it privately to the repository owner rather than publishing exploit details in a public issue.
