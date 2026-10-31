@@ -1,85 +1,45 @@
 # Contributing
 
-This is a personal portfolio, so the scope is narrower than a typical open
-source project, but issues and PRs are welcome, and forks are the whole point.
+Ryzent is an independent software studio site and an evolving collection of product experiments. Changes should strengthen the studio identity without sacrificing usability or maintainability.
 
-## What's in scope
+## In scope
 
-**Welcome:**
-- Bug fixes: layout breaks, WebGL errors, accessibility problems, broken links
-- Performance work, especially asset weight and the 3D scenes
-- Documentation fixes, and anything that makes forking this easier
-- Browser/device compatibility fixes (particularly Safari and low-end mobile)
+- Responsive layout and accessibility fixes.
+- Performance improvements, especially on mid-range Android devices.
+- Motion, SVG and 3D components with accessible fallbacks.
+- Product information that is accurate and approved for public display.
+- Documentation, Netlify and Supabase integration fixes.
 
-**Not in scope:**
-- Changes to the personal content: projects, testimonials, work history, the
-  résumé. That's mine; fork it and replace it with yours.
-- Rewrites into another framework or styling system
-- New dependencies that duplicate something already here
+## Development
 
-Not sure? Open an issue first.
-
-## Getting set up
+Requires Node.js 20.9+; the project is pinned to Node 22.
 
 ```bash
-git clone https://github.com/<you>/myportfolio.git
-cd myportfolio
-npm install
+npm ci
 npm run dev
 ```
 
-No `.env` needed. The two Supabase variables are optional, and running without
-them is a supported state the code branches on, so if you touch that path, test it
-by leaving them unset.
-
-Before opening a PR:
+Before merging:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-Both must pass. There is no test suite, so the build's type-check is the gate.
-`npm run lint` is currently at **zero errors**; the remaining warnings are all
-`<img>`-versus-`next/image` judgment calls on small SVG icons. Keep it at zero.
+The repository CI workflow runs both commands on pushes and pull requests to `main`.
 
-## Conventions
+## Code conventions
 
-- **TypeScript, strict.** No `any`. Components are typed `FC<Props>`, with props
-  declared in `types/portfolio-types.ts` when they're shared.
-- **Content lives in constants**, never in components. A new string on the page
-  belongs in `constants/portfolio-constants.ts` with a type in
-  `types/portfolio-types.ts`.
-- **Tailwind v4, CSS-first.** New colours go in the `@theme` block in
-  `app/globals.css`, not as hex values in class names. There is no
-  `tailwind.config.js` and there should not be one.
-- **`"use client"` only where it's needed:** anything with hooks, WebGL or
-  browser APIs. Keep the server boundary as low as it will go.
-- **Comments explain *why*.** The codebase's existing comments are the model:
-  they record the trade-off or the bug being avoided, not what the line does.
-  See `lib/admin/session.ts` and `components/portfolio/themed-globe.tsx`.
-- **Commits:** short, imperative, present tense, e.g. `fix: globe z-index on Safari`.
+- TypeScript strict; keep shared contracts in the relevant file under `types/`.
+- Keep content out of low-level presentational components where practical.
+- Tailwind CSS v4 is CSS-first; put shared color tokens in `app/globals.css`.
+- Use `"use client"` only for components that need state, effects or browser APIs.
+- Preserve server rendering for primary content and keep WebGL work isolated.
+- Respect `prefers-reduced-motion`; never make hover the only way to access an action.
+- Avoid adding a dependency when the current stack already solves the problem.
 
-## Working on the 3D
+## Security and licensing
 
-`components/portfolio/themed-globe.tsx` is dense and its header comment lists
-every deliberate deviation from the demo it was ported from. **Read it before
-changing anything there**, because several "missing" features (shadow maps, refraction,
-hold-to-destroy) were removed for stated reasons and shouldn't be reintroduced
-without addressing them.
+Never commit `.env` files, administrator passwords, Supabase service-role keys, SMTP credentials or webhook secrets. The public Supabase anon key is designed to be shipped to the browser, but row-level security must remain the actual access boundary.
 
-Test any 3D change on a real mid-range phone, not just a desktop with the
-devtools throttle on.
-
-## Security
-
-Found something exploitable? **Don't open a public issue.** Email
-`hasnainirfandeveloper@gmail.com` directly.
-
-Never commit a `.env` or a real credential. `.env*` is gitignored, so keep it that
-way.
-
-This project deliberately has **no server-only secrets**: no service-role key,
-no admin password, no session signing key, no SMTP credentials. If a change
-needs one, that is worth discussing in an issue first, because it is usually a sign the
-work belongs in a Supabase Edge Function or an RLS policy instead.
+The upstream MIT `LICENSE` is retained. That licence does not automatically cover third-party images, models, logos, fonts or trademarks. Check asset licences and preserve the relevant attribution before introducing external assets.
