@@ -13,7 +13,7 @@ const TheoConceptPreview: FC = () => (
   <div className="absolute inset-0 overflow-hidden bg-[#080b13] text-white">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_0%,rgba(104,82,255,0.22),transparent_48%),radial-gradient(ellipse_at_0%_100%,rgba(44,199,209,0.10),transparent_42%)]" />
     <div className="relative flex h-full flex-col p-4 sm:p-6 md:p-7">
-      <div className="flex items-center justify-between border-b border-white/[0.09] pb-3">
+      <div className="flex items-center justify-between border-b border-white/[0.09] pb-2 sm:pb-3">
         <div className="flex min-w-0 items-center gap-3">
           <div className="grid h-9 w-9 shrink-0 place-items-center rounded-2xl border border-violet-300/30 bg-gradient-to-br from-violet-400/30 to-cyan-300/10 shadow-[0_0_28px_rgba(129,107,255,0.18)]"><span className="h-3 w-3 rounded-full bg-gradient-to-br from-cyan-200 to-violet-400 shadow-[0_0_14px_rgba(125,211,252,0.9)]" /></div>
           <div className="min-w-0"><p className="truncate text-sm font-semibold tracking-wide">Theo</p><p className="mt-0.5 flex items-center gap-1.5 text-[10px] text-emerald-300/90"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />Personal assistant concept</p></div>
@@ -35,7 +35,7 @@ const TheoConceptPreview: FC = () => (
 const RyuConceptPreview: FC = () => (
   <div className="absolute inset-0 overflow-hidden bg-[#11130f] text-[#f0f1e8]">
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_0%,rgba(210,243,107,0.13),transparent_38%),radial-gradient(ellipse_at_100%_90%,rgba(154,174,91,0.09),transparent_38%)]" />
-    <div className="relative flex h-full flex-col gap-3 p-4 sm:gap-3.5 sm:p-5 md:gap-4 md:p-6">
+    <div className="relative flex h-full flex-col gap-2 p-3 sm:gap-3.5 sm:p-5 md:gap-4 md:p-6">
       <header className="flex shrink-0 items-center justify-between border-b border-white/[0.09] pb-3">
         <div className="flex items-center gap-2.5">
           <div className="grid h-8 w-8 place-items-center rounded-xl border border-[#d2f36b]/30 bg-[#d2f36b]/[0.09] text-[15px] font-black italic tracking-[-0.12em] text-[#d2f36b] shadow-[0_0_25px_rgba(210,243,107,0.10)]">R</div>
@@ -52,11 +52,11 @@ const RyuConceptPreview: FC = () => (
           <p className="mb-1.5 flex items-center gap-2 text-[8px] uppercase tracking-[0.22em] text-[#d2f36b]/75"><span className="h-px w-5 bg-[#d2f36b]/70" /> YOUR TRAINING SPACE</p>
           <h2 className="text-[clamp(19px,3vw,30px)] font-semibold leading-[0.98] tracking-[-0.055em]">Earn your <span className="text-[#d2f36b]">next level.</span></h2>
         </div>
-        <span className="mb-0.5 shrink-0 text-[8px] tracking-[0.13em] text-white/30">MONDAY / TRAINING LOG</span>
+        <span className="mb-0.5 shrink-0 text-[8px] tracking-[0.13em] text-white/30">TODAY / TRAINING LOG</span>
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[1.28fr_.72fr] gap-2.5 sm:gap-3">
-        <section className="relative flex min-h-0 flex-col justify-between overflow-hidden rounded-[18px] border border-white/[0.12] bg-[linear-gradient(145deg,rgba(42,47,34,0.92),rgba(24,27,21,0.96)_62%,rgba(17,19,15,0.98))] p-3.5 sm:p-4 md:p-5">
+      <div className="grid min-h-0 flex-1 grid-cols-[1.28fr_.72fr] gap-2 sm:gap-3">
+        <section className="relative flex min-h-0 flex-col justify-between overflow-hidden rounded-[18px] border border-white/[0.12] bg-[linear-gradient(145deg,rgba(42,47,34,0.92),rgba(24,27,21,0.96)_62%,rgba(17,19,15,0.98))] p-2.5 sm:p-4 md:p-5">
           <div className="pointer-events-none absolute -right-8 top-4 h-36 w-36 rounded-full border border-[#d2f36b]/10 sm:h-44 sm:w-44"><div className="absolute inset-3 rounded-full border border-dashed border-[#d2f36b]/15" /><div className="absolute inset-8 rounded-full bg-[radial-gradient(circle,rgba(210,243,107,0.13),transparent_68%)]" /><span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[62px] font-black italic tracking-[-0.12em] text-[#d2f36b]/25 sm:text-[78px]">鍛</span></div>
           <div className="relative z-10 flex items-center justify-between gap-2">
             <span className="rounded-full border border-[#d2f36b]/25 bg-[#d2f36b]/[0.08] px-2.5 py-1 text-[7px] uppercase tracking-[0.17em] text-[#d2f36b] sm:text-[8px]">TODAY'S CONTRACT</span>
@@ -65,7 +65,7 @@ const RyuConceptPreview: FC = () => (
           <div className="relative z-10 my-auto py-3">
             <p className="text-[8px] uppercase tracking-[0.2em] text-white/40">UP NEXT</p>
             <h3 className="mt-1.5 text-[clamp(18px,3vw,29px)] font-semibold leading-[0.98] tracking-[-0.055em]">Upper body<br /> <span className="text-[#d2f36b]">focus.</span></h3>
-            <p className="mt-2 max-w-[220px] text-[9px] leading-relaxed text-white/[0.48] sm:text-[10px]">Push strength, shoulder control and clean reps. One set at a time.</p>
+            <p className="mt-2 max-w-[220px] hidden text-[9px] leading-relaxed text-white/[0.48] sm:block sm:text-[10px]">Push strength, shoulder control and clean reps. One set at a time.</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/[0.65]">20 MIN</span>
               <span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-[7px] tracking-[0.1em] text-white/[0.65]">3 EXERCISES</span>
@@ -79,9 +79,9 @@ const RyuConceptPreview: FC = () => (
         </section>
 
         <div className="grid min-h-0 grid-rows-[1.12fr_.88fr] gap-2.5 sm:gap-3">
-          <section className="flex min-h-0 flex-col items-center justify-center rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-2.5 sm:p-3">
+          <section className="flex min-h-0 flex-col items-center justify-center rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-2 sm:p-3">
             <div className="mb-1 flex w-full items-center justify-between text-[7px] uppercase tracking-[0.16em] text-white/[0.38]"><span>PLAYER LEVEL</span><span className="text-[#d2f36b]">DISCIPLE</span></div>
-            <div className="relative my-1 grid aspect-square w-[clamp(76px,12vw,112px)] place-items-center rounded-full p-[5px]" style={{background:"conic-gradient(#d2f36b 0deg 246deg, rgba(255,255,255,.08) 246deg 360deg)"}}>
+            <div className="relative my-1 grid aspect-square w-[clamp(66px,10vw,112px)] place-items-center rounded-full p-[5px]" style={{background:"conic-gradient(#d2f36b 0deg 246deg, rgba(255,255,255,.08) 246deg 360deg)"}}>
               <div className="grid h-full w-full place-items-center rounded-full border border-white/[0.06] bg-[#171a14]">
                 <div className="text-center"><p className="text-[7px] tracking-[0.15em] text-white/35">LEVEL</p><p className="text-[clamp(23px,3.3vw,34px)] font-semibold leading-none tracking-[-0.08em] text-[#f0f1e8]">08</p></div>
               </div>
@@ -91,7 +91,7 @@ const RyuConceptPreview: FC = () => (
               <div className="mt-1 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-[82%] rounded-full bg-[#d2f36b] shadow-[0_0_10px_rgba(210,243,107,0.45)]" /></div>
             </div>
           </section>
-          <section className="flex min-h-0 flex-col justify-between rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-3 sm:p-3.5">
+          <section className="flex min-h-0 flex-col justify-between rounded-[18px] border border-white/[0.11] bg-white/[0.035] p-2.5 sm:p-3.5">
             <p className="text-[7px] uppercase tracking-[0.16em] text-white/[0.38]">WEEK AT A GLANCE</p>
             <div className="grid grid-cols-2 gap-x-2 gap-y-2.5">
               <div><p className="text-[clamp(18px,2.6vw,25px)] font-semibold leading-none tracking-[-0.06em]">04</p><p className="mt-1 text-[7px] text-white/40">SESSIONS</p></div>
@@ -104,11 +104,11 @@ const RyuConceptPreview: FC = () => (
         </div>
       </div>
 
-      <section className="shrink-0 rounded-[16px] border border-white/[0.10] bg-black/20 px-3 py-2.5 sm:px-4">
+      <section className="shrink-0 rounded-[16px] border border-white/[0.10] bg-black/20 px-2.5 py-2 sm:px-4 sm:py-2.5">
         <div className="mb-2 flex items-center justify-between gap-2"><div className="flex items-center gap-2"><span className="grid h-5 w-5 place-items-center rounded-md bg-[#d2f36b]/10 text-[10px] text-[#d2f36b]">✦</span><p className="text-[8px] font-semibold tracking-[0.12em]">DAILY QUESTS</p></div><span className="text-[7px] tracking-[0.1em] text-white/35">BONUS XP AVAILABLE</span></div>
         <div className="grid grid-cols-2 gap-3">
-          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Log a training session</span><span className="shrink-0 text-[#d2f36b]">+50 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-2/3 rounded-full bg-[#d2f36b]" /></div></div>
-          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Complete 3 exercises</span><span className="shrink-0 text-[#d2f36b]">+30 XP</span></div><div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-1/3 rounded-full bg-[#d2f36b]" /></div></div>
+          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Log a training session</span><span className="shrink-0 text-[#d2f36b]">+50 XP</span></div><div className="mt-1 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-2/3 rounded-full bg-[#d2f36b]" /></div></div>
+          <div className="min-w-0"><div className="flex items-center justify-between gap-1 text-[7px]"><span className="truncate text-white/[0.65]">Complete 3 exercises</span><span className="shrink-0 text-[#d2f36b]">+30 XP</span></div><div className="mt-1 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-1/3 rounded-full bg-[#d2f36b]" /></div></div>
         </div>
       </section>
 
