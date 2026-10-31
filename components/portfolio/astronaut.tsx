@@ -32,7 +32,7 @@ export const Astronaut: FC<AstronautProps> = (props) => {
   const ySpring = useSpring(yPosition, { damping: 30 });
 
   useEffect(() => {
-    ySpring.set(-1);
+    ySpring.set(0);
   }, [ySpring]);
 
   useFrame(() => {
