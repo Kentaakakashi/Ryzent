@@ -19,7 +19,7 @@ export const SkillsMarquee: FC = () => (
       transition={{ duration: 0.8 }}
       className="mb-6 flex items-center justify-between"
     >
-      <p className="text-eyebrow">My Toolkit</p>
+      <p className="text-eyebrow">Tools &amp; terrain</p>
       <div className="ml-6 h-px flex-1 bg-gradient-to-r from-white/15 via-white/5 to-transparent" />
     </motion.div>
 
