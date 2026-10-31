@@ -27,6 +27,9 @@ alter table public.contact_submissions
   add column if not exists email_sent  boolean,
   add column if not exists email_error text;
 
+alter table public.contact_submissions
+  alter column source set default 'ryzent';
+
 create index if not exists contact_submissions_created_at_idx
   on public.contact_submissions (created_at desc);
 
@@ -242,9 +245,13 @@ revoke all on function public.create_admin_user(text, text) from public, anon, a
 --      select public.grant_admin('YOUR_ADMIN_EMAIL');
 --
 -- Never use credentials copied from a public example repository.
--- If the earlier version of this migration was already run with a public
--- placeholder account, review public.admin_users and revoke that account:
+-- If the earlier public version of this migration was run, it may have created
+-- the placeholder Supabase login for Admin@gmail.com. If so, revoke its inbox
+-- access, then delete that Auth user in Dashboard → Authentication → Users:
 --
---      select public.revoke_admin('THE_OLD_PLACEHOLDER_EMAIL');
+--      select public.revoke_admin('Admin@gmail.com');
+--
+-- Removing the SQL from this file does not erase it from Git history or undo
+-- an account that was already created by running the earlier version.
 --
 -- Example commands are intentionally comments, not executable defaults.
