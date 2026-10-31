@@ -2,7 +2,7 @@ import { type Stat } from "@/types/portfolio-types";
 
 export const HERO_NAME = "Ryzent";
 export const HERO_ROLE = "Independent Software Studio";
-export const HERO_LOCATION = "India · Remote-first";
+export const HERO_LOCATION = "India";
 
 export const HERO_TAGLINE =
   "Engineer the unexpected. Ryzent explores and builds thoughtful digital products across intelligent assistants, mobile experiences, creative tools and interactive worlds.";
