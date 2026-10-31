@@ -33,7 +33,7 @@ export const HeroScene: FC = () => {
       className="absolute inset-0"
       style={{ width: "100vw", height: "100vh" }}
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" style={{ background: "#050508" }}>
         <GridScan
           linesColor="#4d4757"
           scanColor="#e0ff66"
@@ -48,7 +48,7 @@ export const HeroScene: FC = () => {
         />
       </div>
       <Canvas
-        camera={{ position: [0, 1, 3] }}
+        camera={{ position: [0, 0, 3] }}
         frameloop={active ? "always" : "never"}
         gl={{ alpha: true }}
         style={{ position: "absolute", inset: 0, zIndex: 1 }}
@@ -57,7 +57,7 @@ export const HeroScene: FC = () => {
           <Float>
             <Astronaut
               scale={isMobile ? 0.23 : undefined}
-              position={isMobile ? [0, -1.5, 0] : undefined}
+              position={[0, 0, 0]}
             />
           </Float>
           <Rig />
