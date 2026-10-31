@@ -29,7 +29,7 @@ export const ContactForm: FC = () => {
 
   const pointerX = useMotionValue(50);
   const pointerY = useMotionValue(50);
-  const glow = useMotionTemplate`radial-gradient(600px circle at ${pointerX}% ${pointerY}%, rgba(234,72,132,0.15), transparent 40%)`;
+  const glow = useMotionTemplate`radial-gradient(600px circle at ${pointerX}% ${pointerY}%, rgba(125,227,208,0.13), transparent 40%)`;
 
   const disabled = isLoading || completion < 1;
 
@@ -54,9 +54,9 @@ export const ContactForm: FC = () => {
 
         <div className="relative mb-7 flex items-end justify-between gap-6">
           <div>
-            <p className="text-eyebrow">Place an order</p>
+            <p className="text-eyebrow">Open a channel</p>
             <h3 className="mt-1 text-xl font-bold md:text-2xl">
-              Tell me about your project
+              Tell us what you are imagining
             </h3>
           </div>
           <div className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export const ContactForm: FC = () => {
 
           <FloatingField
             id="message"
-            label="What are you building?"
+            label="What are you building or exploring?"
             value={formData.message}
             onChange={(value) => update("message", value)}
             required
@@ -114,12 +114,12 @@ export const ContactForm: FC = () => {
             type="submit"
             disabled={disabled}
             whileTap={{ scale: 0.98 }}
-            className={`relative w-full overflow-hidden rounded-full px-6 py-4 text-sm font-medium text-white transition-opacity md:text-base ${
+            className={`relative w-full overflow-hidden rounded-full px-6 py-4 text-sm font-medium text-[#070A12] transition-opacity md:text-base ${
               disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
             }`}
             style={{
-              background: "linear-gradient(135deg, #5c33cc 0%, #ea4884 100%)",
-              boxShadow: "0 10px 30px -10px rgba(234, 72, 132, 0.55)",
+              background: "linear-gradient(135deg, #B9D7FF 0%, #7DE3D0 100%)",
+              boxShadow: "0 10px 30px -10px rgba(125, 227, 208, 0.26)",
             }}
           >
             <AnimatePresence mode="wait">
