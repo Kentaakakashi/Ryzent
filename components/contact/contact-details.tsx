@@ -3,43 +3,38 @@
 import { type FC } from "react";
 import { motion } from "motion/react";
 import { revealProps } from "@/animations/scroll-animations";
-import {
-  CONTACT_EMAIL,
-  HERO_LOCATION,
-} from "@/constants/portfolio-constants";
 import { ContactInfoCard } from "./contact-info-card";
 
 export const ContactDetails: FC = () => (
   <motion.div {...revealProps()} className="lg:col-span-5">
-    <p className="text-eyebrow">Let&apos;s Talk</p>
+    <p className="text-eyebrow">Get in touch</p>
     <h2 className="text-heading mt-3">
-      Have an idea? <br />
-      <span className="text-gradient">Let&apos;s ship it.</span>
+      Something on your mind? <br />
+      <span className="text-gradient">Let's talk.</span>
     </h2>
     <p className="mt-4 leading-relaxed text-neutral-400">
-      Whether you&apos;re launching something new, scaling what you have, or
-      rescuing a stuck project, drop me a line and I&apos;ll get back within 24
-      hours.
+      Have a product idea, feedback on something we're building, or a
+      collaboration worth exploring? Send a note with the context. No sales
+      script—just a starting point for a useful conversation.
     </p>
 
     <div className="mt-8 space-y-4">
       <ContactInfoCard
-        icon="✉"
-        label="Email"
-        value={CONTACT_EMAIL}
-        href={`mailto:${CONTACT_EMAIL}`}
+        icon="✦"
+        label="Studio"
+        value="Independent · Product-led"
         gradient="from-coral/30 to-lavender/30"
       />
       <ContactInfoCard
-        icon="⌖"
-        label="Based In"
-        value={`${HERO_LOCATION} · Open to remote work worldwide`}
+        icon="⌘"
+        label="Areas of interest"
+        value="AI · Mobile · Interactive · Games"
         gradient="from-aqua/30 to-mint/30"
       />
       <ContactInfoCard
-        icon="⏱"
-        label="Response Time"
-        value="Usually within 24 hours"
+        icon="↘"
+        label="Best way to reach us"
+        value="Use the message form"
         gradient="from-royal/30 to-fuchsia/30"
       />
     </div>
