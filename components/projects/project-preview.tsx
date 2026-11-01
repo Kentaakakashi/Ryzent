@@ -117,6 +117,105 @@ const RyuConceptPreview: FC = () => (
   </div>
 );
 
+
+const PresenceStudioConceptPreview: FC = () => (
+  <div className="absolute inset-0 overflow-hidden bg-[#0c0b13] text-[#f5f3ff]">
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(124,88,255,0.21),transparent_42%),radial-gradient(ellipse_at_100%_100%,rgba(59,130,246,0.12),transparent_42%)]" />
+    <div className="relative flex h-full flex-col gap-2.5 p-3 sm:gap-3.5 sm:p-5 md:p-6">
+      <header className="flex shrink-0 items-center justify-between border-b border-white/[0.09] pb-2.5 sm:pb-3.5">
+        <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+          <div className="grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-violet-300/25 bg-gradient-to-br from-violet-400/25 to-blue-400/10 shadow-[0_0_26px_rgba(139,92,246,0.13)] sm:h-9 sm:w-9">
+            <span className="text-base font-black text-violet-200">◈</span>
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-[11px] font-semibold tracking-[0.015em] sm:text-sm">Presence Studio</p>
+            <p className="mt-0.5 text-[7px] uppercase tracking-[0.2em] text-white/35 sm:text-[8px]">Discord activity designer</p>
+          </div>
+        </div>
+        <span className="shrink-0 rounded-full border border-violet-300/20 bg-violet-300/[0.07] px-2.5 py-1.5 text-[7px] uppercase tracking-[0.14em] text-violet-200/90 sm:px-3 sm:text-[8px]">Preset workspace</span>
+      </header>
+
+      <div className="flex shrink-0 items-end justify-between gap-3">
+        <div>
+          <p className="mb-1 flex items-center gap-1.5 text-[7px] uppercase tracking-[0.2em] text-violet-200/65 sm:text-[8px]"><span className="h-px w-4 bg-violet-300/70" /> DESIGN YOUR STATUS</p>
+          <h2 className="text-[clamp(17px,3vw,27px)] font-semibold leading-[1.02] tracking-[-0.055em]">Make your presence <span className="text-violet-300">yours.</span></h2>
+        </div>
+        <span className="mb-0.5 hidden shrink-0 text-[7px] uppercase tracking-[0.13em] text-white/30 sm:block">ANDROID / LOCAL PRESETS</span>
+      </div>
+
+      <div className="grid min-h-0 flex-1 grid-cols-[.92fr_1.08fr] gap-2 sm:gap-3">
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-[15px] border border-white/[0.10] bg-[#171621]/90 sm:rounded-[18px]">
+          <div className="flex shrink-0 items-center justify-between border-b border-white/[0.07] px-2.5 py-2 sm:px-4 sm:py-3">
+            <span className="text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60 sm:text-[8px]">Profile preview</span>
+            <span className="flex items-center gap-1 text-[7px] text-emerald-300/80"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300/80" /> MOCKUP</span>
+          </div>
+          <div className="relative min-h-[35px] shrink-0 overflow-hidden bg-[linear-gradient(115deg,#4c2d78,#272c64_55%,#1a526b)] sm:min-h-[48px]">
+            <div className="absolute -right-3 -top-8 h-20 w-20 rounded-full border border-white/10 sm:h-28 sm:w-28" /><div className="absolute right-5 top-2 h-10 w-10 rounded-full bg-violet-300/10 blur-lg sm:h-16 sm:w-16" />
+          </div>
+          <div className="relative flex min-h-0 flex-1 flex-col px-2.5 pb-2.5 sm:px-4 sm:pb-4">
+            <div className="-mt-4 flex items-end justify-between sm:-mt-5">
+              <div className="grid h-9 w-9 place-items-center rounded-[13px] border-[3px] border-[#171621] bg-gradient-to-br from-violet-300 via-indigo-400 to-cyan-300 text-[14px] font-black text-[#171323] sm:h-12 sm:w-12 sm:text-lg">K</div>
+              <span className="mb-1 rounded-md border border-white/[0.08] bg-white/[0.04] px-1.5 py-1 text-[6px] text-white/45 sm:px-2 sm:text-[7px]">PROFILE CARD</span>
+            </div>
+            <div className="mt-1.5 sm:mt-2">
+              <p className="text-[10px] font-bold sm:text-[13px]">kenta_k</p>
+              <p className="mt-0.5 text-[7px] text-white/35 sm:text-[8px]">building things, one commit at a time</p>
+            </div>
+            <div className="mt-2.5 rounded-xl border border-white/[0.08] bg-[#22212d] p-2 sm:mt-3 sm:rounded-[14px] sm:p-3">
+              <div className="mb-1.5 flex items-center gap-1.5 sm:mb-2"><span className="h-1.5 w-1.5 rounded-full bg-violet-300" /><span className="text-[6px] font-semibold uppercase tracking-[0.12em] text-white/40 sm:text-[7px]">Playing a game</span></div>
+              <div className="flex gap-2">
+                <div className="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-lg border border-violet-200/15 bg-[linear-gradient(145deg,#8b5cf6,#33245f_60%,#111827)] sm:h-12 sm:w-12 sm:rounded-xl"><span className="text-lg font-black italic text-white/85 sm:text-2xl">R</span></div>
+                <div className="min-w-0 flex-1 pt-0.5">
+                  <p className="truncate text-[8px] font-semibold sm:text-[10px]">Ryu</p>
+                  <p className="mt-0.5 line-clamp-2 text-[7px] leading-relaxed text-white/65 sm:text-[8px]">Building my next level</p>
+                  <p className="mt-1 truncate text-[6px] text-white/35 sm:text-[7px]">One set at a time</p>
+                </div>
+              </div>
+              <div className="mt-2 flex gap-1.5 sm:mt-3"><span className="flex-1 rounded-md border border-white/[0.09] py-1 text-center text-[6px] text-white/65 sm:text-[7px]">Open project</span><span className="flex-1 rounded-md border border-white/[0.09] py-1 text-center text-[6px] text-white/65 sm:text-[7px]">View details</span></div>
+            </div>
+            <div className="mt-auto hidden items-center gap-1.5 pt-2 text-[7px] text-white/30 sm:flex"><span className="h-1 w-1 rounded-full bg-violet-300/80" />Local visual preview only</div>
+          </div>
+        </section>
+
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-[15px] border border-violet-200/[0.12] bg-[linear-gradient(155deg,rgba(35,29,54,0.95),rgba(19,18,29,0.98)_68%)] sm:rounded-[18px]">
+          <div className="flex shrink-0 items-center justify-between border-b border-white/[0.08] px-2.5 py-2 sm:px-4 sm:py-3">
+            <div><p className="text-[7px] font-semibold uppercase tracking-[0.15em] text-white/75 sm:text-[8px]">Preset editor</p><p className="mt-0.5 text-[6px] text-white/35 sm:text-[7px]">Custom activity details</p></div>
+            <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-1 text-[6px] text-white/45 sm:px-2 sm:text-[7px]">01 / 03</span>
+          </div>
+          <div className="flex min-h-0 flex-1 flex-col gap-2 p-2.5 sm:gap-2.5 sm:p-4">
+            <div className="grid grid-cols-3 gap-1 rounded-lg border border-white/[0.08] bg-black/20 p-1">
+              <span className="rounded-md bg-violet-300/15 py-1.5 text-center text-[7px] font-semibold text-violet-200 sm:text-[8px]">Playing</span>
+              <span className="rounded-md py-1.5 text-center text-[7px] text-white/40 sm:text-[8px]">Watching</span>
+              <span className="rounded-md py-1.5 text-center text-[7px] text-white/40 sm:text-[8px]">Listening</span>
+            </div>
+            <div className="min-h-0">
+              <p className="mb-1 text-[6px] uppercase tracking-[0.13em] text-white/40 sm:text-[7px]">Details</p>
+              <div className="rounded-lg border border-white/[0.09] bg-black/20 px-2.5 py-2 text-[7px] text-white/80 sm:px-3 sm:py-2.5 sm:text-[8px]">Building my next level</div>
+            </div>
+            <div className="min-h-0">
+              <p className="mb-1 text-[6px] uppercase tracking-[0.13em] text-white/40 sm:text-[7px]">State</p>
+              <div className="rounded-lg border border-white/[0.09] bg-black/20 px-2.5 py-2 text-[7px] text-white/65 sm:px-3 sm:py-2.5 sm:text-[8px]">One set at a time</div>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5">
+              <div className="rounded-lg border border-white/[0.08] bg-white/[0.025] p-2"><p className="text-[6px] text-white/35 sm:text-[7px]">ARTWORK KEY</p><p className="mt-1 truncate text-[7px] text-violet-200 sm:text-[8px]">ryu_activity</p></div>
+              <div className="rounded-lg border border-white/[0.08] bg-white/[0.025] p-2"><p className="text-[6px] text-white/35 sm:text-[7px]">TIMESTAMPS</p><p className="mt-1 text-[7px] text-white/65 sm:text-[8px]">Optional</p></div>
+            </div>
+            <div className="mt-auto flex items-center justify-between gap-2 border-t border-white/[0.08] pt-2 sm:pt-2.5">
+              <div className="min-w-0"><p className="text-[7px] font-semibold text-white/75 sm:text-[8px]">Local preset draft</p><p className="mt-0.5 text-[6px] text-white/35 sm:text-[7px]">JSON import / export</p></div>
+              <span className="shrink-0 rounded-lg border border-violet-200/20 bg-violet-300/10 px-2.5 py-2 text-[7px] font-semibold text-violet-100 sm:px-3 sm:text-[8px]">EDIT PRESET</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="flex shrink-0 items-center justify-between gap-2 rounded-lg border border-amber-200/10 bg-amber-200/[0.035] px-2.5 py-2 sm:px-3.5">
+        <div className="flex min-w-0 items-center gap-2"><span className="grid h-5 w-5 shrink-0 place-items-center rounded-md bg-amber-200/[0.08] text-[9px] text-amber-200/80">i</span><p className="truncate text-[7px] text-white/60 sm:text-[8px]">Illustrative concept · activities are not published to Discord</p></div>
+        <span className="hidden shrink-0 text-[7px] uppercase tracking-[0.12em] text-white/30 sm:block">Kotlin / Compose</span>
+      </div>
+    </div>
+  </div>
+);
+
 export const ProjectPreview: FC<ProjectPreviewProps> = ({ project, index, total, showPreview }) => {
   const pointerX = useMotionValue(0.5);
   const pointerY = useMotionValue(0.5);
@@ -131,18 +230,19 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({ project, index, total,
   const isRepository = project.href.includes("github.com/");
   const isTheoConcept = project.id === 1;
   const isRyuConcept = project.id === 2;
+  const isPresenceStudioConcept = project.id === 3;
 
   return (
     <div className="order-1 lg:order-2 lg:col-span-7">
       <div style={{ perspective: "1400px" }} className="relative">
         <motion.div onMouseMove={handleMove} onMouseLeave={handleLeave} style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-midnight shadow-2xl shadow-black/50 md:aspect-[16/10]">
-          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : <>
+          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : isPresenceStudioConcept && showPreview ? <PresenceStudioConceptPreview /> : <>
             <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-50`} />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center"><span className="text-[10rem] font-black leading-none tracking-tighter text-white/[0.08] md:text-[14rem]">{padIndex(index + 1)}</span></div>
             {project.image ? <Image src={project.image} alt={`${project.title} project artwork`} fill sizes="(min-width: 1024px) 58vw, 100vw" className="pointer-events-none select-none object-cover object-top" /> : <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-8 text-center"><span className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.08em] text-white/85">{project.title}</span><span className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/45">RYZENT / PRODUCT LAB</span></div>}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_45%)]" /><div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.4),transparent_45%)]" />
           </>}
-          <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>
+          <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept || isPresenceStudioConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>
           {project.href && <a href={project.href} target="_blank" rel="noopener noreferrer" style={{ transform: "translateZ(80px)" }} className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"><span>{isRepository ? "Open repository" : "Open project"}</span><span aria-hidden>↗</span></a>}
           <div style={{ transform: "translateZ(50px)" }} className={`${BADGE} pointer-events-none absolute bottom-5 left-5 text-white/85`}>{project.title}</div>
           <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
