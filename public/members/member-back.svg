@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1125" viewBox="0 0 800 1125">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080b19"/><stop offset="1" stop-color="#14162b"/></linearGradient>
+    <radialGradient id="a"><stop stop-color="#7a57db" stop-opacity=".3"/><stop offset="1" stop-color="#7a57db" stop-opacity="0"/></radialGradient>
+    <pattern id="lines" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M0 32 32 0" stroke="#ffffff" stroke-opacity=".055" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="800" height="1125" fill="url(#bg)"/>
+  <rect width="800" height="1125" fill="url(#lines)"/>
+  <circle cx="400" cy="490" r="390" fill="url(#a)"/>
+  <rect x="34" y="34" width="732" height="1057" rx="28" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="2"/>
+  <g transform="translate(76 82)">
+    <path d="M0 22 24 0l24 22-24 22z" fill="none" stroke="#7a57db" stroke-width="3"/>
+    <path d="M12 22h24M24 10v24" stroke="#ffffff" stroke-opacity=".9" stroke-width="2"/>
+    <text x="70" y="19" fill="#ffffff" font-family="Arial, sans-serif" font-size="31" font-weight="700" letter-spacing="7">RYZENT</text>
+    <text x="70" y="49" fill="#aab0c4" font-family="Arial, sans-serif" font-size="13" letter-spacing="5">STUDIO ACCESS</text>
+  </g>
+  <path d="M76 166H724" stroke="#ffffff" stroke-opacity=".18"/>
+  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="9">RYZENT</text>
+  <text x="400" y="420" text-anchor="middle" fill="#aab0c4" font-family="Arial, sans-serif" font-size="18" letter-spacing="6">ENGINEER THE UNEXPECTED</text>
+  <g transform="translate(270 520)" stroke="#b6a4ff" stroke-opacity=".75" fill="none">
+    <path d="M0 0H260V260H0z" stroke-width="3"/>
+    <path d="M24 24h58v58H24zM178 24h58v58h-58zM24 178h58v58H24z" stroke-width="12"/>
+    <path d="M104 24h32v32h-32zM104 80h20v20h-20zM146 100h90v20h-90zM104 132h132v20H104zM104 178h32v58h-32zM160 178h76v20h-76zM184 218h52v18h-52z" fill="#b6a4ff" stroke="none"/>
+  </g>
+  <text x="400" y="850" text-anchor="middle" fill="#d7dbea" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">INDEPENDENT BY DESIGN</text>
+  <text x="400" y="890" text-anchor="middle" fill="#8f96ad" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">SOFTWARE · SYSTEMS · EXPERIENCES</text>
+  <path d="M76 940H724" stroke="#ffffff" stroke-opacity=".18"/>
+  <text x="76" y="986" fill="#aab0c4" font-family="Arial, sans-serif" font-size="14" letter-spacing="4">RYZENT / INTERNAL CREDENTIAL</text>
+  <text x="724" y="986" text-anchor="end" fill="#aab0c4" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">EST. 2026</text>
+</svg>
