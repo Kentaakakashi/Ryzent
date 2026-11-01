@@ -509,6 +509,12 @@ body {
     animation: none;
   }
 
+  .ryzent-footer-wordmark::after {
+    animation: none;
+    background-position: center;
+    opacity: 0.55;
+  }
+
   .page-loader {
     display: none;
   }
