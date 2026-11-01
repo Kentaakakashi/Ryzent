@@ -17,18 +17,18 @@ const Lanyard = dynamic(() => import("@/components/react-bits/Lanyard"), {
 const MEMBERS = [
   {
     id: "01",
-    name: "Naren Kumar",
-    role: "Founder & Studio Lead",
-    detail: "Product direction · Engineering",
-    frontImage: "/members/member-01-front.svg",
+    name: "Member 01",
+    role: "Core team member",
+    detail: "Profile details to be added",
+    frontImage: "/members/member-02-front.svg",
     anchor: "left",
   },
   {
     id: "02",
-    name: "Member 02",
-    role: "Core team member",
-    detail: "Profile details to be added",
-    frontImage: "/members/member-02-front.svg",
+    name: "Naren Kumar",
+    role: "Founder & Studio Lead",
+    detail: "Product direction · Engineering",
+    frontImage: "/members/member-01-front.svg",
     anchor: "center",
   },
   {
