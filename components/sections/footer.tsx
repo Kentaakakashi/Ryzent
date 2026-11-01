@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, type FC } from "react";
 import { motion, useInView } from "motion/react";
 import { HERO_NAME, MY_SOCIALS } from "@/constants/portfolio-constants";
@@ -30,8 +31,15 @@ export const Footer: FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 text-base font-semibold tracking-tight text-white">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-royal to-coral text-sm font-black text-white">
-              R
+            <span className="inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg">
+              <Image
+                src="/Picsart_26-11-01_01-15-58-790.png"
+                alt=""
+                width={32}
+                height={32}
+                draggable={false}
+                className="pointer-events-none h-full w-full select-none object-contain"
+              />
             </span>
             <span>{HERO_NAME}</span>
           </div>
@@ -67,14 +75,24 @@ export const Footer: FC = () => {
         </div>
       </motion.div>
 
-      <motion.p
+      <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="mt-16 select-none text-center text-[20vw] font-black leading-none text-white/[0.03] md:text-[14rem]"
+        className="ryzent-footer-wordmark mx-auto mt-16 w-[min(92vw,1120px)]"
+        aria-hidden="true"
+        onContextMenu={(event) => event.preventDefault()}
+        onDragStart={(event) => event.preventDefault()}
       >
-        RYZENT
-      </motion.p>
+        <Image
+          src="/ryzent-wordmark.svg"
+          alt=""
+          width={1540}
+          height={180}
+          draggable={false}
+          className="pointer-events-none block h-auto w-full select-none opacity-[0.14]"
+        />
+      </motion.div>
     </footer>
   );
 };
