@@ -63,6 +63,11 @@ export const SITE_SECTIONS = [
     description: "The ideas, product philosophy and areas of exploration behind Ryzent.",
   },
   {
+    name: "Team",
+    hash: "#team",
+    description: "The people shaping Ryzent and the work behind the studio.",
+  },
+  {
     name: "Focus Areas",
     hash: "#services",
     description: "Intelligent assistants, mobile-first products, interactive digital experiences and games.",
