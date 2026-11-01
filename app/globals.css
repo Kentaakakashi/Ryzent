@@ -181,6 +181,61 @@ body {
   pointer-events: none;
 }
 
+.ryzent-footer-wordmark {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.ryzent-footer-wordmark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    108deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.035) 28%,
+    rgba(255, 255, 255, 0.18) 40%,
+    rgba(255, 255, 255, 0.72) 48.5%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.48) 53%,
+    rgba(255, 255, 255, 0.12) 62%,
+    transparent 78%
+  );
+  background-repeat: no-repeat;
+  background-size: 48% 100%;
+  background-position: -115% center;
+  -webkit-mask-image: url("/ryzent-wordmark.svg");
+  mask-image: url("/ryzent-wordmark.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  animation: ryzent-wordmark-scan 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes ryzent-wordmark-scan {
+  0%, 8% {
+    background-position: -115% center;
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  68% {
+    background-position: 220% center;
+    opacity: 1;
+  }
+  76%, 100% {
+    background-position: 220% center;
+    opacity: 0;
+  }
+}
+
 .shimmer-text {
   background: linear-gradient(90deg, #a5a5a5 0%, #ffffff 50%, #a5a5a5 100%);
   background-size: 200% auto;
