@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FC } from "react";
+import { useEffect, useRef, useState, type FC } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -32,29 +32,59 @@ const MEMBERS = [
   },
 ] as const;
 
+const Lanyard = dynamic(() => import("@/components/react-bits/Lanyard"), {
+  ssr: false,
+  loading: () => null,
+});
+
 const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) => {
-  const [flipped, setFlipped] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "180px 0px" }
+    );
+
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <article className="relative min-w-0 text-center">
-      <div className="relative flex h-[330px] w-full flex-col items-center sm:h-[390px] lg:h-[430px]">
-        <div aria-hidden="true" className="absolute left-1/2 top-0 h-7 w-px -translate-x-1/2 bg-gradient-to-b from-lavender/70 to-white/35" />
-        <button
-          type="button"
-          aria-label={`Flip ${member.name}'s credential`}
-          onClick={() => setFlipped((value) => !value)}
-          className="absolute left-1/2 top-6 z-10 w-[min(88%,170px)] -translate-x-1/2 cursor-pointer border-0 bg-transparent p-0 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lavender sm:w-[min(90%,210px)]"
-        >
-          <span className="relative block">
-            <span aria-hidden="true" className="absolute left-1/2 top-[-24px] h-6 w-px -translate-x-1/2 bg-gradient-to-b from-white/40 to-lavender/70" />
-            <img
-              src={flipped ? "/members/member-back.svg" : member.frontImage}
-              alt={`${member.name} Ryzent credential`}
-              draggable={false}
-              className="block h-auto w-full drop-shadow-[0_18px_28px_rgba(0,0,0,0.38)]"
-            />
-          </span>
-        </button>
+      <div
+        ref={stageRef}
+        className="relative h-[490px] w-full min-w-0 sm:h-[560px] lg:h-[600px]"
+      >
+        {ready ? (
+          <Lanyard
+            frontImage={member.frontImage}
+            backImage="/members/member-back.svg"
+            strapImage="/members/strap.svg"
+            anchor="center"
+            metal="graphite"
+            strapColor="#514775"
+            strapWidth={0.4}
+            strapLength={0.48}
+            gravity={0.9}
+            damping={0.58}
+            elasticity={0.42}
+            breeze={0.08}
+            size={0.9}
+            interactive
+            intro
+            style={{ width: "100%", height: "100%" }}
+          />
+        ) : null}
       </div>
 
       <div className="mx-auto mt-1 min-w-0 max-w-[16rem] px-1 pt-1 sm:mt-2 sm:px-2">
