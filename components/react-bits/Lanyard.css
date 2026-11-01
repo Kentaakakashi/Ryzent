@@ -10,3 +10,18 @@
   width: 100%;
   height: 100%;
 }
+
+/* Full-stage Lanyard layers: all three scenes use the same transparent hit area. */
+.lanyard-shared-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible !important;
+  background: transparent;
+  pointer-events: none;
+}
+
+.lanyard-shared-layer .lanyard-canvas {
+  pointer-events: none;
+}
