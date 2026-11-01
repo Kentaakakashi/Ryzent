@@ -216,6 +216,43 @@ const PresenceStudioConceptPreview: FC = () => (
   </div>
 );
 
+
+const ApiSentinelConceptPreview: FC = () => (
+  <div className="absolute inset-0 overflow-hidden bg-[#090d12] text-[#e7edf5]">
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_0%,rgba(45,212,191,0.13),transparent_42%),radial-gradient(ellipse_at_0%_100%,rgba(59,130,246,0.10),transparent_40%)]" />
+    <div className="relative flex h-full flex-col gap-3 p-3 sm:gap-4 sm:p-5 md:p-6">
+      <header className="flex shrink-0 items-center justify-between border-b border-white/[0.09] pb-3">
+        <div className="flex items-center gap-2.5"><div className="grid h-8 w-8 place-items-center rounded-xl border border-teal-300/25 bg-teal-300/[0.08] text-lg font-black text-teal-200">⌁</div><div><p className="text-[11px] font-semibold sm:text-sm">API Sentinel</p><p className="mt-0.5 text-[7px] uppercase tracking-[0.19em] text-white/35 sm:text-[8px]">Service observability</p></div></div>
+        <span className="rounded-full border border-amber-300/20 bg-amber-300/[0.06] px-2.5 py-1.5 text-[7px] uppercase tracking-[0.12em] text-amber-200 sm:text-[8px]">Pre-alpha</span>
+      </header>
+      <div className="flex shrink-0 items-end justify-between gap-3"><div><p className="mb-1 flex items-center gap-1.5 text-[7px] uppercase tracking-[0.2em] text-teal-200/65 sm:text-[8px]"><span className="h-px w-4 bg-teal-300/70" /> SYSTEM OVERVIEW</p><h2 className="text-[clamp(18px,3vw,28px)] font-semibold leading-none tracking-[-0.055em]">Know what&apos;s <span className="text-teal-300">going on.</span></h2></div><span className="hidden text-[7px] uppercase tracking-[0.14em] text-white/30 sm:block">DASHBOARD / CONCEPT</span></div>
+      <div className="grid shrink-0 grid-cols-3 gap-2 sm:gap-3">
+        <section className="rounded-xl border border-white/[0.09] bg-white/[0.035] p-2.5 sm:rounded-2xl sm:p-3.5"><p className="text-[6px] uppercase tracking-[0.13em] text-white/40 sm:text-[8px]">Endpoints</p><p className="mt-1.5 text-[clamp(18px,3vw,28px)] font-semibold leading-none">08</p><p className="mt-1.5 text-[6px] text-white/35 sm:text-[8px]">Illustrative count</p></section>
+        <section className="rounded-xl border border-white/[0.09] bg-white/[0.035] p-2.5 sm:rounded-2xl sm:p-3.5"><p className="text-[6px] uppercase tracking-[0.13em] text-white/40 sm:text-[8px]">Median latency</p><p className="mt-1.5 text-[clamp(18px,3vw,28px)] font-semibold leading-none">124<span className="ml-0.5 text-[10px] text-white/45">ms</span></p><p className="mt-1.5 text-[6px] text-white/35 sm:text-[8px]">Mock metric only</p></section>
+        <section className="rounded-xl border border-white/[0.09] bg-white/[0.035] p-2.5 sm:rounded-2xl sm:p-3.5"><p className="text-[6px] uppercase tracking-[0.13em] text-white/40 sm:text-[8px]">Incidents</p><p className="mt-1.5 text-[clamp(18px,3vw,28px)] font-semibold leading-none">—</p><p className="mt-1.5 text-[6px] text-white/35 sm:text-[8px]">No live data</p></section>
+      </div>
+      <div className="grid min-h-0 flex-1 grid-cols-[1.15fr_.85fr] gap-2 sm:gap-3">
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-white/[0.09] bg-[#101720]/90 sm:rounded-2xl">
+          <div className="flex shrink-0 items-center justify-between border-b border-white/[0.07] px-2.5 py-2.5 sm:px-4 sm:py-3"><div><p className="text-[7px] font-semibold uppercase tracking-[0.15em] text-white/75 sm:text-[8px]">Endpoint registry</p><p className="mt-0.5 text-[6px] text-white/35 sm:text-[7px]">Example service list</p></div><span className="rounded-md border border-white/10 px-2 py-1 text-[6px] text-white/45">FILTERS</span></div>
+          <div className="flex min-h-0 flex-1 flex-col justify-evenly px-2.5 sm:px-4">
+            {[
+              {method:"GET",name:"/api/health",status:"READY",color:"text-emerald-300",bar:"w-[28%]",latency:"42 ms"},
+              {method:"GET",name:"/api/v1/users",status:"SAMPLE",color:"text-teal-200",bar:"w-[54%]",latency:"124 ms"},
+              {method:"POST",name:"/api/v1/events",status:"SAMPLE",color:"text-teal-200",bar:"w-[73%]",latency:"218 ms"},
+              {method:"GET",name:"/api/metrics",status:"PLANNED",color:"text-amber-200",bar:"w-[39%]",latency:"—"},
+            ].map((endpoint) => <div key={endpoint.name} className="border-b border-white/[0.055] py-2 last:border-0 sm:py-2.5"><div className="flex items-center gap-1.5 sm:gap-2"><span className="w-7 shrink-0 rounded bg-white/[0.055] py-1 text-center text-[6px] font-bold text-teal-200/80 sm:w-9 sm:text-[7px]">{endpoint.method}</span><span className="min-w-0 flex-1 truncate font-mono text-[7px] text-white/75 sm:text-[9px]">{endpoint.name}</span><span className={`shrink-0 text-[5px] font-semibold tracking-[0.1em] sm:text-[6px] ${endpoint.color}`}>{endpoint.status}</span></div><div className="mt-1.5 flex items-center gap-2"><div className="h-1 flex-1 overflow-hidden rounded-full bg-white/[0.07]"><div className={`h-full rounded-full bg-teal-300/70 ${endpoint.bar}`} /></div><span className="w-10 text-right font-mono text-[6px] text-white/35 sm:w-12 sm:text-[7px]">{endpoint.latency}</span></div></div>)}
+          </div>
+        </section>
+        <div className="grid min-h-0 grid-rows-[1fr_.85fr] gap-2 sm:gap-3">
+          <section className="flex min-h-0 flex-col rounded-xl border border-white/[0.09] bg-[#101720]/90 p-2.5 sm:rounded-2xl sm:p-3.5"><div className="flex items-center justify-between"><p className="text-[7px] font-semibold uppercase tracking-[0.12em] text-white/70 sm:text-[8px]">Latency profile</p><span className="text-[6px] text-white/30">SAMPLE</span></div><div className="mt-3 flex min-h-0 flex-1 items-end gap-1.5 sm:gap-2">{[30,43,36,58,48,74,52,88,63,70,45,58].map((height,i)=><div key={i} className="flex h-full flex-1 items-end"><div className="w-full rounded-t-[3px] bg-teal-300/50" style={{height:`${height}%`,opacity:0.35+(i%4)*0.15}} /></div>)}</div><div className="mt-2 flex justify-between text-[6px] text-white/30"><span>OLDER</span><span>RECENT</span></div></section>
+          <section className="flex min-h-0 flex-col rounded-xl border border-white/[0.09] bg-[#101720]/90 p-2.5 sm:rounded-2xl sm:p-3.5"><p className="text-[7px] font-semibold uppercase tracking-[0.12em] text-white/70 sm:text-[8px]">Pipeline status</p><div className="mt-2.5 space-y-2 sm:mt-3"><div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300/80" /><span className="flex-1 text-[7px] text-white/60 sm:text-[8px]">API foundation</span><span className="text-[6px] text-emerald-200/80">EXISTS</span></div><div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-amber-300/80" /><span className="flex-1 text-[7px] text-white/60 sm:text-[8px]">Scheduled checks</span><span className="text-[6px] text-amber-200/80">PLANNED</span></div><div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-amber-300/80" /><span className="flex-1 text-[7px] text-white/60 sm:text-[8px]">Alert delivery</span><span className="text-[6px] text-amber-200/80">PLANNED</span></div></div></section>
+        </div>
+      </div>
+      <div className="flex shrink-0 items-center justify-between gap-2 rounded-lg border border-amber-200/10 bg-amber-200/[0.035] px-2.5 py-2 sm:px-3.5"><div className="flex min-w-0 items-center gap-2"><span className="grid h-5 w-5 shrink-0 place-items-center rounded-md bg-amber-200/[0.08] text-[9px] text-amber-200/80">i</span><p className="truncate text-[7px] text-white/60 sm:text-[8px]">Concept dashboard · metrics are illustrative, not live telemetry</p></div><span className="hidden shrink-0 text-[7px] uppercase tracking-[0.12em] text-white/30 sm:block">TYPESCRIPT / FASTIFY</span></div>
+    </div>
+  </div>
+);
+
 export const ProjectPreview: FC<ProjectPreviewProps> = ({ project, index, total, showPreview }) => {
   const pointerX = useMotionValue(0.5);
   const pointerY = useMotionValue(0.5);
@@ -231,18 +268,19 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({ project, index, total,
   const isTheoConcept = project.id === 1;
   const isRyuConcept = project.id === 2;
   const isPresenceStudioConcept = project.id === 3;
+  const isApiSentinelConcept = project.id === 4;
 
   return (
     <div className="order-1 lg:order-2 lg:col-span-7">
       <div style={{ perspective: "1400px" }} className="relative">
         <motion.div onMouseMove={handleMove} onMouseLeave={handleLeave} style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-midnight shadow-2xl shadow-black/50 md:aspect-[16/10]">
-          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : isPresenceStudioConcept && showPreview ? <PresenceStudioConceptPreview /> : <>
+          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : isPresenceStudioConcept && showPreview ? <PresenceStudioConceptPreview /> : isApiSentinelConcept && showPreview ? <ApiSentinelConceptPreview /> : <>
             <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-50`} />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center"><span className="text-[10rem] font-black leading-none tracking-tighter text-white/[0.08] md:text-[14rem]">{padIndex(index + 1)}</span></div>
             {project.image ? <Image src={project.image} alt={`${project.title} project artwork`} fill sizes="(min-width: 1024px) 58vw, 100vw" className="pointer-events-none select-none object-cover object-top" /> : <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-8 text-center"><span className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.08em] text-white/85">{project.title}</span><span className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/45">RYZENT / PRODUCT LAB</span></div>}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_45%)]" /><div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.4),transparent_45%)]" />
           </>}
-          <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept || isPresenceStudioConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>
+          <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept || isPresenceStudioConcept || isApiSentinelConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>
           {project.href && <a href={project.href} target="_blank" rel="noopener noreferrer" style={{ transform: "translateZ(80px)" }} className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"><span>{isRepository ? "Open repository" : "Open project"}</span><span aria-hidden>↗</span></a>}
           <div style={{ transform: "translateZ(50px)" }} className={`${BADGE} pointer-events-none absolute bottom-5 left-5 text-white/85`}>{project.title}</div>
           <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
