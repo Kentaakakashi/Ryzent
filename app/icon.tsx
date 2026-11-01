@@ -13,23 +13,17 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          overflow: "hidden",
           borderRadius: 8,
-          background:
-            "linear-gradient(135deg, #5c33cc 0%, #ca2f8c 55%, #ea4884 100%)",
-          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.35)",
+          background: "#080a18",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            color: "white",
-            fontFamily: "system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: 23,
-            lineHeight: 1,
-            letterSpacing: -1,
-          }}
-        >R</div>
+        <img
+          src="https://ryzent.netlify.app/New%20Project%20117%20%5BCA1F89B%5D.png"
+          width="28"
+          height="28"
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
     { ...size }
