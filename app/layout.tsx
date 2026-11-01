@@ -20,7 +20,8 @@ const funnelDisplay = Funnel_Display({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const SOCIAL_PREVIEW_IMAGE = "/file_00000000b8bc82089a4455150015c1a5.png";
+const SOCIAL_PREVIEW_IMAGE =
+  "https://ryzent.netlify.app/file_00000000b8bc82089a4455150015c1a5.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: SOCIAL_PREVIEW_IMAGE,
+        type: "image/png",
         alt: "Ryzent — creative technology and digital experiences",
       },
     ],
