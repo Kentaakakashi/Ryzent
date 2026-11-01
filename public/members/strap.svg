@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="1024" viewBox="0 0 256 1024">
+  <defs>
+    <linearGradient id="strap" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#17142f"/><stop offset=".45" stop-color="#28204a"/><stop offset="1" stop-color="#111a2c"/></linearGradient>
+    <pattern id="weave" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 0 16 16M16 0 0 16" stroke="#ffffff" stroke-opacity=".09" stroke-width="2"/>
+      <path d="M8 0V16M0 8H16" stroke="#b6a4ff" stroke-opacity=".07" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="256" height="1024" fill="url(#strap)"/>
+  <rect width="256" height="1024" fill="url(#weave)"/>
+  <path d="M22 0V1024M234 0V1024" stroke="#b6a4ff" stroke-opacity=".32" stroke-width="3"/>
+  <path d="M128 0V1024" stroke="#ffffff" stroke-opacity=".12" stroke-width="1"/>
+  <g fill="#ffffff" fill-opacity=".65" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" text-anchor="middle">
+    <text x="128" y="100">RZ</text><text x="128" y="340">RZ</text><text x="128" y="580">RZ</text><text x="128" y="820">RZ</text>
+  </g>
+</svg>
