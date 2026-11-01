@@ -75,13 +75,13 @@ const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) 
             strapColor="#514775"
             strapWidth={0.4}
             strapLength={0.48}
-            gravity={0.9}
-            damping={0.58}
-            elasticity={0.42}
-            breeze={0.08}
+            gravity={1}
+            damping={0.86}
+            elasticity={0.22}
+            breeze={0}
             size={0.9}
             interactive
-            intro
+            intro={false}
             style={{ width: "100%", height: "100%" }}
           />
         ) : null}
