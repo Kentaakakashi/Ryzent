@@ -27,6 +27,11 @@ export const ThemedGlobe: FC<ThemedGlobeProps> = ({ className }) => {
       ? INSTANCE_COUNT.tablet
       : INSTANCE_COUNT.desktop;
 
+  // The globe covers the viewport, so high device-pixel ratios make every
+  // frame unnecessarily expensive. Keep a little extra detail on desktop,
+  // while capping smaller screens more aggressively.
+  const dpr: [number, number] = isTablet ? [0.75, 1] : [0.85, 1.15];
+
   const handleCreated = useCallback((state: RootState) => {
     state.gl.setClearColor(0x000000, 0);
   }, []);
@@ -37,7 +42,7 @@ export const ThemedGlobe: FC<ThemedGlobeProps> = ({ className }) => {
       className={twMerge("pointer-events-none fixed inset-0 z-0", className)}
     >
       <Canvas
-        dpr={[1, 1.5]}
+        dpr={dpr}
         camera={{
           position: [0, 0, CAMERA_DISTANCE],
           near: 0.1,
