@@ -1,6 +1,6 @@
 "use client";
 
-import { type FC, type MouseEvent } from "react";
+import { useState, type FC, type MouseEvent } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { TILT_RANGE, TILT_SPRING } from "@/constants/projects-constants";
@@ -217,6 +217,136 @@ const PresenceStudioConceptPreview: FC = () => (
 );
 
 
+
+const NorthstarConceptPreview: FC = () => {
+  const [route, setRoute] = useState<"steady" | "focused" | "flexible">("steady");
+  const [timeTight, setTimeTight] = useState(false);
+
+  const routeOptions = [
+    { id: "steady" as const, name: "Steady", duration: "18 months", load: "4–5 hrs / week", note: "Room to learn and test" },
+    { id: "focused" as const, name: "Focused", duration: "12 months", load: "7–9 hrs / week", note: "More momentum, less slack" },
+    { id: "flexible" as const, name: "Flexible", duration: "24 months", load: "2–3 hrs / week", note: "Protects your breathing room" },
+  ];
+
+  const selectedRoute = routeOptions.find((option) => option.id === route) ?? routeOptions[0];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-[#f1f0e9] text-[#26312b]">
+      <div className="flex h-full min-h-0">
+        <aside className="flex w-[48px] shrink-0 flex-col border-r border-[#e4e3dc] bg-[#f8f7f2] sm:w-[78px] md:w-[104px]">
+          <div className="flex h-11 shrink-0 items-center justify-center gap-2 border-b border-[#e8e7df] sm:h-12 md:justify-start md:px-3">
+            <div className="grid h-7 w-7 shrink-0 place-items-center rounded-[10px] bg-[#263b32] text-[15px] text-[#d9e4c6] shadow-sm">✳</div>
+            <div className="hidden min-w-0 md:block"><p className="text-[10px] font-bold tracking-[0.04em]">northstar</p><p className="text-[6px] tracking-[0.18em] text-[#9b9e91]">PERSONAL OS</p></div>
+          </div>
+          <div className="px-1.5 pt-3 sm:px-2 md:px-2.5">
+            <p className="mb-2 hidden px-2 text-[6px] font-semibold tracking-[0.16em] text-[#a3a596] md:block">YOUR SPACE</p>
+            <div className="mb-1 flex items-center justify-center gap-2 rounded-lg bg-[#e9ede4] px-1.5 py-2 text-[#2b4639] md:justify-start md:px-2.5"><span className="text-[12px]">⌂</span><span className="hidden text-[8px] font-semibold md:block">Overview</span></div>
+            <div className="mb-1 flex items-center justify-center gap-2 rounded-lg px-1.5 py-2 text-[#929789] md:justify-start md:px-2.5"><span className="text-[12px]">◎</span><span className="hidden text-[8px] md:block">My paths</span></div>
+            <div className="mb-1 flex items-center justify-center gap-2 rounded-lg px-1.5 py-2 text-[#929789] md:justify-start md:px-2.5"><span className="text-[12px]">◷</span><span className="hidden text-[8px] md:block">Milestones</span></div>
+            <div className="mb-1 flex items-center justify-center gap-2 rounded-lg px-1.5 py-2 text-[#929789] md:justify-start md:px-2.5"><span className="text-[12px]">▤</span><span className="hidden text-[8px] md:block">Field notes</span></div>
+            <div className="my-3 hidden border-t border-[#e7e6de] md:block" />
+            <p className="mb-2 hidden px-2 text-[6px] font-semibold tracking-[0.16em] text-[#a3a596] md:block">TOOLS</p>
+            <div className="flex items-center justify-center gap-2 px-1.5 py-2 text-[#a0a394] md:justify-start md:px-2.5"><span className="text-[12px]">⌘</span><span className="hidden text-[8px] md:block">Compass</span></div>
+          </div>
+          <div className="mt-auto border-t border-[#e8e7df] p-1.5 sm:p-2">
+            <div className="flex items-center justify-center gap-2 rounded-lg bg-[#efeee7] p-1.5 md:justify-start md:p-2">
+              <div className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#d9d8ca] text-[7px] font-semibold text-[#566354]">A</div>
+              <div className="hidden min-w-0 md:block"><p className="text-[8px] font-semibold text-[#566354]">Alex Morgan</p><p className="text-[6px] text-[#a0a394]">Personal space</p></div>
+            </div>
+          </div>
+        </aside>
+
+        <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <header className="flex h-11 shrink-0 items-center justify-between border-b border-[#e4e3dc] bg-[#fbfaf6] px-2.5 sm:px-4 md:px-5">
+            <div className="flex min-w-0 items-center gap-1.5 text-[7px] sm:gap-2 sm:text-[8px]"><span className="text-[#a1a294]">Personal space</span><span className="text-[#c2c1b7]">/</span><span className="truncate font-semibold text-[#465449]">Overview</span></div>
+            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2.5"><span className="hidden text-[7px] text-[#a1a294] sm:inline">All changes saved</span><span className="rounded-full border border-[#dedfd5] bg-white px-2 py-1 text-[6px] font-semibold tracking-[0.12em] text-[#77816e] sm:text-[7px]">DESIGN STUDY</span><div className="grid h-6 w-6 place-items-center rounded-full bg-[#e0e5d9] text-[7px] font-semibold text-[#4c624f]">AM</div></div>
+          </header>
+
+          <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-hidden p-2.5 sm:gap-2.5 sm:p-4 md:gap-3 md:p-5">
+            <div className="flex shrink-0 items-end justify-between gap-2">
+              <div className="min-w-0">
+                <div className="mb-1 flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#8b9a70]" /><p className="text-[6px] font-semibold uppercase tracking-[0.17em] text-[#879278] sm:text-[7px]">Your north star / active path</p></div>
+                <h2 className="text-[clamp(15px,2.5vw,24px)] font-semibold leading-tight tracking-[-0.055em] text-[#2d3a31]">Make progress feel possible.</h2>
+                <p className="mt-0.5 hidden text-[7px] text-[#858a7c] sm:block sm:text-[8px]">A direction worth moving toward, with enough room for real life.</p>
+              </div>
+              <span className="mb-0.5 shrink-0 rounded-full border border-[#e0dfd6] bg-white/70 px-2 py-1 text-[6px] text-[#828879] sm:px-2.5 sm:text-[7px]">PLAN 01 · 18 MONTHS</span>
+            </div>
+
+            <div className="grid min-h-0 flex-1 grid-cols-[1.3fr_.82fr] gap-2 sm:gap-3">
+              <div className="flex min-h-0 flex-col gap-2 sm:gap-2.5">
+                <section className="relative flex shrink-0 flex-col justify-between overflow-hidden rounded-[13px] bg-[#2d4036] p-3 text-[#f5f3e9] sm:rounded-[16px] sm:p-4 md:p-5">
+                  <div className="pointer-events-none absolute -right-8 -top-12 h-36 w-36 rounded-full border border-[#d6dfc5]/10 sm:h-48 sm:w-48"><div className="absolute inset-4 rounded-full border border-dashed border-[#d6dfc5]/15" /><div className="absolute inset-10 rounded-full bg-[#d6dfc5]/[0.05]" /><div className="absolute inset-0 grid place-items-center text-[54px] font-extralight text-[#d6dfc5]/15 sm:text-[76px]">✳</div></div>
+                  <div className="relative z-10 flex items-center justify-between gap-2"><span className="rounded-full border border-[#d6dfc5]/20 bg-white/[0.06] px-2 py-1 text-[6px] font-semibold tracking-[0.16em] text-[#dbe3cf] sm:text-[7px]">THE BIG PICTURE</span><span className="text-[6px] tracking-[0.13em] text-[#d6dfc5]/55 sm:text-[7px]">01 / 03</span></div>
+                  <div className="relative z-10 my-3 sm:my-4">
+                    <p className="text-[7px] uppercase tracking-[0.18em] text-[#d6dfc5]/55">I&apos;M WORKING TOWARD</p>
+                    <h3 className="mt-1.5 max-w-[340px] text-[clamp(17px,3vw,29px)] font-medium leading-[1.02] tracking-[-0.06em]">Build an independent <span className="font-serif italic text-[#d7e2c1]">product studio.</span></h3>
+                    <p className="mt-2 max-w-[300px] text-[7px] leading-relaxed text-[#e4e8dc]/65 sm:text-[8px]">Turn a broad ambition into a sequence of small experiments, useful skills and real releases.</p>
+                  </div>
+                  <div className="relative z-10 flex items-center justify-between gap-2 border-t border-white/[0.12] pt-2.5 sm:pt-3">
+                    <div><p className="text-[6px] uppercase tracking-[0.15em] text-[#d6dfc5]/50">Current direction</p><p className="mt-0.5 text-[7px] font-medium text-[#f4f2e9] sm:text-[8px]">Learn · build · validate</p></div>
+                    <span className="rounded-lg bg-[#dbe4cd] px-2.5 py-1.5 text-[6px] font-semibold text-[#304238] sm:text-[7px]">EDIT INTENTION ↗</span>
+                  </div>
+                </section>
+
+                <section className="min-h-0 flex-1 overflow-hidden rounded-[13px] border border-[#e3e2d9] bg-[#fbfaf6] p-2.5 sm:rounded-[15px] sm:p-3">
+                  <div className="flex items-center justify-between gap-2"><div><h3 className="text-[8px] font-semibold text-[#3e4b40] sm:text-[9px]">Choose a route, not a rigid rule.</h3><p className="mt-0.5 text-[6px] text-[#999b8e] sm:text-[7px]">Same north star. Different pace.</p></div><span className="text-[6px] text-[#8a927e]">3 OPTIONS</span></div>
+                  <div className="mt-2 grid grid-cols-3 gap-1.5 sm:gap-2">
+                    {routeOptions.map((option) => (
+                      <button key={option.id} type="button" aria-pressed={route === option.id} onClick={() => setRoute(option.id)} className={route === option.id ? "min-w-0 rounded-lg border border-[#7f9477] bg-[#edf1e8] p-1.5 text-left shadow-[inset_0_0_0_1px_rgba(127,148,119,0.12)] sm:p-2" : "min-w-0 rounded-lg border border-[#e9e7df] bg-white p-1.5 text-left hover:border-[#b9c1b1] sm:p-2"}>
+                        <div className="flex items-center justify-between gap-1"><span className="truncate text-[6px] font-semibold text-[#4a5849] sm:text-[7px]">{option.name}</span><span className={route === option.id ? "h-1.5 w-1.5 shrink-0 rounded-full bg-[#768d6d]" : "h-1.5 w-1.5 shrink-0 rounded-full bg-[#deded5]"} /></div>
+                        <p className="mt-1 text-[8px] font-semibold leading-none text-[#354438] sm:text-[10px]">{option.duration}</p>
+                        <p className="mt-1 truncate text-[5px] text-[#929588] sm:text-[6px]">{option.load}</p>
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-2 flex items-center justify-between gap-2 border-t border-[#eeede6] pt-2">
+                    <p className="min-w-0 truncate text-[6px] text-[#8b9083] sm:text-[7px]">{selectedRoute.note} · {selectedRoute.duration.toLowerCase()}</p>
+                    <span className="shrink-0 text-[6px] font-semibold text-[#708369]">SELECTED ↗</span>
+                  </div>
+                </section>
+
+                <section className="shrink-0 rounded-[13px] border border-[#e3e2d9] bg-[#fbfaf6] p-2.5 sm:rounded-[15px] sm:p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2"><h3 className="text-[7px] font-semibold text-[#485347] sm:text-[8px]">The next few landmarks</h3><span className="text-[6px] text-[#a0a292]">A DIRECTION, NOT A DEADLINE</span></div>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    <div className="border-l-2 border-[#8c9b7b] pl-1.5"><p className="text-[5px] font-semibold tracking-[0.1em] text-[#88927d] sm:text-[6px]">01 · NOW</p><p className="mt-1 text-[6px] font-semibold text-[#465347] sm:text-[7px]">Find a problem</p><p className="mt-0.5 text-[5px] text-[#a0a292] sm:text-[6px]">2–3 weeks</p></div>
+                    <div className="border-l-2 border-[#d7d8cc] pl-1.5"><p className="text-[5px] font-semibold tracking-[0.1em] text-[#a0a292] sm:text-[6px]">02 · NEXT</p><p className="mt-1 text-[6px] font-semibold text-[#626b5d] sm:text-[7px]">Build a small test</p><p className="mt-0.5 text-[5px] text-[#a0a292] sm:text-[6px]">1–2 months</p></div>
+                    <div className="border-l-2 border-[#e3e2d9] pl-1.5"><p className="text-[5px] font-semibold tracking-[0.1em] text-[#a0a292] sm:text-[6px]">03 · LATER</p><p className="mt-1 text-[6px] font-semibold text-[#626b5d] sm:text-[7px]">Release v1</p><p className="mt-0.5 text-[5px] text-[#a0a292] sm:text-[6px]">When ready</p></div>
+                  </div>
+                </section>
+              </div>
+
+              <div className="flex min-h-0 flex-col gap-2 sm:gap-2.5">
+                <section className="shrink-0 rounded-[13px] border border-[#e3e2d9] bg-[#fbfaf6] p-2.5 sm:rounded-[15px] sm:p-3">
+                  <div className="flex items-center justify-between gap-2"><div><h3 className="text-[8px] font-semibold text-[#465247] sm:text-[9px]">Reality check</h3><p className="mt-0.5 text-[6px] text-[#a0a292] sm:text-[7px]">Built around your actual week.</p></div><span className="grid h-6 w-6 place-items-center rounded-lg bg-[#edf0e8] text-[11px] text-[#75856c]">⌁</span></div>
+                  <div className="mt-2 space-y-2">
+                    <div className="flex items-center justify-between gap-2 border-b border-[#efeee8] pb-1.5"><div><p className="text-[6px] text-[#a0a292]">Available time</p><p className="mt-0.5 text-[7px] font-semibold text-[#4a574a]">5 hours / week</p></div><span className="rounded-md bg-[#eef1e9] px-1.5 py-1 text-[5px] font-semibold text-[#71816a]">MODERATE</span></div>
+                    <div className="flex items-center justify-between gap-2 border-b border-[#efeee8] pb-1.5"><div><p className="text-[6px] text-[#a0a292]">Starting budget</p><p className="mt-0.5 text-[7px] font-semibold text-[#4a574a]">Low / self-funded</p></div><span className="rounded-md bg-[#f4f0e7] px-1.5 py-1 text-[5px] font-semibold text-[#9a8660]">PROTECT IT</span></div>
+                    <div className="flex items-center justify-between gap-2"><div><p className="text-[6px] text-[#a0a292]">Energy pattern</p><p className="mt-0.5 text-[7px] font-semibold text-[#4a574a]">Variable week to week</p></div><span className="rounded-md bg-[#eef1e9] px-1.5 py-1 text-[5px] font-semibold text-[#71816a]">FLEXIBLE</span></div>
+                  </div>
+                </section>
+
+                <section className={timeTight ? "shrink-0 rounded-[13px] border border-[#d6dfcc] bg-[#edf1e8] p-2.5 sm:rounded-[15px] sm:p-3" : "shrink-0 rounded-[13px] border border-[#e5e0d4] bg-[#f8f5ec] p-2.5 sm:rounded-[15px] sm:p-3"}>
+                  <div className="flex items-center justify-between gap-2"><div className="flex items-center gap-1.5"><span className="text-[10px] text-[#8b977d]">↗</span><p className="text-[7px] font-semibold text-[#59634f] sm:text-[8px]">When life changes</p></div><span className="rounded-full border border-[#e2dfd2] bg-white/70 px-1.5 py-0.5 text-[5px] text-[#8e927e]">LIVE DEMO</span></div>
+                  <p className="mt-1.5 text-[6px] leading-relaxed text-[#858a79] sm:text-[7px]">{timeTight ? "Your available time dropped. Northstar shifts the pace instead of treating the change like failure." : "A busy month is coming up. See how the plan responds without throwing the goal away."}</p>
+                  <div className="mt-2 flex items-center justify-between gap-2"><div className="min-w-0"><p className="text-[6px] font-semibold text-[#56624e]">{timeTight ? "Flexible route selected" : "Time is tighter than usual"}</p><p className="mt-0.5 text-[5px] text-[#9a9d8d]">{timeTight ? "2–3 hours / week · lower pressure" : "Try a smaller weekly commitment"}</p></div><button type="button" onClick={() => { setTimeTight((value) => !value); setRoute(timeTight ? "steady" : "flexible"); }} className="shrink-0 rounded-lg bg-[#33483a] px-2 py-1.5 text-[5px] font-semibold text-white hover:bg-[#405844] sm:text-[6px]">{timeTight ? "UNDO CHANGE" : "REPLAN ↗"}</button></div>
+                </section>
+
+                <section className="flex min-h-0 flex-1 flex-col justify-between rounded-[13px] bg-[#e6e9df] p-2.5 sm:rounded-[15px] sm:p-3">
+                  <div><div className="flex items-center gap-1.5"><span className="grid h-5 w-5 place-items-center rounded-md bg-white/75 text-[10px] text-[#71836d]">✦</span><p className="text-[7px] font-semibold text-[#485747] sm:text-[8px]">Your next small move</p></div><p className="mt-2 text-[9px] font-semibold leading-tight tracking-[-0.02em] text-[#3f4b40] sm:text-[11px]">Talk to three people about a problem they wish was easier.</p><p className="mt-1.5 text-[6px] text-[#879080] sm:text-[7px]">One conversation at a time. No need to build anything yet.</p></div>
+                  <div className="mt-3 flex items-center justify-between gap-2 border-t border-[#cfd5c8] pt-2"><span className="text-[6px] font-medium text-[#75806e]">20–30 MIN · THIS WEEK</span><span className="grid h-6 w-6 place-items-center rounded-full bg-[#34483a] text-[10px] text-white">→</span></div>
+                </section>
+              </div>
+            </div>
+
+            <div className="flex shrink-0 items-center justify-between gap-2 px-0.5 text-[5px] text-[#a0a292] sm:text-[6px]"><span>Northstar · an adaptive planning concept</span><span className="text-right">Example scenario · no live AI or saved user plan</span></div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+
 const ApiSentinelConceptPreview: FC = () => (
   <div className="absolute inset-0 overflow-hidden bg-[#f3f5f7] text-[#252c36]">
     <div className="flex h-full min-h-0">
@@ -307,20 +437,21 @@ export const ProjectPreview: FC<ProjectPreviewProps> = ({ project, index, total,
   const isRyuConcept = project.id === 2;
   const isPresenceStudioConcept = project.id === 3;
   const isApiSentinelConcept = project.id === 4;
+  const isNorthstarConcept = project.id === 5;
 
   return (
     <div className="order-1 lg:order-2 lg:col-span-7">
       <div style={{ perspective: "1400px" }} className="relative">
         <motion.div onMouseMove={handleMove} onMouseLeave={handleLeave} style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-midnight shadow-2xl shadow-black/50 md:aspect-[16/10]">
-          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : isPresenceStudioConcept && showPreview ? <PresenceStudioConceptPreview /> : isApiSentinelConcept && showPreview ? <ApiSentinelConceptPreview /> : <>
+          {isTheoConcept && showPreview ? <TheoConceptPreview /> : isRyuConcept && showPreview ? <RyuConceptPreview /> : isPresenceStudioConcept && showPreview ? <PresenceStudioConceptPreview /> : isApiSentinelConcept && showPreview ? <ApiSentinelConceptPreview /> : isNorthstarConcept && showPreview ? <NorthstarConceptPreview /> : <>
             <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-50`} />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center"><span className="text-[10rem] font-black leading-none tracking-tighter text-white/[0.08] md:text-[14rem]">{padIndex(index + 1)}</span></div>
             {project.image ? <Image src={project.image} alt={`${project.title} project artwork`} fill sizes="(min-width: 1024px) 58vw, 100vw" className="pointer-events-none select-none object-cover object-top" /> : <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-8 text-center"><span className="text-[clamp(2.5rem,8vw,6rem)] font-black tracking-[-0.08em] text-white/85">{project.title}</span><span className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/45">RYZENT / PRODUCT LAB</span></div>}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_45%)]" /><div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.4),transparent_45%)]" />
           </>}
-          {!isApiSentinelConcept && <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept || isPresenceStudioConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>}
-          {project.href && !isApiSentinelConcept && <a href={project.href} target="_blank" rel="noopener noreferrer" style={{ transform: "translateZ(80px)" }} className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"><span>{isRepository ? "Open repository" : "Open project"}</span><span aria-hidden>↗</span></a>}
-          {!isApiSentinelConcept && <div style={{ transform: "translateZ(50px)" }} className={`${BADGE} pointer-events-none absolute bottom-5 left-5 text-white/85`}>{project.title}</div>}
+          {!isApiSentinelConcept && !isNorthstarConcept && <div style={{ transform: "translateZ(70px)" }} className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between"><span className={`${BADGE} text-white/90`}>{isTheoConcept || isRyuConcept || isPresenceStudioConcept ? "Concept preview" : project.image ? "Project artwork" : "In development"}</span><span className={`${BADGE} text-white/70`}>{formatCounter(index, total)}</span></div>}
+          {project.href && !isApiSentinelConcept && !isNorthstarConcept && <a href={project.href} target="_blank" rel="noopener noreferrer" style={{ transform: "translateZ(80px)" }} className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/50 px-4 py-2 text-xs text-white backdrop-blur-md hover:border-white/40"><span>{isRepository ? "Open repository" : "Open project"}</span><span aria-hidden>↗</span></a>}
+          {!isApiSentinelConcept && !isNorthstarConcept && <div style={{ transform: "translateZ(50px)" }} className={`${BADGE} pointer-events-none absolute bottom-5 left-5 text-white/85`}>{project.title}</div>}
           <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
         </motion.div>
       </div>
