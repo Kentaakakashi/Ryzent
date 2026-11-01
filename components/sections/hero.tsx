@@ -3,7 +3,6 @@
 import { type FC } from "react";
 import dynamic from "next/dynamic";
 import { HeroText } from "@/components/portfolio/hero-text";
-import { ParallaxBackground } from "@/components/portfolio/parallax-background";
 import { useDeferred3D } from "@/hooks/use-deferred-3d";
 
 const HeroScene = dynamic(
@@ -20,7 +19,6 @@ export const Hero: FC = () => {
       className="relative flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start"
     >
       <HeroText />
-      <ParallaxBackground />
       {showScene && <HeroScene />}
 
       <a
