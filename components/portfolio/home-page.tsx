@@ -4,6 +4,7 @@ import { type FC } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Team } from "@/components/sections/team";
 import { Services } from "@/components/sections/services";
 import { Projects } from "@/components/sections/projects";
 import { Experiences } from "@/components/sections/experiences";
@@ -21,6 +22,7 @@ export const HomePage: FC = () => (
       <Navbar />
       <Hero />
       <About />
+      <Team />
       <Services />
       <Projects />
       <Experiences />
