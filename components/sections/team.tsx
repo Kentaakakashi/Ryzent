@@ -77,6 +77,7 @@ const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) 
           <Lanyard
             frontImage={member.frontImage}
             backImage="/members/member-back.svg"
+            strapImage="/members/strap.svg"
             anchor="center"
             metal="graphite"
             strapColor="#514775"
