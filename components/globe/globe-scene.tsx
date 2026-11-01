@@ -88,6 +88,11 @@ export const GlobeScene: FC<GlobeSceneProps> = ({ count, paused, compact }) => {
   }, []);
 
   useFrame((_, delta) => {
+    // When the path has hidden the globe, the post-processing pass already
+    // skips drawing. Skip the rest of the scene work too, but keep checking
+    // the cheap target ref so scrolling back to a visible section wakes it.
+    if (dormant.current && pathTarget.current.presence <= 0.005) return;
+
     const step = Math.min(delta, 1 / 30);
     if (!paused) elapsed.current += step;
     const time = elapsed.current;
