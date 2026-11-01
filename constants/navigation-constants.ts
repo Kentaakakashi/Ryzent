@@ -1,6 +1,7 @@
 export const NAV_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "Studio", href: "#about" },
+  { label: "Team", href: "#team" },
   { label: "Focus", href: "#services" },
   { label: "Products", href: "#work" },
   { label: "Contact", href: "#contact" },
