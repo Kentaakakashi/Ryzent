@@ -20,6 +20,8 @@ const funnelDisplay = Funnel_Display({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+const SOCIAL_PREVIEW_IMAGE = "/file_00000000b8bc82089a4455150015c1a5.png";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -39,11 +41,23 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_TAGLINE,
     locale: OG_LOCALE,
+    images: [
+      {
+        url: SOCIAL_PREVIEW_IMAGE,
+        alt: "Ryzent — creative technology and digital experiences",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_TAGLINE,
+    images: [
+      {
+        url: SOCIAL_PREVIEW_IMAGE,
+        alt: "Ryzent — creative technology and digital experiences",
+      },
+    ],
   },
   category: "technology",
   ...(GOOGLE_SITE_VERIFICATION
