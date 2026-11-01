@@ -34,7 +34,7 @@
   </g>
   <path d="M76 166H724" stroke="#ffffff" stroke-opacity=".18"/>
   <text x="76" y="218" fill="#8b75ff" font-family="Arial, sans-serif" font-size="18" letter-spacing="7">MEMBER CREDENTIAL</text>
-  <text x="724" y="218" text-anchor="end" fill="#9ca3b8" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">01 / 03</text>
+  <text x="724" y="218" text-anchor="end" fill="#9ca3b8" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">02 / 03</text>
   <g fill="#ffffff" font-family="Arial, sans-serif" font-weight="700">
     <text x="76" y="540" font-size="82" letter-spacing="3">NAREN</text>
     <text x="76" y="632" font-size="82" letter-spacing="3">KUMAR</text>
@@ -45,6 +45,6 @@
   <g transform="translate(76 940)">
     <path d="M0 0H648" stroke="#ffffff" stroke-opacity=".18"/>
     <text x="0" y="43" fill="#aab0c4" font-family="Arial, sans-serif" font-size="14" letter-spacing="4">ENGINEER THE UNEXPECTED.</text>
-    <text x="648" y="43" text-anchor="end" fill="#aab0c4" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">RZ-01</text>
+    <text x="648" y="43" text-anchor="end" fill="#aab0c4" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">RZ-02</text>
   </g>
 </svg>
