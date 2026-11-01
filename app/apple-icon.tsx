@@ -13,33 +13,19 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "linear-gradient(135deg, #5c33cc 0%, #ca2f8c 55%, #ea4884 100%)",
+          padding: 18,
+          boxSizing: "border-box",
+          overflow: "hidden",
+          borderRadius: 36,
+          background: "#080a18",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 18,
-            left: 28,
-            width: 130,
-            height: 130,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0) 70%)",
-          }}
+        <img
+          src="https://ryzent.netlify.app/New%20Project%20117%20%5BCA1F89B%5D.png"
+          width="144"
+          height="144"
+          style={{ objectFit: "contain" }}
         />
-        <div
-          style={{
-            display: "flex",
-            color: "white",
-            fontFamily: "system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: 118,
-            lineHeight: 1,
-            letterSpacing: -4,
-          }}
-        >R</div>
       </div>
     ),
     { ...size }
