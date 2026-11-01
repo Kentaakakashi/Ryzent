@@ -21,7 +21,7 @@ const MEMBERS = [
     role: "Core team member",
     detail: "Profile details to be added",
     frontImage: "/members/member-02-front.svg",
-    anchor: "left",
+    anchor: "center",
   },
   {
     id: "02",
@@ -37,7 +37,7 @@ const MEMBERS = [
     role: "Core team member",
     detail: "Profile details to be added",
     frontImage: "/members/member-03-front.svg",
-    anchor: "right",
+    anchor: "center",
   },
 ] as const;
 
@@ -64,46 +64,44 @@ const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) 
   }, []);
 
   return (
-    <article className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.045] to-white/[0.012] px-1.5 pb-3 pt-2 shadow-[0_24px_90px_rgba(0,0,0,0.18)] transition-colors duration-300 hover:border-white/20 sm:rounded-[1.8rem] sm:px-3 sm:pb-5 sm:pt-4">
+    <article className="relative min-w-0 text-center">
       <div
         ref={stageRef}
-        className="relative h-[245px] w-full min-w-0 sm:h-[390px] lg:h-[450px]"
+        className="relative h-[340px] w-full min-w-0 sm:h-[410px] lg:h-[460px]"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-royal/15 blur-[55px] sm:h-56 sm:w-56 sm:blur-[85px]"
+          className="pointer-events-none absolute left-1/2 top-[58%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-royal/12 blur-[65px] sm:h-56 sm:w-56 sm:blur-[90px]"
         />
         {ready ? (
           <Lanyard
             frontImage={member.frontImage}
             backImage="/members/member-back.svg"
-            strapImage="/members/strap.svg"
-            anchor={member.anchor}
+            anchor="center"
             metal="graphite"
+            strapColor="#514775"
+            strapWidth={0.4}
             breeze={0}
-            size={0.34}
+            size={0.84}
             style={{ width: "100%", height: "100%" }}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-24 w-16 rounded-xl border border-white/10 bg-white/[0.025] shadow-[0_0_45px_rgba(122,87,219,0.1)] sm:h-36 sm:w-28 sm:rounded-2xl" />
+            <div className="h-32 w-24 rounded-xl border border-white/10 bg-white/[0.025] shadow-[0_0_45px_rgba(122,87,219,0.1)] sm:h-40 sm:w-28 sm:rounded-2xl" />
           </div>
         )}
       </div>
 
-      <div className="min-w-0 border-t border-white/10 px-1 pt-2 sm:flex sm:items-start sm:justify-between sm:gap-3 sm:px-2 sm:pt-4">
+      <div className="mx-auto mt-1 min-w-0 max-w-[16rem] px-1 pt-1 sm:mt-2 sm:px-2">
         <div className="min-w-0">
-          <p className="truncate text-[7px] uppercase tracking-[0.08em] text-lavender/90 sm:text-[10px] sm:tracking-[0.28em]">
+          <p className="truncate text-[8px] uppercase tracking-[0.13em] text-lavender/90 sm:text-[10px] sm:tracking-[0.28em]">
             {member.id} / 03 · {member.role}
           </p>
-          <h3 className="mt-1 break-words text-[11px] font-semibold leading-tight tracking-tight text-white sm:mt-2 sm:truncate sm:text-lg sm:leading-normal sm:text-xl">
+          <h3 className="mt-2 break-words text-sm font-semibold leading-tight tracking-tight text-white sm:text-lg">
             {member.name}
           </h3>
-          <p className="mt-1 line-clamp-2 break-words text-[8px] leading-snug text-neutral-400 sm:text-xs">{member.detail}</p>
+          <p className="mt-1 line-clamp-2 break-words text-[10px] leading-snug text-neutral-400 sm:text-xs">{member.detail}</p>
         </div>
-        <span className="mt-1 hidden shrink-0 rounded-full border border-white/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] text-neutral-500 sm:block">
-          Ryzent
-        </span>
       </div>
     </article>
   );
@@ -143,7 +141,12 @@ export const Team: FC = () => (
       <span>Independent software studio</span>
     </div>
 
-    <div className="mt-8 grid grid-cols-3 items-stretch gap-2 sm:gap-4 xl:gap-5">
+    <div className="relative mt-10">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-[16.666%] top-0 z-0 h-px bg-gradient-to-r from-white/20 via-lavender/70 to-white/20" />
+      <span aria-hidden="true" className="pointer-events-none absolute left-[16.666%] top-[-2px] z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]" />
+      <span aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[-2px] z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]" />
+      <span aria-hidden="true" className="pointer-events-none absolute left-[83.333%] top-[-2px] z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]" />
+      <div className="grid grid-cols-3 items-start gap-2 sm:gap-4 xl:gap-8">
       {MEMBERS.map((member, index) => (
         <motion.div
           key={member.id}
@@ -155,6 +158,7 @@ export const Team: FC = () => (
           <MemberCredential member={member} />
         </motion.div>
       ))}
+      </div>
     </div>
 
     <p className="mt-6 text-center text-[8px] uppercase tracking-[0.12em] text-neutral-500 sm:text-[10px] sm:tracking-[0.24em]">

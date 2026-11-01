@@ -37,7 +37,7 @@
   <text x="724" y="218" text-anchor="end" fill="#9ca3b8" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">01 / 03</text>
   <g fill="#ffffff" font-family="Arial, sans-serif" font-weight="700">
     <text x="76" y="540" font-size="82" letter-spacing="3">MEMBER</text>
-    <text x="76" y="632" font-size="82" letter-spacing="3">02</text>
+    <text x="76" y="632" font-size="82" letter-spacing="3">01</text>
   </g>
   <rect x="76" y="665" width="90" height="5" rx="2.5" fill="#33c2cc"/>
   <text x="76" y="715" fill="#d7dbea" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">CORE TEAM MEMBER</text>
