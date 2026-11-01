@@ -59,7 +59,7 @@ const RyuConceptPreview: FC = () => (
         <section className="relative flex min-h-0 flex-col justify-between overflow-hidden rounded-[18px] border border-white/[0.12] bg-[linear-gradient(145deg,rgba(42,47,34,0.92),rgba(24,27,21,0.96)_62%,rgba(17,19,15,0.98))] p-2.5 sm:p-4 md:p-5">
           <div className="pointer-events-none absolute -right-8 top-4 h-36 w-36 rounded-full border border-[#d2f36b]/10 sm:h-44 sm:w-44"><div className="absolute inset-3 rounded-full border border-dashed border-[#d2f36b]/15" /><div className="absolute inset-8 rounded-full bg-[radial-gradient(circle,rgba(210,243,107,0.13),transparent_68%)]" /><span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[62px] font-black italic tracking-[-0.12em] text-[#d2f36b]/25 sm:text-[78px]">鍛</span></div>
           <div className="relative z-10 flex items-center justify-between gap-2">
-            <span className="rounded-full border border-[#d2f36b]/25 bg-[#d2f36b]/[0.08] px-2.5 py-1 text-[7px] uppercase tracking-[0.17em] text-[#d2f36b] sm:text-[8px]">TODAY'S CONTRACT</span>
+            <span className="rounded-full border border-[#d2f36b]/25 bg-[#d2f36b]/[0.08] px-2.5 py-1 text-[7px] uppercase tracking-[0.17em] text-[#d2f36b] sm:text-[8px]">TODAY&apos;S CONTRACT</span>
             <span className="text-[8px] tracking-[0.12em] text-white/35">01 / 03</span>
           </div>
           <div className="relative z-10 my-auto py-3">
