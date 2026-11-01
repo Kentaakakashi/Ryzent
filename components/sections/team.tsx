@@ -1,18 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import { SectionHeader } from "@/components/ui/section-header";
-
-const Lanyard = dynamic(() => import("@/components/react-bits/Lanyard"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-full items-center justify-center text-[10px] uppercase tracking-[0.3em] text-white/35">
-      Preparing credential
-    </div>
-  ),
-});
 
 const MEMBERS = [
   {
@@ -42,67 +33,38 @@ const MEMBERS = [
 ] as const;
 
 const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) => {
-  const stageRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const stage = stageRef.current;
-    if (!stage) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setReady(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "180px 0px" }
-    );
-
-    observer.observe(stage);
-    return () => observer.disconnect();
-  }, []);
+  const [flipped, setFlipped] = useState(false);
 
   return (
     <article className="relative min-w-0 text-center">
-      <div
-        ref={stageRef}
-        className="relative h-[340px] w-full min-w-0 sm:h-[410px] lg:h-[460px]"
-      >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[58%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-royal/12 blur-[65px] sm:h-56 sm:w-56 sm:blur-[90px]"
-        />
-        {ready ? (
-          <Lanyard
-            frontImage={member.frontImage}
-            backImage="/members/member-back.svg"
-            strapImage="/members/strap.svg"
-            anchor="center"
-            metal="graphite"
-            strapColor="#514775"
-            strapWidth={0.4}
-            breeze={0}
-            size={0.84}
-            style={{ width: "100%", height: "100%" }}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-32 w-24 rounded-xl border border-white/10 bg-white/[0.025] shadow-[0_0_45px_rgba(122,87,219,0.1)] sm:h-40 sm:w-28 sm:rounded-2xl" />
-          </div>
-        )}
+      <div className="relative flex h-[330px] w-full flex-col items-center sm:h-[390px] lg:h-[430px]">
+        <div aria-hidden="true" className="absolute left-1/2 top-0 h-7 w-px -translate-x-1/2 bg-gradient-to-b from-lavender/70 to-white/35" />
+        <button
+          type="button"
+          aria-label={`Flip ${member.name}'s credential`}
+          onClick={() => setFlipped((value) => !value)}
+          className="absolute left-1/2 top-6 z-10 w-[min(88%,170px)] -translate-x-1/2 cursor-pointer border-0 bg-transparent p-0 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lavender sm:w-[min(90%,210px)]"
+        >
+          <span className="relative block">
+            <span aria-hidden="true" className="absolute left-1/2 top-[-24px] h-6 w-px -translate-x-1/2 bg-gradient-to-b from-white/40 to-lavender/70" />
+            <img
+              src={flipped ? "/members/member-back.svg" : member.frontImage}
+              alt={`${member.name} Ryzent credential`}
+              draggable={false}
+              className="block h-auto w-full drop-shadow-[0_18px_28px_rgba(0,0,0,0.38)]"
+            />
+          </span>
+        </button>
       </div>
 
       <div className="mx-auto mt-1 min-w-0 max-w-[16rem] px-1 pt-1 sm:mt-2 sm:px-2">
-        <div className="min-w-0">
-          <p className="truncate text-[8px] uppercase tracking-[0.13em] text-lavender/90 sm:text-[10px] sm:tracking-[0.28em]">
-            {member.id} / 03 · {member.role}
-          </p>
-          <h3 className="mt-2 break-words text-sm font-semibold leading-tight tracking-tight text-white sm:text-lg">
-            {member.name}
-          </h3>
-          <p className="mt-1 line-clamp-2 break-words text-[10px] leading-snug text-neutral-400 sm:text-xs">{member.detail}</p>
-        </div>
+        <p className="truncate text-[8px] uppercase tracking-[0.13em] text-lavender/90 sm:text-[10px] sm:tracking-[0.28em]">
+          {member.id} / 03 · {member.role}
+        </p>
+        <h3 className="mt-2 break-words text-sm font-semibold leading-tight tracking-tight text-white sm:text-lg">
+          {member.name}
+        </h3>
+        <p className="mt-1 line-clamp-2 break-words text-[10px] leading-snug text-neutral-400 sm:text-xs">{member.detail}</p>
       </div>
     </article>
   );
