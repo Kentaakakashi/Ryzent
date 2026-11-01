@@ -99,14 +99,15 @@ export const MY_PROJECTS: Project[] = [
   {
     id: 5,
     title: "Northstar",
-    category: "Adaptive life planning · In development",
+    category: "Adaptive life planning · Concept study",
     description:
-      "An adaptive life-planning concept that turns a goal into context, reality checks, possible routes, milestones and next actions—then adjusts when life changes.",
+      "A life-planning workspace that turns a distant ambition into a realistic route: understand the goal, account for real constraints, compare possible paths, and keep adapting as life changes.",
     subDescription: [
-      "Built around intent before forms, realistic constraints before empty motivation, and multiple routes instead of a rigid checklist.",
-      "Plans are meant to remain human-editable: AI can propose options, while the user stays in control.",
-      "The visual direction is calm, precise and premium, with interaction used to improve understanding rather than decorate the interface.",
-      "In development. No public repository or live product link is attached yet.",
+      "Starts with the intention behind a goal, then makes the user's available time, budget, energy and existing commitments part of the plan.",
+      "Compares multiple routes with different timelines and weekly effort, making trade-offs visible instead of presenting one supposedly perfect answer.",
+      "Breaks a direction into landmarks and small next actions. The plan stays editable, and a changed week can reshape the route without erasing the larger goal.",
+      "The product direction is human-led: suggestions should be explainable and adjustable, never a locked checklist or guilt-driven streak system.",
+      "Concept study only. The preview uses an illustrative scenario; live AI planning, accounts, reminders and persistent user plans are not represented as shipped features. No public repository is attached yet.",
     ],
     href: "",
     logo: "",
