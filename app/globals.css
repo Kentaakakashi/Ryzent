@@ -181,6 +181,17 @@ body {
   pointer-events: none;
 }
 
+.hero-grid-backdrop {
+  background-color: #050508;
+  background-image:
+    radial-gradient(ellipse at 50% 42%, rgba(122, 87, 219, 0.12), transparent 58%),
+    linear-gradient(rgba(150, 145, 170, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 145, 170, 0.11) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  background-position: center, center, center;
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 62%, transparent 100%);
+}
+
 .ryzent-footer-wordmark {
   position: relative;
   isolation: isolate;
