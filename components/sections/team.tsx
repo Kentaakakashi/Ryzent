@@ -64,14 +64,14 @@ const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) 
   }, []);
 
   return (
-    <article className="group relative rounded-[1.8rem] border border-white/10 bg-gradient-to-b from-white/[0.045] to-white/[0.012] px-3 pb-5 pt-4 shadow-[0_24px_90px_rgba(0,0,0,0.18)] transition-colors duration-300 hover:border-white/20 sm:px-4">
+    <article className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.045] to-white/[0.012] px-1.5 pb-3 pt-2 shadow-[0_24px_90px_rgba(0,0,0,0.18)] transition-colors duration-300 hover:border-white/20 sm:rounded-[1.8rem] sm:px-3 sm:pb-5 sm:pt-4">
       <div
         ref={stageRef}
-        className="relative h-[390px] w-full sm:h-[450px] lg:h-[500px]"
+        className="relative h-[245px] w-full min-w-0 sm:h-[390px] lg:h-[450px]"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-royal/15 blur-[85px]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-royal/15 blur-[55px] sm:h-56 sm:w-56 sm:blur-[85px]"
         />
         {ready ? (
           <Lanyard
@@ -81,27 +81,27 @@ const MemberCredential: FC<{ member: (typeof MEMBERS)[number] }> = ({ member }) 
             anchor={member.anchor}
             metal="graphite"
             breeze={0}
-            size={0.58}
+            size={0.34}
             style={{ width: "100%", height: "100%" }}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-36 w-28 rounded-2xl border border-white/10 bg-white/[0.025] shadow-[0_0_70px_rgba(122,87,219,0.1)]" />
+            <div className="h-24 w-16 rounded-xl border border-white/10 bg-white/[0.025] shadow-[0_0_45px_rgba(122,87,219,0.1)] sm:h-36 sm:w-28 sm:rounded-2xl" />
           </div>
         )}
       </div>
 
-      <div className="flex items-start justify-between gap-3 border-t border-white/10 px-2 pt-4">
+      <div className="min-w-0 border-t border-white/10 px-1 pt-2 sm:flex sm:items-start sm:justify-between sm:gap-3 sm:px-2 sm:pt-4">
         <div className="min-w-0">
-          <p className="text-[10px] uppercase tracking-[0.28em] text-lavender/90">
+          <p className="truncate text-[7px] uppercase tracking-[0.08em] text-lavender/90 sm:text-[10px] sm:tracking-[0.28em]">
             {member.id} / 03 · {member.role}
           </p>
-          <h3 className="mt-2 truncate text-lg font-semibold tracking-tight text-white sm:text-xl">
+          <h3 className="mt-1 break-words text-[11px] font-semibold leading-tight tracking-tight text-white sm:mt-2 sm:truncate sm:text-lg sm:leading-normal sm:text-xl">
             {member.name}
           </h3>
-          <p className="mt-1 text-xs text-neutral-400">{member.detail}</p>
+          <p className="mt-1 line-clamp-2 break-words text-[8px] leading-snug text-neutral-400 sm:text-xs">{member.detail}</p>
         </div>
-        <span className="mt-1 shrink-0 rounded-full border border-white/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] text-neutral-500">
+        <span className="mt-1 hidden shrink-0 rounded-full border border-white/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] text-neutral-500 sm:block">
           Ryzent
         </span>
       </div>
@@ -143,7 +143,7 @@ export const Team: FC = () => (
       <span>Independent software studio</span>
     </div>
 
-    <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <div className="mt-8 grid grid-cols-3 items-stretch gap-2 sm:gap-4 xl:gap-5">
       {MEMBERS.map((member, index) => (
         <motion.div
           key={member.id}
@@ -157,7 +157,7 @@ export const Team: FC = () => (
       ))}
     </div>
 
-    <p className="mt-6 text-center text-[10px] uppercase tracking-[0.24em] text-neutral-500">
+    <p className="mt-6 text-center text-[8px] uppercase tracking-[0.12em] text-neutral-500 sm:text-[10px] sm:tracking-[0.24em]">
       Credentials are interactive · Tap to flip · Drag to move
     </p>
   </section>
