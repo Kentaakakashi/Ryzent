@@ -11,11 +11,9 @@ import {
   Resolution,
 } from "postprocessing";
 
-// Edge smoothing comes from the render target's MSAA rather than an SMAA pass.
-// SMAAEffect decodes two lookup textures and links three extra programs while
-// it is constructed, which cost ~600ms of main-thread time on a mid-range CPU;
-// multisampling hands the same job to the GPU for nothing on the main thread.
-const MULTISAMPLING = 4;
+// Two samples retain hardware edge smoothing while reducing the full-screen
+// multisample buffer cost versus the previous four-sample target.
+const MULTISAMPLING = 2;
 const IDLE_TIMEOUT_MS = 2000;
 
 const whenIdle = (run: () => void) => {
