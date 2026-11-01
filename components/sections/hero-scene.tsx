@@ -8,6 +8,7 @@ import { easing } from "maath";
 import { Astronaut } from "@/components/portfolio/astronaut";
 import { Loader } from "@/components/portfolio/loader";
 import { useSceneActive } from "@/hooks/use-scene-active";
+import GridScan from "@/components/ui/GridScan";
 
 const Rig: FC = () => {
   useFrame((state: RootState, delta: number) => {
@@ -32,7 +33,20 @@ export const HeroScene: FC = () => {
       className="absolute inset-0"
       style={{ width: "100vw", height: "100vh" }}
     >
-      <div aria-hidden="true" className="hero-grid-backdrop absolute inset-0 z-0" />
+      <div className="absolute inset-0 z-0" style={{ background: "#050508" }}>
+        <GridScan
+          linesColor="#4d4757"
+          scanColor="#e0ff66"
+          cells={8}
+          depth={3.6}
+          parallax={1}
+          dpr={1}
+          scanDuration={2.4}
+          scanDelay={1.6}
+          clickEffect="ping"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
       <Canvas
         camera={{ position: [0, 0, 3] }}
         frameloop={active ? "always" : "never"}
