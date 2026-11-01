@@ -66,11 +66,11 @@ const SharedLanyardStage: FC = () => {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[27%] right-[27%] top-0 z-20 h-px bg-gradient-to-r from-white/20 via-lavender/75 to-white/20"
+        className="pointer-events-none absolute left-[21%] right-[21%] top-0 z-20 h-px bg-gradient-to-r from-white/20 via-lavender/75 to-white/20"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-[27%] top-[-2px] z-20 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]"
+        className="pointer-events-none absolute left-[21%] top-[-2px] z-20 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]"
       />
       <span
         aria-hidden="true"
@@ -78,7 +78,7 @@ const SharedLanyardStage: FC = () => {
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-[73%] top-[-2px] z-20 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]"
+        className="pointer-events-none absolute left-[79%] top-[-2px] z-20 h-1 w-1 -translate-x-1/2 rounded-full bg-[#b6a4ff] shadow-[0_0_10px_rgba(182,164,255,0.8)]"
       />
 
       {ready &&
